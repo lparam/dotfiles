@@ -1,0 +1,13 @@
+[user]
+	name = Ken Liao
+	email = lparam@live.com
+[github]
+	user = lparam
+	token = b5ecc9eddb9f1afd404bdb097e02fbf9
+[color]
+	ui = auto
+[alias]
+	ci = commit
+	br = branch
+	co = checkout
+	st = status
