@@ -1,0 +1,140 @@
+# set to yes if you want Conky to be forked in the background
+background yes
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+out_to_console no
+
+# X font when Xft is disabled, you can pick one with program xfontsel
+#font 7×12
+#font 6×10
+#font 7×13
+#font 8×13
+#font 7×12
+#font *mintsmild.se*
+#font -*-*-*-*-*-*-34-*-*-*-*-*-*-*
+#font -artwiz-snap-normal-r-normal-*-*-100-*-*-p-*-iso8859-1
+
+# Use Xft?
+use_xft yes
+
+# Xft font when Xft is enabled
+#xftfont Sans:size=8
+#xftfont 文泉驿微米黑:size=8
+#xftfont Yahei Consolas Hybrid:size=8
+xftfont sans-serif:size=8
+
+own_window_transparent no
+#own_window_colour hotpink
+# Text alpha when using Xft
+xftalpha 0.8
+
+# on_bottom yes
+
+# mail spool
+mail_spool $MAIL
+
+# Update interval in seconds
+update_interval 1
+# Create own window instead of using desktop (required in nautilus)
+own_window no
+own_window_transparent yes
+own_window_hints undecorated,below,skip_taskbar
+own_window_type desktop
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 260 5
+maximum_width 400
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+stippled_borders yes
+
+# border margins
+border_margin 4
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+default_color white
+default_shade_color white
+default_outline_color white
+
+# Text alignment, other possible values are commented
+#alignment top_left
+#minimum_size 10 10
+gap_x 15
+gap_y 40
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+
+# Add spaces to keep things from moving about? This only affects certain objects.
+use_spacer none
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+TEXT
+${font Comic Sans MS:size=12} ${color 6666FF}System info ${color 66FF66}${hr 2} ${color white} ${font Comic Sans MS:size=10}
+# login name: $alignr$user_names
+uptime: $alignr$uptime
+CPU Temperature: ${alignr}${color #FF0000}${execi 6 /usr/bin/sensors | grep "Core 0" | paste -s | cut -c15-18,19-21}${color0}
+loadavg: ${alignr}$loadavg
+
+#CPU1 ${alignr}${cpu cpu1}%
+#${cpubar 4 cpu1}
+CPU:${color #7B1334} $alignr $cpu% ${color white}
+${cpugraph FF6E00 FF6E00 100 -t} ${color white}
+#CPU2 ${alignr}${cpu cpu2}%
+#${cpubar 4 cpu2}
+
+Memory:${color #0084FF} $alignr $mem / $memmax  ($memperc%) ${color white}
+${memgraph AB1852 AB1852 100 -t} ${color white}
+Swap:${color 49A835} ${alignr}$swap / $swapmax ($swapperc%) ${color white}
+${swapbar 4}
+
+Disk IO: ${color #CD5728} $alignr ${diskio}/s ${color white}
+${diskiograph EE7442 EE7442 100 -t}
+
+CPU: $alignr CPU% MEM% ${font Comic Sans MS:size=10}
+${color red}${top name 1}$alignr${top cpu 1}${top mem 1}
+${color white}${top name 2}$alignr${top cpu 2}${top mem 2}
+${top name 3}$alignr${top cpu 3}${top mem 3}
+
+Memory: $alignr CPU% MEM% ${font Comic Sans MS:size=10}
+${color yellow}${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
+${color white}${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
+${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+
+${font Comic Sans MS:size=12} ${color 6666FF}Filesystem ${color 66FF66}${hr 2} ${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
+/: ${alignr}${fs_used /} / ${fs_size /}
+${fs_bar 4 /}
+
+${font Comic Sans MS:size=12} ${color 6666FF}Network ${color 66FF66}${hr 2}${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
+DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
+${downspeedgraph eth0 226089 226089 .5 -l -t}
+ULS:${upspeed eth0} kb/s $alignr total: ${totalup eth0}
+${upspeedgraph eth0 693F76 693F76 .5 -l -t}
+
+${font Comic Sans MS:size=12}${color 6666FF}TO-DO LIST ${color 66FF66}${hr 2}
+# ${font YaHei Consolas Hybrid:size=12}
+${color FFFFFF}${execi 60 cat  /home/lparam/Scripts/To_Do_File.txt | fold -w50}
