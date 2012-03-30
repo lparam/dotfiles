@@ -128,6 +128,8 @@ ${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
 ${font Comic Sans MS:size=12} ${color 6666FF}Filesystem ${color 66FF66}${hr 2} ${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
 /: ${alignr}${fs_used /} / ${fs_size /}
 ${fs_bar 4 /}
+/home: ${alignr}${fs_used /home} / ${fs_size /home}
+${fs_bar 4 /home}
 
 ${font Comic Sans MS:size=12} ${color 6666FF}Network ${color 66FF66}${hr 2}${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
 DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
