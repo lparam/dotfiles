@@ -2,7 +2,7 @@
 Xft.dpi:96
 
 URxvt.depth:32
-URxvt.background:[80]#000000
+URxvt.background:[65]#000000
 URxvt.foreground:#FFFFFF
 !URxvt.background:[80]black
 !URxvt.background:rgba:0000/0000/0000/dddd
@@ -40,8 +40,13 @@ URxvt.color15: #EEEEEC
 
 URxvt.saveLines:2000
 
-Rxvt.font:xft:Ubuntu Mono:size=12,xft:Ubuntu Mono:size=12
+!Rxvt.font:xft:Ubuntu Mono:size=12,xft:Ubuntu Mono:size=12
 !Rxvt.font:xft:Yahei Consolas Brid:size=10,xft:Yahei Consolas Brid:size=12
+
+URxvt.font:xft:Monaco:size=10:style=Regular,xft:Yahei Mono:size=12:style=Regular
+! URxvt.font:xft:Ubuntu Mono:size=12:style=Regular,xft:Yahei Mono:size=12:style=Regular
+! URxvt.font:xft:Ubuntu Mono:size=12:style=Regular:antialias=true,xft:文泉驿等宽正黑:size=12:style=Regular:antialias=true
+!URxvt.boldfont:xft:Droid Sans Mono:size=11:style=BOld:antialias=true,xft:文泉驿等宽正黑:size=11:style=Bold:antialias=true
 
 URxvt.inputMethod:ibus
 

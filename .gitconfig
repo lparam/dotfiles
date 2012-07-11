@@ -1,13 +1,11 @@
+[color]
+	ui = auto
 [user]
 	name = Ken Liao
 	email = lparam@live.com
-[github]
-	user = lparam
-	token = b5ecc9eddb9f1afd404bdb097e02fbf9
-[color]
-	ui = auto
 [alias]
 	ci = commit
+	st = status
 	br = branch
 	co = checkout
-	st = status
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
