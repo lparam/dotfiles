@@ -243,16 +243,14 @@ bindkey "\e\e" sudo-command-line
 #}}}
  
 #命令别名 {{{
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+# alias rm='rm -i'
 alias ls='ls -F --color=auto'
-alias l='ls -ah'
 alias ll='ls -alh'
 alias grep='grep --color=auto'
 alias la='ls -a'
 alias p='pacman'
-alias y='yaourt'
 alias make='colormake'
  
 #[Esc][h] man 当前命令时，显示简短说明
@@ -348,3 +346,5 @@ check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
  
 zle -N self-insert check-cmd-self-insert
 zle -N backward-delete-char check-cmd-backward-delete-char
+
+# function gvim () { /usr/bin/gvim -f $* & }

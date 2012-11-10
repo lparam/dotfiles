@@ -1,11 +1,12 @@
 !! RXVT-unicode setting
 Xft.dpi:96
-
 URxvt.depth:32
+
 URxvt.background:[80]#000000
 URxvt.foreground:#FFFFFF
-!URxvt.background:[80]black
-!URxvt.background:rgba:0000/0000/0000/dddd
+
+!URxvt.background:black
+!URxvt.foreground:#FFFFFF
 
 !Rxvt.perl-ext-common: default,tabbed
 
@@ -40,8 +41,9 @@ URxvt.color15: #EEEEEC
 
 URxvt.saveLines:2000
 
-Rxvt.font:xft:Ubuntu Mono:size=12,xft:Ubuntu Mono:size=12
-!Rxvt.font:xft:Yahei Consolas Brid:size=10,xft:Yahei Consolas Brid:size=12
+URxvt.font:xft:monaco:size=10,xft:Yahei Mono:size=16
+! URxvt.font:xft:monaco:pixelsize=13,xft:Yahei Mono:pixelsize=14:style=Regular:antialias=true
+! URxvt.boldfont:xft:monaco:size=13:style=Bold,xft:Yahei Mono:size=16:style=Bold:antialias=true
 
 URxvt.inputMethod:ibus
 
@@ -243,3 +245,7 @@ URxvt.secondaryScroll: true
 *URxvt*keysym.S-M-C-Down:	\033[1;8B
 *URxvt*keysym.S-M-C-Right:	\033[1;8C
 *URxvt*keysym.S-M-C-Left:	\033[1;8D
+
+! Cursor blink
+*URxvt*cursorBlink:True
+*URxvt*saveLines:3000
