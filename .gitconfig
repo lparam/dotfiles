@@ -8,10 +8,11 @@
 	st = status
 	br = branch -v
 	co = checkout
-	g = grep -n --color -E
 	uncommit = reset --soft HEAD^
 	br = branch
 	co = checkout
+	g = grep -n --color -E
+	l = log --pretty=oneline --abbrev-commit --graph --decorate
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
 	
 	# Handy shortcuts for rebasing
