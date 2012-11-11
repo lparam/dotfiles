@@ -122,7 +122,6 @@ ${color white}${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
 ${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
 
 ${font Comic Sans MS:size=12}${color 6666FF}Filesystem ${color 66FF66}${hr 2} ${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
-<<<<<<< HEAD
 /: ${alignr}${fs_used /} / ${fs_size /}
 ${fs_bar 4 /}
 /home: ${alignr}${fs_used /home} / ${fs_size /home}
@@ -135,17 +134,3 @@ ${upspeedgraph wlan0 693F76 693F76 .5 -l -t}
 ${font Comic Sans MS:size=12}${color 6666FF}TO-DO LIST ${color 66FF66}${hr 2}
 # ${font YaHei Consolas Hybrid:size=12}
 ${color white}${execi 60 cat  /home/lparam/scripts/To_Do_File.txt | fold -w50}
-=======
-# /: ${alignr}${fs_used /} / ${fs_size /}
-# ${fs_bar 4 /}
-/home: ${alignr}${fs_used /home} / ${fs_size /home}
-${fs_bar 4 /home}
-${font Comic Sans MS:size=12}${color 6666FF}Network ${color 66FF66}${hr 2}${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
-DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
-${downspeedgraph eth0 226089 226089 .5 -l -t}
-ULS:${upspeed eth0} kb/s $alignr total: ${totalup eth0}
-${upspeedgraph eth0 693F76 693F76 .5 -l -t}
-${font Comic Sans MS:size=12}${color 6666FF}TO-DO LIST ${color 66FF66}${hr 2}
-# ${font YaHei Consolas Hybrid:size=12}
-${color FFFFFF}${execi 60 cat  /home/lparam/scripts/To_Do_File.txt | fold -w50}
->>>>>>> ca92077e348714ae2a4baa076b6ca8a8d3684e93
