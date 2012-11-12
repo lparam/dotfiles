@@ -92,12 +92,11 @@ no_buffers yes
 
 # set to yes if you want all text to be in uppercase
 uppercase no
-
 TEXT
 ${font Comic Sans MS:size=12}${color 6666FF}System info ${color 66FF66}${hr 2} ${color white} ${font Comic Sans MS:size=10}
 # login name: $alignr$user_names
 uptime: $alignr$uptime
-CPU Temperature: ${alignr}${color #FF0000}${execi 6 /usr/bin/sensors | grep "Core 0" | paste -s | cut -c15-18,19-21}${color0}
+CPU Temperature: ${alignr}${color #FF0000}${execi 6 /usr/bin/sensors | grep "Physical id 0" | paste -s | cut -c15-18,19-21}${color0}
 loadavg: ${alignr}$loadavg
 
 #CPU1 ${alignr}${cpu cpu1}%
@@ -123,15 +122,15 @@ ${color white}${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
 ${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
 
 ${font Comic Sans MS:size=12}${color 6666FF}Filesystem ${color 66FF66}${hr 2} ${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
-# /: ${alignr}${fs_used /} / ${fs_size /}
-# ${fs_bar 4 /}
+/: ${alignr}${fs_used /} / ${fs_size /}
+${fs_bar 4 /}
 /home: ${alignr}${fs_used /home} / ${fs_size /home}
 ${fs_bar 4 /home}
 ${font Comic Sans MS:size=12}${color 6666FF}Network ${color 66FF66}${hr 2}${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
-DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
-${downspeedgraph eth0 226089 226089 .5 -l -t}
-ULS:${upspeed eth0} kb/s $alignr total: ${totalup eth0}
-${upspeedgraph eth0 693F76 693F76 .5 -l -t}
+DLS:${color 66FF66}${downspeed wlan0} kb/s ${color white}$alignr total: ${totaldown wlan0}
+${downspeedgraph wlan0 226089 226089 .5 -l -t}
+ULS:${color yellow}${upspeed wlan0} kb/s ${color white}$alignr total: ${totalup wlan0}
+${upspeedgraph wlan0 693F76 693F76 .5 -l -t}
 ${font Comic Sans MS:size=12}${color 6666FF}TO-DO LIST ${color 66FF66}${hr 2}
 # ${font YaHei Consolas Hybrid:size=12}
-${color FFFFFF}${execi 60 cat  /home/lparam/scripts/To_Do_File.txt | fold -w50}
+${color white}${execi 60 cat  /home/lparam/scripts/To_Do_File.txt | fold -w50}

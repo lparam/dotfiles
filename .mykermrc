@@ -20,8 +20,8 @@
 #}
 
 ; --------- kermrc for /dev/ttyS0 -----------
-#set line /dev/ttyUSB0
 set line /dev/ttyS0
+; set line /dev/ttyUSB0
 
 set speed 115200
 
