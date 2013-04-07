@@ -1,0 +1,157 @@
+" rainbow.vvim : provides "rainbow-colored" curly braces, begin..end matching, etc
+"               LaTeX
+"   Author: 	Charles E. Campbell, Jr.
+"   Date:		Sep 26, 2011
+"   Associated Files:  plugin/RainbowPlugin.vim autoload/Rainbow.vim doc/Rainbow.txt
+" ---------------------------------------------------------------------
+" non-compatible only: {{{1
+if &cp
+ finish
+endif
+let keepcpo= &cpo
+let s:work = ''
+set cpo&vim
+syn clear
+
+" ---------------------------------------------------------------------
+" Default Settings: {{{1
+if !exists("g:hlrainbow_tex")
+ let g:hlrainbow_tex= 'brace begin left math'
+endif
+"call Decho("g:hlrainbow_tex<".g:hlrainbow_tex.">")
+
+" ---------------------------------------------------------------------
+" Synchronization: {{{1
+syn sync clear
+syn sync fromstart
+
+" ---------------------------------------------------------------------
+" set up clusters {{{1
+syn cluster texRainbowGroup0 contains=texBeginEnd1,texLeftRight1,texMath1,texBrace1
+syn cluster texRainbowGroup1 contains=texBeginEnd2,texLeftRight2,texMath2,texBrace2
+syn cluster texRainbowGroup2 contains=texBeginEnd3,texLeftRight3,texMath3,texBrace3
+syn cluster texRainbowGroup3 contains=texBeginEnd4,texLeftRight4,texMath4,texBrace4
+syn cluster texRainbowGroup4 contains=texBeginEnd5,texLeftRight5,texMath5,texBrace5
+syn cluster texRainbowGroup5 contains=texBeginEnd6,texLeftRight6,texMath6,texBrace6
+syn cluster texRainbowGroup6 contains=texBeginEnd7,texLeftRight7,texMath7,texBrace7
+syn cluster texRainbowGroup7 contains=texBeginEnd8,texLeftRight8,texMath8,texBrace8
+syn cluster texRainbowGroup8 contains=texBeginEnd9,texLeftRight9,texMath9,texBrace9
+syn cluster texRainbowGroup9 contains=texBeginEnd0,texLeftRight0,texMath0,texBrace0
+
+" ---------------------------------------------------------------------
+"  Syntax Highlighting: {{{1
+
+syn region texLeftRight0 matchgroup=hlLevel0 	start='\\left\\\=[(){}[\].]' end='\\right\\\=[(){}[\].]' contains=@texRainbowGroup0
+syn region texLeftRight1 matchgroup=hlLevel1 	start='\\left\\\=[(){}[\].]' end='\\right\\\=[(){}[\].]' contains=@texRainbowGroup1 contained
+syn region texLeftRight2 matchgroup=hlLevel2 	start='\\left\\\=[(){}[\].]' end='\\right\\\=[(){}[\].]' contains=@texRainbowGroup2 contained
+syn region texLeftRight3 matchgroup=hlLevel3 	start='\\left\\\=[(){}[\].]' end='\\right\\\=[(){}[\].]' contains=@texRainbowGroup3 contained
+syn region texLeftRight4 matchgroup=hlLevel4 	start='\\left\\\=[(){}[\].]' end='\\right\\\=[(){}[\].]' contains=@texRainbowGroup4 contained
+syn region texLeftRight5 matchgroup=hlLevel5 	start='\\left\\\=[(){}[\].]' end='\\right\\\=[(){}[\].]' contains=@texRainbowGroup5 contained
+syn region texLeftRight6 matchgroup=hlLevel6 	start='\\left\\\=[(){}[\].]' end='\\right\\\=[(){}[\].]' contains=@texRainbowGroup6 contained
+syn region texLeftRight7 matchgroup=hlLevel7 	start='\\left\\\=[(){}[\].]' end='\\right\\\=[(){}[\].]' contains=@texRainbowGroup7 contained
+syn region texLeftRight8 matchgroup=hlLevel8 	start='\\left\\\=[(){}[\].]' end='\\right\\\=[(){}[\].]' contains=@texRainbowGroup8 contained
+syn region texLeftRight9 matchgroup=hlLevel9 	start='\\left\\\=[(){}[\].]' end='\\right\\\=[(){}[\].]' contains=@texRainbowGroup9 contained
+
+syn region texBrace0	matchgroup=hlLevel0	start='{'	end='}'	contains=@texRainbowGroup0
+syn region texBrace1	matchgroup=hlLevel1	start='{'	end='}'	contains=@texRainbowGroup1 contained
+syn region texBrace2	matchgroup=hlLevel2	start='{'	end='}'	contains=@texRainbowGroup2 contained
+syn region texBrace3	matchgroup=hlLevel3	start='{'	end='}'	contains=@texRainbowGroup3 contained
+syn region texBrace4	matchgroup=hlLevel4	start='{'	end='}'	contains=@texRainbowGroup4 contained
+syn region texBrace5	matchgroup=hlLevel5	start='{'	end='}'	contains=@texRainbowGroup5 contained
+syn region texBrace6	matchgroup=hlLevel6	start='{'	end='}'	contains=@texRainbowGroup6 contained
+syn region texBrace7	matchgroup=hlLevel7	start='{'	end='}'	contains=@texRainbowGroup7 contained
+syn region texBrace8	matchgroup=hlLevel8	start='{'	end='}'	contains=@texRainbowGroup8 contained
+syn region texBrace9	matchgroup=hlLevel9	start='{'	end='}'	contains=@texRainbowGroup9 contained
+
+syn region texBrace0	matchgroup=hlLevel0	start='\['	end=']'	contains=@texRainbowGroup0
+syn region texBrace1	matchgroup=hlLevel1	start='\['	end=']'	contains=@texRainbowGroup1 contained
+syn region texBrace2	matchgroup=hlLevel2	start='\['	end=']'	contains=@texRainbowGroup2 contained
+syn region texBrace3	matchgroup=hlLevel3	start='\['	end=']'	contains=@texRainbowGroup3 contained
+syn region texBrace4	matchgroup=hlLevel4	start='\['	end=']'	contains=@texRainbowGroup4 contained
+syn region texBrace5	matchgroup=hlLevel5	start='\['	end=']'	contains=@texRainbowGroup5 contained
+syn region texBrace6	matchgroup=hlLevel6	start='\['	end=']'	contains=@texRainbowGroup6 contained
+syn region texBrace7	matchgroup=hlLevel7	start='\['	end=']'	contains=@texRainbowGroup7 contained
+syn region texBrace8	matchgroup=hlLevel8	start='\['	end=']'	contains=@texRainbowGroup8 contained
+syn region texBrace9	matchgroup=hlLevel9	start='\['	end=']'	contains=@texRainbowGroup9 contained
+
+syn region texBrace0	matchgroup=hlLevel0	start='('	end=')'	contains=@texRainbowGroup0
+syn region texBrace1	matchgroup=hlLevel1	start='('	end=')'	contains=@texRainbowGroup1 contained
+syn region texBrace2	matchgroup=hlLevel2	start='('	end=')'	contains=@texRainbowGroup2 contained
+syn region texBrace3	matchgroup=hlLevel3	start='('	end=')'	contains=@texRainbowGroup3 contained
+syn region texBrace4	matchgroup=hlLevel4	start='('	end=')'	contains=@texRainbowGroup4 contained
+syn region texBrace5	matchgroup=hlLevel5	start='('	end=')'	contains=@texRainbowGroup5 contained
+syn region texBrace6	matchgroup=hlLevel6	start='('	end=')'	contains=@texRainbowGroup6 contained
+syn region texBrace7	matchgroup=hlLevel7	start='('	end=')'	contains=@texRainbowGroup7 contained
+syn region texBrace8	matchgroup=hlLevel8	start='('	end=')'	contains=@texRainbowGroup8 contained
+syn region texBrace9	matchgroup=hlLevel9	start='('	end=')'	contains=@texRainbowGroup9 contained
+
+syn region texBeginEnd0	matchgroup=hlLevel0  start='\\begin{\z(.\{-}\)}' end='\\end{\z1}' contains=@texRainbowGroup0
+syn region texBeginEnd1	matchgroup=hlLevel1  start='\\begin{\z(.\{-}\)}' end='\\end{\z1}' contains=@texRainbowGroup1 contained
+syn region texBeginEnd2	matchgroup=hlLevel2  start='\\begin{\z(.\{-}\)}' end='\\end{\z1}' contains=@texRainbowGroup2 contained
+syn region texBeginEnd3	matchgroup=hlLevel3  start='\\begin{\z(.\{-}\)}' end='\\end{\z1}' contains=@texRainbowGroup3 contained
+syn region texBeginEnd4	matchgroup=hlLevel4  start='\\begin{\z(.\{-}\)}' end='\\end{\z1}' contains=@texRainbowGroup4 contained
+syn region texBeginEnd5	matchgroup=hlLevel5  start='\\begin{\z(.\{-}\)}' end='\\end{\z1}' contains=@texRainbowGroup5 contained
+syn region texBeginEnd6	matchgroup=hlLevel6  start='\\begin{\z(.\{-}\)}' end='\\end{\z1}' contains=@texRainbowGroup6 contained
+syn region texBeginEnd7	matchgroup=hlLevel7  start='\\begin{\z(.\{-}\)}' end='\\end{\z1}' contains=@texRainbowGroup7 contained
+syn region texBeginEnd8	matchgroup=hlLevel8  start='\\begin{\z(.\{-}\)}' end='\\end{\z1}' contains=@texRainbowGroup8 contained
+syn region texBeginEnd9	matchgroup=hlLevel9  start='\\begin{\z(.\{-}\)}' end='\\end{\z1}' contains=@texRainbowGroup9 contained
+
+syn region texMath0  	matchgroup=hlLevel0		start='\$\z(\$\=\)'	end='\$\z1'	contains=@texRainbowGroup0
+syn region texMath1  	matchgroup=hlLevel1		start='\$\z(\$\=\)'	end='\$\z1'	contains=@texRainbowGroup1	contained
+syn region texMath2  	matchgroup=hlLevel2		start='\$\z(\$\=\)'	end='\$\z1'	contains=@texRainbowGroup2	contained
+syn region texMath3  	matchgroup=hlLevel3		start='\$\z(\$\=\)'	end='\$\z1'	contains=@texRainbowGroup3	contained
+syn region texMath4  	matchgroup=hlLevel4		start='\$\z(\$\=\)'	end='\$\z1'	contains=@texRainbowGroup4	contained
+syn region texMath5  	matchgroup=hlLevel5		start='\$\z(\$\=\)'	end='\$\z1'	contains=@texRainbowGroup5	contained
+syn region texMath6  	matchgroup=hlLevel6		start='\$\z(\$\=\)'	end='\$\z1'	contains=@texRainbowGroup6	contained
+syn region texMath7  	matchgroup=hlLevel7		start='\$\z(\$\=\)'	end='\$\z1'	contains=@texRainbowGroup7	contained
+syn region texMath8  	matchgroup=hlLevel8		start='\$\z(\$\=\)'	end='\$\z1'	contains=@texRainbowGroup8	contained
+syn region texMath9  	matchgroup=hlLevel9		start='\$\z(\$\=\)'	end='\$\z1'	contains=@texRainbowGroup9	contained
+
+hi link   texBrace0			hlLevel0
+hi link   texBrace1			hlLevel1
+hi link   texBrace2			hlLevel2
+hi link   texBrace3			hlLevel3
+hi link   texBrace4			hlLevel4
+hi link   texBrace5			hlLevel5
+hi link   texBrace6			hlLevel6
+hi link   texBrace7			hlLevel7
+hi link   texBrace8			hlLevel8
+hi link   texBrace9			hlLevel9
+
+hi link   texBeginEnd0		hlLevel0
+hi link   texBeginEnd1		hlLevel1
+hi link   texBeginEnd2		hlLevel2
+hi link   texBeginEnd3		hlLevel3
+hi link   texBeginEnd4		hlLevel4
+hi link   texBeginEnd5		hlLevel5
+hi link   texBeginEnd6		hlLevel6
+hi link   texBeginEnd7		hlLevel7
+hi link   texBeginEnd8		hlLevel8
+hi link   texBeginEnd9		hlLevel9
+
+hi link   texLeftRight0		hlLevel0
+hi link   texLeftRight1		hlLevel1
+hi link   texLeftRight2		hlLevel2
+hi link   texLeftRight3		hlLevel3
+hi link   texLeftRight4		hlLevel4
+hi link   texLeftRight5		hlLevel5
+hi link   texLeftRight6		hlLevel6
+hi link   texLeftRight7		hlLevel7
+hi link   texLeftRight8		hlLevel8
+hi link   texLeftRight9		hlLevel9
+
+hi link   texMath0			hlLevel0
+hi link   texMath1			hlLevel1
+hi link   texMath2			hlLevel2
+hi link   texMath3			hlLevel3
+hi link   texMath4			hlLevel4
+hi link   texMath5			hlLevel5
+hi link   texMath6			hlLevel6
+hi link   texMath7			hlLevel7
+hi link   texMath8			hlLevel8
+hi link   texMath9			hlLevel9
+
+" ---------------------------------------------------------------------
+"  Modelines: {{{1
+let &cpo= keepcpo
+" vim: fdm=marker ft=vim ts=4
