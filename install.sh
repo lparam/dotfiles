@@ -19,10 +19,10 @@ git clone git@github.com:lparam/dotfiles.git "$CONFIG_HOME"
 
 cd ~
 ln -sf ./dotfiles/.gitconfig .gitconfig
-ln -sf ./dotfiles/zshrc .zshrc
-ln -sf ./dotfiles/tmux.conf .tmux.conf
-# ln -s ./dotfiles/.vim .vim
-# ln -s ./dotfiles/.vim/.vimrc .vimrc
+ln -sf ./dotfiles/.zshrc .zshrc
+ln -sf ./dotfiles/.tmux.conf .tmux.conf
+ln -s ./dotfiles/.vim .vim
+ln -s ./dotfiles/.vim/vimrc .vimrc
 # ln -s ./dotfiles/git_diff_wrapper git_diff_wrapper
 
 # cd "${CONFIG_HOME}/.vim"
