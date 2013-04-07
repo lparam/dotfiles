@@ -119,8 +119,5 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-<<<<<<< HEAD
-=======
-# PS1="$boGreen\u$liYellow @ $boBlue\h$liCyan in $boCyan\w \n$boRed>$boYellow>$boBlue>$liWhite"
->>>>>>> ca92077e348714ae2a4baa076b6ca8a8d3684e93
-PS1="$boGreen\u$liWhite at $boBlue\h$liWhite in $boRed\w $liYellow{\[\`let exitstatus=\$? ; if [[ \${exitstatus} != 0 ]] ; then echo \"\${exitstatus}\" ; else echo "0" ; fi\`\]} \n% $liWhite"
+PS1="$boGreen\u$liYellow @ $boBlue\h$liCyan in $boCyan\w \n$boRed>$boYellow>$boBlue>$liWhite"
+# PS1="$boGreen\u$liWhite at $boBlue\h$liWhite in $boRed\w $liYellow{\[\`let exitstatus=\$? ; if [[ \${exitstatus} != 0 ]] ; then echo \"\${exitstatus}\" ; else echo "0" ; fi\`\]} \n% $liWhite"
