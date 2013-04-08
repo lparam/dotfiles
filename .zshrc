@@ -248,7 +248,7 @@ bindkey "\e\e" sudo-command-line
 # alias rm='rm -i'
 alias ls='ls -F --color=auto'
 alias ll='ls -alh'
-alias grep='grep --color=auto'
+alias grep='grep --color -n'
 alias la='ls -a'
 alias p='pacman'
 alias make='colormake'

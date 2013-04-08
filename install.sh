@@ -12,7 +12,7 @@ die() {
 
 [ -e "~/.dotfiles" ] && die "~/.dotfiles already exists."
 
-git clone git@github.com:lparam/dotfiles.git "$CONFIG_HOME"
+# git clone git@github.com:lparam/dotfiles.git "$CONFIG_HOME"
 
 # cd "$CONFIG_HOME"
 # git submodule update --init
@@ -23,7 +23,6 @@ ln -sf ./dotfiles/.zshrc .zshrc
 ln -sf ./dotfiles/.tmux.conf .tmux.conf
 ln -sf ./dotfiles/.vim .vim
 ln -sf ./dotfiles/.vim/vimrc .vimrc
-# ln -s ./dotfiles/git_diff_wrapper git_diff_wrapper
 
 # cd "${CONFIG_HOME}/.vim"
 # git submodule update --init
