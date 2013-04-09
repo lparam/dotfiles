@@ -18,11 +18,16 @@ die() {
 # git submodule update --init
 
 cd ~
+ln -sf ./dotfiles/.bashrc .bashrc
+ln -sf ./dotfiles/.conkyrc .conkyrc
+ln -sf ./dotfiles/.fbtermrc .fbtermrc
 ln -sf ./dotfiles/.gitconfig .gitconfig
-ln -sf ./dotfiles/.zshrc .zshrc
+ln -sf ./dotfiles/.mykermrc .mykermrc
 ln -sf ./dotfiles/.tmux.conf .tmux.conf
 ln -sf ./dotfiles/.vim .vim
 ln -sf ./dotfiles/.vim/vimrc .vimrc
+ln -sf ./dotfiles/.Xdefaults .Xdefaults
+ln -sf ./dotfiles/.zshrc .zshrc
 
 # cd "${CONFIG_HOME}/.vim"
 # git submodule update --init
