@@ -40,11 +40,6 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  *
  *    Description:  <CURSOR>
  *
- *        Version:  1.0
- *        Created:  |DATE| |TIME|
- *       Revision:  none
- *       Compiler:  arm-none-linux-gnueabi-gcc
- *
  *         Author:  |AUTHOR|, |EMAIL|
  *
  * =====================================================================================
@@ -57,11 +52,6 @@ $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  *       Filename:  |FILENAME|
  *
  *    Description:  <CURSOR>
- *
- *        Version:  1.0
- *        Created:  |DATE| |TIME|
- *       Revision:  none
- *       Compiler:  arm-none-linux-gnueabi-gcc
  *
  *         Author:  |AUTHOR|, |EMAIL|
  *
