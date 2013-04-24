@@ -1,6 +1,7 @@
 " Vim color file
 "
 " Author: Tomas Restrepo <tomas@winterdom.com>
+" Modified by: Steve Losh <steve@stevelosh.com>
 " Modified by: Ken Liao <ken.liao@live.com>
 "
 " Note: Based on the monokai theme for textmate

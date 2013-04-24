@@ -58,6 +58,10 @@ else	" terminal color settings
   colorscheme desertEx
 endif
 
+" for molokai colorscheme
+let g:rehash256 = 1
+" set background=dark
+
 set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
 set showmode		" Show current mode
