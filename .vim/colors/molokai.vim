@@ -38,9 +38,9 @@ endif
 
 hi Boolean guifg=#AE81FF
 hi Character guifg=#E6DB74
-hi Number guifg=#AE81FF
-hi String guifg=#E6DB74
-hi Conditional guifg=#F92672 gui=bold
+hi Number guifg=#AE81FF ctermfg=5 cterm=bold
+hi String guifg=#E6DB74 ctermfg=yellow
+hi Conditional guifg=#F92672 gui=bold ctermfg=red
 hi Constant guifg=#AE81FF gui=bold
 hi Cursor guifg=#000000 guibg=#F8F8F0
 hi Debug guifg=#BCA3A3 gui=bold
@@ -63,9 +63,9 @@ hi Identifier guifg=#FD971F
 hi Ignore guifg=#808080 guibg=bg
 hi IncSearch guifg=#C4BE89 guibg=#000000
 
-hi Keyword guifg=#F92672 gui=bold
+hi Keyword guifg=#F92672 gui=bold ctermfg=blue
 hi Label guifg=#E6DB74 gui=none
-hi Macro guifg=#C4BE89 gui=italic
+hi Macro guifg=#C4BE89 gui=italic ctermfg=3
 hi SpecialKey guifg=#66D9EF gui=italic
 
 hi MatchParen guifg=#000000 guibg=#FD971F gui=bold
@@ -82,11 +82,11 @@ hi PmenuThumb guifg=#66D9EF
 hi PreCondit guifg=#A6E22E gui=bold
 hi PreProc guifg=#A6E22E
 hi Question guifg=#66D9EF
-hi Repeat guifg=#F92672 gui=bold
+hi Repeat guifg=#F92672 gui=bold ctermfg=red
 hi Search guifg=#FFFFFF guibg=#455354
 " marks
 hi SignColumn guifg=#A6E22E guibg=#232526
-hi SpecialChar guifg=#F92672 gui=bold
+hi SpecialChar guifg=#F92672 gui=bold ctermfg=red
 hi SpecialComment guifg=#7E8E91 gui=bold
 hi Special guifg=#66D9EF guibg=bg gui=italic
 if has("spell")
@@ -95,11 +95,11 @@ if has("spell")
     hi SpellLocal guisp=#70F0F0 gui=undercurl
     hi SpellRare guisp=#FFFFFF gui=undercurl
 endif
-hi Statement guifg=#F92672 gui=bold
+hi Statement guifg=#F92672 gui=bold ctermfg=red
 hi StatusLine guifg=#455354 guibg=fg
 hi StatusLineNC guifg=#808080 guibg=#080808
-hi StorageClass guifg=#FD971F gui=italic
-hi Structure guifg=#66D9EF
+hi StorageClass guifg=#FD971F gui=italic ctermfg=3 ctermbg=14
+hi Structure guifg=#66D9EF ctermfg=4 cterm=bold
 hi Tag guifg=#F92672 gui=italic
 hi Title guifg=#ef5939
 hi Todo guifg=#FFFFFF guibg=bg gui=bold
@@ -210,7 +210,8 @@ if &t_Co > 255
    hi StatusLine ctermfg=238 ctermbg=253
    hi StatusLineNC ctermfg=244 ctermbg=232
    hi StorageClass ctermfg=208
-   hi Structure ctermfg=81
+   hi Structure ctermfg=4
+   " hi Structure ctermfg=81
    hi Tag ctermfg=161
    hi Title ctermfg=166
    hi Todo ctermfg=231 ctermbg=232 cterm=bold
