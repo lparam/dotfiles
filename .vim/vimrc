@@ -32,6 +32,8 @@ set number              " show line number
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
 
+let g:rehash256 = 1
+
 if has("gui_running")	" GUI color and font settings
   set t_Co=256          " 256 color mode
   set guifont=Ubuntu\ Mono\ 12
@@ -51,16 +53,13 @@ if has("gui_running")	" GUI color and font settings
   colors ken-gui
 else	" terminal color settings
   set t_Co=256          " 256 color mode
-  set guifont=Ubuntu\ Mono:h12
-  "set guifont=YaHei\ Consolas\ Hybrid:h12
+  " set guifont=Ubuntu\ Mono:h12
+  " set guifont=YaHei\ Consolas\ Hybrid:h12
   " set cursorline        " highlight current line
-  " colorscheme asmdev2
+  " colorscheme molokai
   colorscheme desertEx
+  set background=dark
 endif
-
-" for molokai colorscheme
-let g:rehash256 = 1
-" set background=dark
 
 set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }

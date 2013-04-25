@@ -19,27 +19,30 @@ hi Normal          guifg=#F8F8F2 guibg=#4D4B45
 hi Folded          guifg=#666666 guibg=bg
 hi CursorLine			 guibg=#232728
 hi CursorColumn                  guibg=#232728
-hi ColorColumn                   guibg=#232728
-hi LineNr          guifg=#AAAAAA guibg=bg
+hi ColorColumn                   guibg=#232728 ctermbg=red
+hi LineNr          guifg=#AAAAAA guibg=bg ctermfg=3
 hi FoldColumn      guifg=#AAAAAA guibg=bg
 hi VertSplit       guifg=#AAAAAA guibg=bg gui=none
 hi Search          guifg=#000000 guibg=#E4E500
 hi IncSearch       guibg=#000000 guifg=#FF8D00
+hi StatusLine      guifg=#CD5907 guibg=fg ctermfg=7
+hi StatusLineNC    guifg=#808080 guibg=#080808 ctermfg=8
 " }}}
 " Syntax {{{
 hi Boolean         guifg=#AE81FF
-hi Comment         guifg=#5c7176
+hi Comment         guifg=#5c7176 ctermfg=6 cterm=bold
 hi Character       guifg=#E6DB74
-hi Number          guifg=#AE81FF
-hi String          guifg=#E6DB74
-hi Conditional     guifg=#F92672               gui=bold
-hi Constant        guifg=#AE81FF               gui=bold
-hi Debug           guifg=#BCA3A3               gui=bold
-hi Define          guifg=#66D9EF
+hi Number          guifg=#AE81FF ctermfg=5 cterm=bold
+hi String          guifg=#E6DB74 ctermfg=yellow
+hi Conditional     guifg=#F92672 gui=bold ctermfg=red
+hi Constant        guifg=#AE81FF gui=bold
+hi Debug           guifg=#BCA3A3 gui=bold
+hi Define          guifg=#66D9EF ctermfg=red
 hi Delimiter       guifg=#8F8F8F
 hi Float           guifg=#AE81FF
-hi Function        guifg=#A6E22E
-hi Identifier      guifg=#FD971F
+hi Function        guifg=#A6E22E ctermfg=red
+hi Identifier      guifg=#FD971F ctermfg=yellow
+hi cIncluded       ctermfg=white
 " }}}
 " Diffs {{{
 hi DiffAdd                       guibg=#0F1D0B
@@ -56,17 +59,17 @@ hi vCursor         guifg=#000000 guibg=#AAF412
 hi GreenBar term=reverse ctermfg=white ctermbg=green guifg=black guibg=#9edf1c
 hi RedBar   term=reverse ctermfg=white ctermbg=red guifg=white guibg=#C50048
 
-hi EasyMotionTarget guifg=#E4E500 guibg=bg gui=bold
-hi EasyMotionShade  guifg=#444444 guibg=bg gui=bold
+hi EasyMotionTarget guifg=#E4E500 guibg=bg gui=bold ctermfg=red
+hi EasyMotionShade  guifg=#444444 guibg=bg gui=bold ctermfg=darkgrey
 hi Directory       guifg=#A6E22E               gui=bold
-hi Error           guifg=#960050 guibg=#1E0010
-hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
+hi Error           guifg=#960050 guibg=#1E0010 ctermfg=red
+hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold ctermfg=red ctermbg=none term=none
 hi Exception       guifg=#A6E22E               gui=bold
 hi Ignore          guifg=#808080 guibg=bg
 
-hi Keyword         guifg=#F92672               gui=bold
+hi Keyword         guifg=#F92672 gui=bold ctermfg=blue
 hi Label           guifg=#E6DB74               gui=none
-hi Macro           guifg=#C4BE89               gui=italic
+hi Macro           guifg=#C4BE89 gui=italic ctermfg=3
 hi SpecialKey      guifg=#66D9EF               gui=italic
 
 hi InterestingWord1 guifg=#000000 guibg=#FFA700
@@ -76,34 +79,34 @@ hi InterestingWord3 guifg=#000000 guibg=#FF74F8
 hi MatchParen      guifg=#E4E400 guibg=#434748 gui=bold
 hi ModeMsg         guifg=#E6DB74
 hi MoreMsg         guifg=#E6DB74
-hi Operator        guifg=#F92672
+hi Operator        guifg=#F92672 ctermfg=red
 
 " Completion Menu {{{
 hi Pmenu           guifg=#cccccc guibg=#232728
-hi PmenuSel        guifg=#000000 guibg=#AAF412
+hi PmenuSel        guifg=#000000 guibg=#AAF412 ctermfg=white ctermbg=green
 hi PmenuSbar                     guibg=#131414
 hi PmenuThumb      guifg=#777777
 " }}}
 
-hi PreCondit       guifg=#A6E22E               gui=bold
-hi PreProc         guifg=#A6E22E
+hi PreCondit       guifg=#A6E22E gui=bold
+hi PreProc         guifg=#A6E22E ctermfg=blue
+hi Include         guifg=#A6E22E ctermfg=5
 hi Question        guifg=#66D9EF
-hi Repeat          guifg=#F92672               gui=bold
+hi Repeat          guifg=#F92672 gui=bold  ctermfg=red
+
 
 " marks column
 hi IndentGuides                  guibg=#373737
 hi SignColumn      guifg=#A6E22E guibg=#151617
-hi SpecialChar     guifg=#F92672               gui=bold
+hi SpecialChar     guifg=#F92672 gui=bold ctermfg=red
 hi SpecialComment  guifg=#465457               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
 hi SpecialKey      guifg=#888A85               gui=italic
-hi Statement       guifg=#F92672               gui=bold
-hi StatusLine      guifg=#CD5907 guibg=fg
-hi StatusLineNC    guifg=#808080 guibg=#080808
-hi StorageClass    guifg=#FD971F               gui=italic
-hi Structure       guifg=#66D9EF
+hi Statement       guifg=#F92672 gui=bold ctermfg=red
+hi StorageClass    guifg=#FD971F gui=italic ctermfg=3 
+hi Structure       guifg=#66D9EF ctermfg=4     cterm=bold
 hi Tag             guifg=#F92672               gui=italic
-hi Title           guifg=#ef5939
+hi Title           guifg=#ef5939 ctermfg=red
 hi Todo            guifg=#FFFFFF guibg=bg      gui=bold
 
 hi Typedef         guifg=#66D9EF

@@ -2,6 +2,8 @@
 " Maintainer:   Mingbai <mbbill AT gmail DOT com>
 " Last Change:  2006-12-24 20:09:09
 
+" hi clear
+
 set background=dark
 if version > 580
     " no guarantees for version 5.8 and below, but this makes it stop
