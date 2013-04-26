@@ -30,7 +30,7 @@ hi StatusLineNC    guifg=#808080 guibg=#080808 ctermfg=8
 " }}}
 " Syntax {{{
 hi Boolean         guifg=#AE81FF
-hi Comment         guifg=#5c7176 ctermfg=6 cterm=bold
+hi Comment         guifg=#5c7176 ctermfg=green cterm=none
 hi Character       guifg=#E6DB74
 hi Number          guifg=#AE81FF ctermfg=5 cterm=bold
 hi String          guifg=#E6DB74 ctermfg=yellow
@@ -98,7 +98,7 @@ hi Repeat          guifg=#F92672 gui=bold  ctermfg=red
 " marks column
 hi IndentGuides                  guibg=#373737
 hi SignColumn      guifg=#A6E22E guibg=#151617
-hi SpecialChar     guifg=#F92672 gui=bold ctermfg=red
+hi SpecialChar     guifg=#F92672 gui=bold ctermfg=6 cterm=bold
 hi SpecialComment  guifg=#465457               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
 hi SpecialKey      guifg=#888A85               gui=italic
