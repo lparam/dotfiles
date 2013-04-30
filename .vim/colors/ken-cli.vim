@@ -59,7 +59,7 @@ hi vCursor         guifg=#000000 guibg=#AAF412
 hi GreenBar term=reverse ctermfg=white ctermbg=green guifg=black guibg=#9edf1c
 hi RedBar   term=reverse ctermfg=white ctermbg=red guifg=white guibg=#C50048
 
-hi EasyMotionTarget guifg=#E4E500 guibg=bg gui=bold ctermfg=red
+hi EasyMotionTarget guifg=#E4E500 guibg=bg gui=bold ctermfg=yellow
 hi EasyMotionShade  guifg=#444444 guibg=bg gui=bold ctermfg=darkgrey
 hi Directory       guifg=#A6E22E               gui=bold
 hi Error           guifg=#960050 guibg=#1E0010 ctermfg=red

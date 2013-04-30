@@ -92,7 +92,7 @@ hi Repeat          guifg=#F92672               gui=bold
 " marks column
 hi IndentGuides                  guibg=#373737
 hi SignColumn      guifg=#A6E22E guibg=#151617
-hi SpecialChar     guifg=#F92672               gui=bold
+hi SpecialChar     guifg=#14AFF4               gui=bold
 hi SpecialComment  guifg=#465457               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
 hi SpecialKey      guifg=#888A85               gui=italic

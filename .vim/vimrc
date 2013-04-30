@@ -210,7 +210,7 @@ cmap cd. lcd %:p:h
 "}
 
 " --- ctags shortcut
-map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+nmap <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " --- insert mode shortcut
 inoremap <C-h> <Left>
@@ -236,13 +236,9 @@ fun! IncludeGuard()
 endfun
 
 " Enable omni completion. (Ctrl-X Ctrl-O)
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType java set omnifunc=javacomplete#Complete
 
 " use syntax complete if nothing else available
 if has("autocmd") && exists("+omnifunc")
@@ -353,13 +349,10 @@ endfunction
 nmap wm :WMToggle<CR>  
 	
 " --- SuperTab
-" let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabRetainCompletionType = 2
 let g:SuperTabMappingForward="<tab>"
-
-" --- new file syntax
-au BufRead,BufNewFile *.lds setfiletype ld
 
 " -- NeoComplCache
 " Disable AutoComplPop.
@@ -382,19 +375,10 @@ let g:neocomplcache_enable_auto_select = 0
 " When you input 'ho-a',neocomplcache will select candidate 'a'.
 let g:neocomplcache_enable_quick_match = 1
 
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions',
-    \ 'css' : $VIMFILES.'/dict/css.dic',
-    \ 'php' : $VIMFILES.'/dict/php.dic',
-    \ 'javascript' : $VIMFILES.'/dict/javascript.dic'
-    \ }
-
 let g:neocomplcache_snippets_dir=$VIMFILES."/snippets"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
-inoremap <expr><C-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
+
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+inoremap <expr><C-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
@@ -414,27 +398,20 @@ inoremap <expr><C-z>     neocomplcache#undo_completion()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-" inoremap <expr><CR>  neocomplcache#close_popup() . "\<CR>"
+inoremap <expr><CR> neocomplcache#close_popup() . "\<CR>"
 inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 " <TAB>: completion. THIS HAS NO USE WHEN WITH SNIPMATE
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <SPACE>: completion.
 inoremap <expr><space>  pumvisible() ? neocomplcache#close_popup() . "\<SPACE>" : "\<SPACE>"
 
 
 " <C-h>, <BS>: close popup and delete backword char.
 " inoremap <expr><C-h> neocomplcache#close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplcache#close_popup()."\<C-h>"
 
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>"
-"inoremap <expr><CR>  neocomplcache#close_popup() . "\<CR>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -449,6 +426,34 @@ if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+" --- Rainbowparentheses
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" --- new file syntax
+au BufRead,BufNewFile *.lds setfiletype ld
+
