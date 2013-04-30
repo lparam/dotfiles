@@ -19,3 +19,5 @@
 	rc = rebase --continue
 	rs = rebase --skip
 	ra = rebase --abort
+[push]
+	default = simple
