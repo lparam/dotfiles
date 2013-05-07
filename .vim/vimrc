@@ -272,7 +272,7 @@ if has("cscope")
   endif
   set csverb
   set cscopetag
-  set cscopequickfix=s-,g-,c-,d-,t-,e-,f-,i-
+  " set cscopequickfix=s-,g-,c-,d-,t-,e-,f-,i-
 endif
 
 nnoremap <C-w>\ :cs find c <C-R>=expand("<cword>")<CR><CR>
@@ -464,32 +464,6 @@ endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 
-" --- Rainbowparentheses
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
 "--------------------------------------------------------------------------- 
 " SrcExpl SETTINGS
 "--------------------------------------------------------------------------- 
@@ -531,6 +505,40 @@ let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
 
 " Set "<F12>" key for updating the tags file artificially
 let g:SrcExpl_updateTagsKey = "<F12>" 
+
+"--------------------------------------------------------------------------- 
+" --- Rainbowparentheses
+"--------------------------------------------------------------------------- 
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+if &bg == "dark"
+ highlight SignColor ctermfg=white ctermbg=blue guifg=white guibg=RoyalBlue3
+else
+ highlight SignColor ctermbg=white ctermfg=blue guibg=yellow guifg=RoyalBlue3
+endif
 
 "--------------------------------------------------------------------------- 
 " new file syntax
