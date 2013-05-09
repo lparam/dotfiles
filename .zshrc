@@ -348,3 +348,5 @@ zle -N self-insert check-cmd-self-insert
 zle -N backward-delete-char check-cmd-backward-delete-char
 
 # function gvim () { /usr/bin/gvim -f $* & }
+
+LC_CTYPE="zh_CN.utf8"
