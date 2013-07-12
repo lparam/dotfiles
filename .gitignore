@@ -16,3 +16,10 @@
 *.bin
 
 # custom files
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# bundles installed should be ignored
+bundle
