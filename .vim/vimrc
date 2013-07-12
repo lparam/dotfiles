@@ -11,21 +11,54 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+" Plugin
+
 " original repos on github
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'terryma/vim-multiple-cursors'
-
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Townk/vim-autoclose'
+Bundle 'majutsushi/tagbar'
+Bundle 'humiaozuzu/TabBar'
+" Bundle 'kien/rainbow_parentheses.vim'
+" Bundle 'scrooloose/nerdtree'
+" Bundle 'mileszs/ack.vim'
 
 " vim-scripts repos
 " Bundle 'L9'
 " Bundle 'FuzzyFinder'
+" Bundle 'The-NERD-Commenter'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 
-" git repos on your local machine (ie. when working on your own plugin)
+" git repos on local machine
 " Bundle 'file:///Users/gmarik/path/to/plugin'
+
+" Syntax
+" Bundle 'asciidoc.vim'
+" Bundle 'confluencewiki.vim'
+" Bundle 'html5.vim'
+" Bundle 'JavaScript-syntax'
+" Bundle 'mako.vim'
+" Bundle 'moin.vim'
+" Bundle 'python.vim--Vasiliev'
+" Bundle 'xml.vim'
+
+" Color
+" Bundle 'desert256.vim'
+" Bundle 'Impact'
+" Bundle 'matrix.vim'
+" Bundle 'vibrantink'
+" Bundle 'vividchalk.vim'
+
+" Indent
+" Bundle 'indent/html.vim'
+" Bundle 'IndentAnything'
+" Bundle 'Javascript-Indentation'
+" Bundle 'mako.vim--Torborg'
+" Bundle 'gg/python.vim'
 
 "
 " Brief help
@@ -575,8 +608,14 @@ else
  highlight SignColor ctermbg=white ctermfg=blue guibg=yellow guifg=RoyalBlue3
 endif
 
+
+"--------------------------------------------------------------------------- 
+" Power line
+"--------------------------------------------------------------------------- 
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_cache_enabled = 1
+
 "--------------------------------------------------------------------------- 
 " new file syntax
 "--------------------------------------------------------------------------- 
 au BufRead,BufNewFile *.lds setfiletype ld
-
