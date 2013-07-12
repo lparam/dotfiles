@@ -12,8 +12,10 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " original repos on github
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'terryma/vim-multiple-cursors'
+
 
 " vim-scripts repos
 " Bundle 'L9'
