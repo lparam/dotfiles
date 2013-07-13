@@ -23,9 +23,10 @@ set cursorline cursorcolumn
 
 " search
 set incsearch
-"set highlight " conflict with highlight current line
+" set highlight " conflict with highlight current line
 set ignorecase
 set smartcase
+set hlsearch		" search highlighting
 
 " editor settings
 set history=1000
@@ -57,20 +58,20 @@ set shiftwidth=8 " indent width
 " set smarttab
 set expandtab " expand tab to space
 
-autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+" autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+" autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+" autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+" autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
-autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+" autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
+" autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 
 " syntax support
-autocmd Syntax javascript set syntax=jquery " JQuery syntax support
+" autocmd Syntax javascript set syntax=jquery " JQuery syntax support
 " js
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
+" let g:html_indent_inctags = "html,body,head,tbody"
+" let g:html_indent_script1 = "inc"
+" let g:html_indent_style1 = "inc"
 
 "-----------------
 " Plugin settings
@@ -168,7 +169,7 @@ let NERDShutUp=1
 " nmap <D-/> :NERDComToggleComment<cr>
 
 " ZenCoding
-let g:user_zen_expandabbr_key='<C-j>'
+" let g:user_zen_expandabbr_key='<C-j>'
 
 " powerline
 "let g:Powerline_symbols = 'fancy'
@@ -202,7 +203,15 @@ let g:SuperTabRetainCompletionType=2
 
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store " MacOSX/Linux
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+noremap <C-W><C-U> :CtrlPMRU<CR>
+nnoremap <C-W>u :CtrlPMRU<CR>
 
 " --- CCtree
 " cctree highlight setting
@@ -214,6 +223,37 @@ highlight Ignore ctermfg=black guifg=bg
 "let g:EasyMotion_leader_key = '<Leader>m' " default is <Leader>w
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade Comment
+
+" --- ack
+let g:ackprg="ack -H --nocolor --nogroup --column"
+
+" --- Multiple cursors
+" hi multiple_cursors_cursor
+" highlight Multiple_cursors_visual gui=bold guifg=yellow guibg=darkblue ctermfg=yellow ctermbg=darkblue
+
+""""""""""""""""""""""""""""""
+" showmarks setting
+""""""""""""""""""""""""""""""
+" Enable ShowMarks
+let showmarks_enable = 1
+" Show which marks
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+" Ignore help, quickfix, non-modifiable buffers
+let showmarks_ignore_type = "hqm"
+" Hilight lower & upper marks
+let showmarks_hlline_lower = 1
+let showmarks_hlline_upper = 1
+
+" <Leader>mt   - 打开/关闭ShowMarks插件
+" <Leader>mo   - 强制打开ShowMarks插件
+" <Leader>mh   - 清除当前行的标记
+" <Leader>ma   - 清除当前缓冲区中所有的标记
+" <Leader>mm   - 在当前行打一个标记，使用下一个可用的标记名
+"
+""""""""""""""""""""""""""""""
+" markbrowser setting
+""""""""""""""""""""""""""""""
+nmap <silent> <leader>mk :MarksBrowser<cr>
 
 " Keybindings for plugin toggle
 nmap <F3> :GundoToggle<cr>
@@ -257,6 +297,9 @@ inoremap <C-l> <Right>
 "---------------------------------------------------------------------------
 " PROGRAMMING SHORTCUTS
 "---------------------------------------------------------------------------
+
+" C/C++ specific settings
+autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
 
 " ,g generates the header guard
 map <leader>g :call IncludeGuard()<CR>
@@ -327,11 +370,12 @@ nnoremap ; :
 
 " for gvim
 if has("gui_running")
-    "set go=aAce " remove toolbar
+  " set go=aAce " remove toolbar
   set t_Co=256          " 256 color mode
-  set guifont=Ubuntu\ Mono\ 12
-  "set guioptions-=m  " remove menu bar
-  "set guioptions-=T  " remove toolbar
+  " set guifont=Ubuntu\ Mono\ 12
+  set guifont=Menlo\ 12
+  " set guioptions-=m  " remove menu bar
+  " set guioptions-=T  " remove toolbar
   set guioptions-=b  " remove bottom scrollbar
   set showtabline=0  " remove tab bar
   set guioptions-=l  " remove left-hand scroll bar
@@ -341,8 +385,6 @@ if has("gui_running")
   set guioptions-=v  "
   set guioptions-=F  "
   set guioptions =f  " don't use fork()
-  " set cursorline     " highlight current line
-  " colors molokai
   colors ken-gui
 endif
 

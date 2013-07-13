@@ -14,8 +14,8 @@ Bundle 'gmarik/vundle'
 Bundle 'Shougo/neocomplcache'
 Bundle 'honza/vim-snippets'
 Bundle 'ervandew/supertab'
-Bundle 'mattn/zencoding-vim'
 Bundle 'Raimondi/delimitMate'
+" Bundle 'mattn/zencoding-vim'  " High speed HTML and CSS coding
 "------ snipmate dependencies -------
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -57,21 +57,6 @@ Bundle 'nvie/vim-togglemouse'
 "----------------------------------------
 " Syntax/Indent for language enhancement
 "----------------------------------------
-"------- web backend ---------
-" Bundle '2072/PHP-Indenting-for-VIm'
-" Bundle 'tpope/vim-rails'
-" Bundle 'lepture/vim-jinja'
-" Bundle 'digitaltoad/vim-jade'
-
-"------- web frontend ----------
-" Bundle 'othree/html5.vim'
-" Bundle 'tpope/vim-haml'
-" Bundle 'pangloss/vim-javascript'
-" Bundle 'kchmck/vim-coffee-script'
-" Bundle 'nono/jquery.vim'
-" Bundle 'groenewege/vim-less'
-" Bundle 'wavded/vim-stylus'
-" Bundle 'nono/vim-handlebars'
 
 "------- markup language -------
 Bundle 'tpope/vim-markdown'
@@ -88,6 +73,23 @@ Bundle 'jnwhiteh/vim-golang'
 " Bundle 'vim-scripts/VimClojure'
 " Bundle 'rosstimson/scala-vim-support'
 
+"------- C ----------
+Bundle 'vim-scripts/a.vim'
+Bundle 'vim-scripts/CCTree'
+" Bundle 'Valloric/YouCompleteMe'
+
+"--------------
+" misc
+"--------------
+Bundle 'howiefh/vimcdoc'
+Bundle 'vim-scripts/ManPageView'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'vim-scripts/Visual-Mark'
+Bundle 'zakj/vim-showmarks'
+Bundle 'vim-scripts/Marks-Browser'
+Bundle 'vim-scripts/DoxygenToolkit.vim'
+
 "--------------
 " Color Schemes
 "--------------
@@ -98,11 +100,5 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'fisadev/fisa-vim-colorscheme'
-
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'vim-scripts/Visual-Mark'
-Bundle 'vim-scripts/CCTree'
-Bundle 'vim-scripts/a.vim'
 
 filetype plugin indent on " required!
