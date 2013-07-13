@@ -385,7 +385,7 @@ if has("gui_running")
   set guioptions-=v  "
   set guioptions-=F  "
   set guioptions =f  " don't use fork()
-  colors ken-gui
+  colors kgui
 endif
 
 "---------------------------------------------------------------------------
