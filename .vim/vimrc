@@ -14,12 +14,6 @@ syntax on
 "--------
 " color scheme
 set background=dark
-" color vividchalk
-
-" highlight current line
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
 
 " search
 set incsearch
@@ -122,7 +116,7 @@ hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
 let g:EasyMotion_leader_key = '<Leader>'
 
 " Tagbar
-" let g:tagbar_left=1
+let g:tagbar_left=1
 let g:tagbar_width=30
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
@@ -160,7 +154,7 @@ let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 " let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\~$']
 let NERDTreeShowBookmarks=1
-" let NERDTreeWinPos = "right"
+let NERDTreeWinPos = "right"
 
 " nerdcommenter
 let NERDSpaceDelims=1
@@ -370,10 +364,15 @@ nnoremap ; :
 
 " for gvim
 if has("gui_running")
+  " highlight current line
+  au WinLeave * set nocursorline nocursorcolumn
+  au WinEnter * set cursorline cursorcolumn
+  set cursorline cursorcolumn
+
   " set go=aAce " remove toolbar
   set t_Co=256          " 256 color mode
+  set guifont=Menlo\ 11
   " set guifont=Ubuntu\ Mono\ 12
-  set guifont=Menlo\ 12
   " set guioptions-=m  " remove menu bar
   " set guioptions-=T  " remove toolbar
   set guioptions-=b  " remove bottom scrollbar
@@ -386,6 +385,8 @@ if has("gui_running")
   set guioptions-=F  "
   set guioptions =f  " don't use fork()
   colors kgui
+else
+  color vividchalk
 endif
 
 "---------------------------------------------------------------------------
