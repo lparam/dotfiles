@@ -1,18 +1,6 @@
 !! RXVT-unicode setting
 Xft.dpi:96
 URxvt.depth:32
-<<<<<<< HEAD:.Xdefaults
-
-URxvt.background:[80]#000000
-=======
-URxvt.background:[65]#000000
->>>>>>> ca92077e348714ae2a4baa076b6ca8a8d3684e93:Xdefaults
-URxvt.foreground:#FFFFFF
-
-!URxvt.background:black
-!URxvt.foreground:#FFFFFF
-
-!Rxvt.perl-ext-common: default,tabbed
 
 Rxvt.geometry:90x23+10+10
 
@@ -25,6 +13,17 @@ Rxvt.scrollColor:AntiqueWhite
 
 URxvt.preeditType:Root
 URxvt.utmpInhibit:true
+
+! Color scheme
+
+*background: [70]#000000
+*foreground: #FFFFFF
+
+*fading: 40
+*fadeColor: #002b36
+*cursorColor: #93a1a1
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
 
 URxvt.color0: #000000
 URxvt.color1: #FFFFFF
@@ -43,21 +42,11 @@ URxvt.color13: #AD7FA8
 URxvt.color14: #34E2E2
 URxvt.color15: #EEEEEC
 
+
 URxvt.saveLines:2000
 
-<<<<<<< HEAD:.Xdefaults
-URxvt.font:xft:monaco:size=10,xft:Yahei Mono:size=16
-! URxvt.font:xft:monaco:pixelsize=13,xft:Yahei Mono:pixelsize=14:style=Regular:antialias=true
-! URxvt.boldfont:xft:monaco:size=13:style=Bold,xft:Yahei Mono:size=16:style=Bold:antialias=true
-=======
-!Rxvt.font:xft:Ubuntu Mono:size=12,xft:Ubuntu Mono:size=12
-!Rxvt.font:xft:Yahei Consolas Brid:size=10,xft:Yahei Consolas Brid:size=12
->>>>>>> ca92077e348714ae2a4baa076b6ca8a8d3684e93:Xdefaults
-
-URxvt.font:xft:Monaco:size=10:style=Regular,xft:Yahei Mono:size=12:style=Regular
-! URxvt.font:xft:Ubuntu Mono:size=12:style=Regular,xft:Yahei Mono:size=12:style=Regular
-! URxvt.font:xft:Ubuntu Mono:size=12:style=Regular:antialias=true,xft:文泉驿等宽正黑:size=12:style=Regular:antialias=true
-!URxvt.boldfont:xft:Droid Sans Mono:size=11:style=BOld:antialias=true,xft:文泉驿等宽正黑:size=11:style=Bold:antialias=true
+URxvt.font:xft:Monaco:size=11:style=Regular,xft:Yahei Mono:size=16:style=Regular
+! URxvt.font:xft:Menlo:size=11:style=Regular,xft:Yahei Mono:size=16:style=Regular
 
 URxvt.inputMethod:ibus
 

@@ -9,11 +9,39 @@ filetype plugin indent on
 " enable syntax hightlight and completion
 syntax on
 
-
 "--------
 " Vim UI
 "--------
-set background=dark
+
+" for gvim
+if has("gui_running")
+  set background=light
+
+  " highlight current line
+  au WinLeave * set nocursorline nocursorcolumn
+  au WinEnter * set cursorline cursorcolumn
+  set cursorline cursorcolumn
+
+  " set guifont=Menlo\ 11
+  set guifont=Ubuntu\ Mono\ 12
+
+  " set guioptions-=m  " remove menu bar
+  " set guioptions-=T  " remove toolbar
+  set guioptions-=b  " remove bottom scrollbar
+  set guioptions-=l  " remove left-hand scroll bar
+  set guioptions-=L  " remove left-hand scroll bar
+  set guioptions-=r  " remove right-hand scroll bar
+  set guioptions-=R  " remove right-hand scroll bar
+  set guioptions-=v  "
+  set guioptions-=F  "
+  set guioptions =f  " don't use fork()
+  set showtabline=0  " remove tab bar
+  colors kgui
+else
+  set background=dark
+  " color vividchalk
+endif
+
 
 
 "--------
@@ -342,31 +370,4 @@ nnoremap ; :
 " syntax support
 "----------------
 au BufRead,BufNewFile *.lds setfiletype ld
-
-
-" for gvim
-if has("gui_running")
-  " highlight current line
-  au WinLeave * set nocursorline nocursorcolumn
-  au WinEnter * set cursorline cursorcolumn
-  set cursorline cursorcolumn
-
-  set guifont=Menlo\ 11
-  " set guifont=Ubuntu\ Mono\ 12
-
-  " set guioptions-=m  " remove menu bar
-  " set guioptions-=T  " remove toolbar
-  set guioptions-=b  " remove bottom scrollbar
-  set guioptions-=l  " remove left-hand scroll bar
-  set guioptions-=L  " remove left-hand scroll bar
-  set guioptions-=r  " remove right-hand scroll bar
-  set guioptions-=R  " remove right-hand scroll bar
-  set guioptions-=v  "
-  set guioptions-=F  "
-  set guioptions =f  " don't use fork()
-  set showtabline=0  " remove tab bar
-  colors kgui
-else
-  " color vividchalk
-endif
 
