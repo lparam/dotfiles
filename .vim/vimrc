@@ -59,7 +59,7 @@ set hlsearch		" search highlighting
 set history=1000
 set nocompatible
 set nofoldenable " disable folding"
-set confirm " prompt when existing from an unsaved file
+" set confirm " prompt when existing from an unsaved file
 set backspace=indent,eol,start " More powerful backspacing
 set t_Co=256 " Explicitly tell vim that the terminal has 256 colors "
 set mouse=a " use mouse in all modes
@@ -131,11 +131,31 @@ endif
 " tabbar
 let g:Tb_MaxSize = 2
 let g:Tb_TabWrap = 1
+let g:did_tabbar_syntax_inits = 1
 
 hi Tb_Normal guifg=white ctermfg=white
-hi Tb_Changed guifg=green ctermfg=green
-hi Tb_VisibleNormal ctermbg=252 ctermfg=235
+hi Tb_Changed guifg=Yellow gui=bold ctermfg=Yellow cterm=bold
+hi Tb_VisibleNormal guifg=LightGreen gui=bold ctermbg=252 ctermfg=235 cterm=bold
 hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
+
+" autocmd! BufEnter * nested call Jump2Next()
+func! Jump2Next()
+    if bufname("%") == "-TabBar-"
+        wincmd j
+    endif
+endfunction
+
+map <C-F4> <ESC>:call CloseTab()<CR>
+func! CloseTab()
+    let s:buf_nr = bufnr("%")
+    echo s:buf_nr
+    exec ":Tbbp "
+    exec ":bdelete ".s:buf_nr
+endfunction
+
+hi TabLine      guifg=#333 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
+hi TabLineSel   guifg=#666 guibg=#222 gui=bold ctermfg=231 ctermbg=235 cterm=bold
+hi TabLineFill  guifg=#999 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
 
 " Tagbar
 let g:tagbar_left=1
@@ -244,6 +264,7 @@ nmap <F3> :GundoToggle<cr>
 nmap <F4> :IndentGuidesToggle<cr>
 nmap <F6> :NERDTreeToggle<cr>
 nmap <F7> :TagbarToggle<cr>
+nmap <F8> :SyntasticToggleMode<cr>
 nmap wm :NERDTreeToggle<CR>
 nmap <D-/> :
 nnoremap <leader>a :Ack
@@ -288,6 +309,32 @@ highlight CCTreeHiSymbol  gui=bold guifg=yellow guibg=darkblue ctermfg=yellow ct
 highlight CCTreeHiMarkers  gui=bold guifg=yellow guibg=darkblue ctermfg=yellow ctermbg=darkblue
 highlight Ignore ctermfg=black guifg=bg
 
+" --- Syntastic
+" let g:syntastic_c_check_header = 1
+" let g:syntastic_c_no_include_search = 1
+" let b:syntastic_c_cflags = ' -I/usr/include/libsoup-2.4'
+" let g:syntastic_c_auto_refresh_includes = 1
+" let g:syntastic_c_include_dirs = [ 'includes', 'headers' ]
+" let g:syntastic_c_config_file = '.config'
+" let g:syntastic_c_include_dirs = [ 'ibus-src', 'portal' ]
+
+" --- Lua
+" let g:lua_compiler_name = '/usr/bin/luac'
+" let g:lua_check_syntax = 1
+" let g:lua_check_globals = 0
+" let g:lua_complete_omni = 1
+
+" --- YCM
+let g:ycm_confirm_extra_conf = 0
+" let g:ycm_global_ycm_extra_conf='~/.vim/ycm_extra_conf.py'
+let g:ycm_allow_changing_updatetime=0
+let g:ycm_key_list_select_completion=['<TAB>']
+let g:ycm_key_list_previous_completion=['<S-TAB>']
+nnoremap <silent> <leader>y :YcmDiag<CR>
+
+" let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1 }
+" let g:neocomplcache_force_overwrite_completefunc = 0
+" autocmd FileType c,cpp,h :NeoComplCacheDisable
 
 "------------------
 " USEFUL SHORTCUTS
@@ -322,6 +369,9 @@ inoremap <C-l> <Right>
 "-----------------------
 " PROGRAMMING SHORTCUTS
 "-----------------------
+
+nmap <C-c><C-c> :!gcc -Wall % -o %:r <CR>
+" set mp=gcc\ -Wall\ %\ -o\ %:r
 
 " C/C++ specific settings
 autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30

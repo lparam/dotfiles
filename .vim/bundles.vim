@@ -11,7 +11,7 @@ Bundle 'gmarik/vundle'
 "------------------
 " Code Completions
 "------------------
-Bundle 'Shougo/neocomplcache'
+" Bundle 'Shougo/neocomplcache'
 Bundle 'honza/vim-snippets'
 Bundle 'ervandew/supertab'
 Bundle 'Raimondi/delimitMate'
@@ -65,6 +65,9 @@ Bundle 'tpope/vim-markdown'
 "------- Ruby --------
 " Bundle 'tpope/vim-endwise'
 
+"------- Lua --------
+Bundle 'https://github.com/vim-scripts/lua.vim'
+
 "------- Go ----------
 Bundle 'jnwhiteh/vim-golang'
 
@@ -76,7 +79,7 @@ Bundle 'jnwhiteh/vim-golang'
 "------- C ----------
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/CCTree'
-" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
 "--------------
 " misc
