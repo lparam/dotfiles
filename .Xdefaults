@@ -7,8 +7,12 @@ Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
 
-URxvt.font:         xft:Monaco:size=11:style=Regular,xft:Yahei Mono:size=12:style=Regular
-URxvt.boldFont:     xft:Monaco:size=11:style=Bold,xft:Yahei Mono:size=12:style=Bold
+URxvt.font:         xft:Menlo:size=11:style=Regular:antialias=true,xft:Ubuntu Mono:size=12:style=Regular:antialias=true
+URxvt.boldFont:     xft:Menlo:size=11:style=Bold:antialias=true,xft:Ubuntu Mono:size=12:style=Bold:antialias=true
+! URxvt.font:         xft:Monaco:size=11:style=Regular:antialias=true,xft:Yahei Mono:size=12:style=Regular:antialias=true
+! URxvt.boldFont:     xft:Monaco:size=11:style=Bold:antialias=true,xft:Yahei Mono:size=12:style=Bold:antialias=true
+! URxvt.font:         xft:monospace:size=11:style=Bold:antialias=true,xft:Yahei Mono:size=16:style=Bold:antialias=true
+! URxvt.boldFont:     xft:monospace:size=11:style=Bold:antialias=true,xft:Yahei Mono:size=16:style=Bold:antialias=true
 URxvt.letterSpace: -1
 
 

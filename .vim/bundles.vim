@@ -66,7 +66,9 @@ Bundle 'tpope/vim-markdown'
 " Bundle 'tpope/vim-endwise'
 
 "------- Lua --------
-Bundle 'https://github.com/vim-scripts/lua.vim'
+Bundle 'xolox/vim-misc'
+" Bundle 'xolox/vim-lua-ftplugin'
+Bundle 'xolox/vim-lua-inspect'
 
 "------- Go ----------
 Bundle 'jnwhiteh/vim-golang'

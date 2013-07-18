@@ -324,12 +324,20 @@ highlight Ignore ctermfg=black guifg=bg
 " let g:lua_check_globals = 0
 " let g:lua_complete_omni = 1
 
+let g:lua_inspect_warnings = 0
+" let g:loaded_luainspect = 1
+
 " --- YCM
 let g:ycm_confirm_extra_conf = 0
 " let g:ycm_global_ycm_extra_conf='~/.vim/ycm_extra_conf.py'
 let g:ycm_allow_changing_updatetime=0
 let g:ycm_key_list_select_completion=['<TAB>']
 let g:ycm_key_list_previous_completion=['<S-TAB>']
+let g:ycm_filetype_blacklist = {
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'text' : 1,
+      \}
 nnoremap <silent> <leader>y :YcmDiag<CR>
 
 " let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1 }
