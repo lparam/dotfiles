@@ -10,6 +10,14 @@ filetype plugin indent on
 syntax on
 
 "--------
+" clipboard
+"--------
+
+set clipboard=unnamedplus	" yank to the system register (*) by default
+inoremap <S-Insert> <ESC>"+p`]a
+
+
+"--------
 " Vim UI
 "--------
 
@@ -41,7 +49,6 @@ else
   set background=dark
   " color vividchalk
 endif
-
 
 
 "--------
@@ -82,13 +89,12 @@ set autoindent
 set smartindent " indent when
 set tabstop=4 " tab width
 set softtabstop=4 " backspace
-set shiftwidth=4 " indent width
 set expandtab " expand tab to space
-" set smarttab
-" set textwidth=79
+set shiftwidth=4 " indent width
+set smarttab
 
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 textwidth=79
+autocmd FileType python setlocal tabstop=8 softtabstop=8 shiftwidth=8 textwidth=120
+autocmd FileType c setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab textwidth=79
 
 
 "-----------------
@@ -324,8 +330,8 @@ highlight Ignore ctermfg=black guifg=bg
 " let g:lua_check_globals = 0
 " let g:lua_complete_omni = 1
 
+let g:loaded_luainspect = 0
 let g:lua_inspect_warnings = 0
-" let g:loaded_luainspect = 1
 
 " --- YCM
 let g:ycm_confirm_extra_conf = 0

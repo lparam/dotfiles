@@ -46,7 +46,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-DISABLE_AUTO_TITLE=true
+export PAGER="/usr/bin/most -s"
+
+# DISABLE_AUTO_TITLE=true
 
 test -r ~/.dir_colors && eval "$(dircolors -b ~/.dir_colors)" || eval "$(dircolors -b)"
 
