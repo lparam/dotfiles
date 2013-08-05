@@ -12,6 +12,7 @@ Bundle 'gmarik/vundle'
 " Code Completions
 "------------------
 " Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neosnippet.vim'
 Bundle 'honza/vim-snippets'
 Bundle 'ervandew/supertab'
 Bundle 'Raimondi/delimitMate'
@@ -39,6 +40,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 " IDE features
 "--------------
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'humiaozuzu/TabBar'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
@@ -101,6 +103,7 @@ Bundle 'vim-scripts/DoxygenToolkit.vim'
 Bundle 'rickharris/vim-blackboard'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'rickharris/vim-monokai'
+Bundle 'jaromero/vim-monokai-refined'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'chriskempson/vim-tomorrow-theme'
