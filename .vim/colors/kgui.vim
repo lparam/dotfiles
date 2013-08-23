@@ -11,7 +11,7 @@
 hi clear
 
 set background=dark
-let g:colors_name="ken-gui"
+let g:colors_name="kgui"
 
 " Basic Layout {{{
 hi Normal          guifg=#F8F8F2 guibg=#2E3436

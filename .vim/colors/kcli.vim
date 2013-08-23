@@ -5,14 +5,14 @@
 " Modified by: Ken Liao <ken.liao@live.com>
 "
 " Note: Based on the monokai theme for textmate
-" by Wimer Hazenberg and its darker variant 
+" by Wimer Hazenberg and its darker variant
 " by Hamish Stuart Macpherson
 "
 
 hi clear
 
 set background=dark
-let g:colors_name="ken cli"
+let g:colors_name="kcli"
 
 " Basic Layout {{{
 hi Normal          guifg=#F8F8F2 guibg=#4D4B45
@@ -97,7 +97,7 @@ hi Repeat          guifg=#F92672 gui=bold  ctermfg=red
 
 " marks column
 hi IndentGuides                  guibg=#373737
-hi SignColumn      guifg=#A6E22E guibg=#151617
+" hi SignColumn      guifg=#A6E22E guibg=#151617
 hi SpecialChar     guifg=#F92672 gui=bold ctermfg=6 cterm=bold
 hi SpecialComment  guifg=#465457               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
@@ -127,8 +127,8 @@ if has("spell")
 endif
 " }}}
 " Visual Mode {{{
-hi VisualNOS  guibg=#403D3D
-hi Visual     guibg=#403D3D
+" hi VisualNOS  guibg=#403D3D
+" hi Visual     guibg=#403D3D
 " }}}
 " Invisible character colors {{{
 highlight NonText    guifg=#444444 guibg=bg
@@ -170,7 +170,7 @@ if &t_Co > 255
 
    hi Keyword         ctermfg=161               cterm=bold
    hi Label           ctermfg=229               cterm=none
-   hi Macro           ctermfg=193
+   " hi Macro           ctermfg=193
    hi SpecialKey      ctermfg=81
    hi MailHeaderEmail ctermfg=3  ctermbg=233
    hi MailEmail       ctermfg=3  ctermbg=233
@@ -193,7 +193,7 @@ if &t_Co > 255
    hi Search          ctermfg=253 ctermbg=66
 
    " marks column
-   hi SignColumn      ctermfg=118 ctermbg=235
+   " hi SignColumn      ctermfg=118 ctermbg=235
    hi SpecialChar     ctermfg=161               cterm=bold
    hi SpecialComment  ctermfg=245               cterm=bold
    hi Special         ctermfg=81  ctermbg=232
@@ -213,8 +213,8 @@ if &t_Co > 255
    hi Underlined      ctermfg=244               cterm=underline
 
    hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
-   hi VisualNOS                   ctermbg=238
-   hi Visual                      ctermbg=235
+   " hi VisualNOS                   ctermbg=238
+   " hi Visual                      ctermbg=235
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
@@ -224,5 +224,5 @@ if &t_Co > 255
    hi CursorColumn                ctermbg=234
    hi ColorColumn                 ctermbg=234
    " hi LineNr          ctermfg=250 ctermbg=233
-   hi NonText         ctermfg=240 ctermbg=233
+   " hi NonText         ctermfg=240 ctermbg=233
 end " }}}
