@@ -26,22 +26,30 @@ use_xft yes
 xftfont sans-serif:size=8
 
 own_window_transparent no
-#own_window_colour hotpink
+# own_window_colour hotpink
 # Text alpha when using Xft
 xftalpha 0.8
 
 # on_bottom yes
 
 # mail spool
-mail_spool $MAIL
+# mail_spool $MAIL
 
 # Update interval in seconds
 update_interval 1
 # Create own window instead of using desktop (required in nautilus)
-own_window no
+# own_window no
+# own_window_transparent yes
+# own_window_hints undecorated,below,skip_taskbar
+# own_window_type desktop
+
+own_window_class Conky
+own_window yes
+own_window_type destop
 own_window_transparent yes
-own_window_hints undecorated,below,skip_taskbar
-own_window_type desktop
+own_window_argb_visual true
+own_window_argb_value 0 # 数值为透明度。
+own_window_hints undecorated,below,sticky # 删除了其中的skip_pager与skip_taskbar
 
 # Use double buffering (reduces flicker, may not work for everyone)
 double_buffer yes
