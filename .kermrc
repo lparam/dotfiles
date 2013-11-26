@@ -1,0 +1,52 @@
+; This is /etc/kermit/kermrc
+; It is executed on startup if ~/.kermrc is not found.
+; See "man kermit" and http://www.kermit-project.org/ for details on
+; configuring this file, and /etc/kermit/kermrc.full
+; for an example of a complex configuration file
+
+; If you want to run additional user-specific customisations in
+; addition to this file, place them in ~/.mykermrc
+
+; Execute user's personal customization file (named in environment var
+; CKERMOD or ~/.mykermrc)
+;
+
+#if def \$(CKERMOD) assign _myinit \$(CKERMOD)
+#if not def _myinit assign _myinit \v(home).mykermrc
+
+#xif exist \m(_myinit)  {		; If it exists,
+#    echo Executing \m(_myinit)...	; print message,
+#    take \m(_myinit)			; and TAKE the file.
+#}
+
+; --------- kermrc for /dev/ttyS0 -----------
+; set line /dev/ttyS0
+set line /dev/ttyUSB0
+
+set speed 115200
+
+set carrier-watch off
+
+; 设置没有握手协议
+set handshake none
+
+; 数据流控制－无
+set flow-control none
+
+; 设置保守安全及缓慢的传输设置
+robust
+
+; 设置可以传输二进制文件
+set file type bin
+
+; 限制传输文件名
+set file name lit
+
+; 设置接受文件包的大小为1000字节
+set rec pack 1000
+
+; 设置传输文件包的大小为1000字节
+set send pack 1000
+
+; 设置窗口大小
+set window 5

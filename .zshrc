@@ -166,3 +166,5 @@ function top50 { allhistory | awk -F':[ 0-9]*:[0-9]*;' '{ $1="" ; print }' | sed
 
 LC_CTYPE="zh_CN.utf8"
 
+#autocorrect
+alias vim='nocorrect vim'
