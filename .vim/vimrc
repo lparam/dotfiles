@@ -349,7 +349,7 @@ let g:ycm_filetype_blacklist = {
       \ 'text' : 1,
       \}
 nnoremap <silent> <leader>y :YcmDiag<CR>
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <c-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1 }
 " let g:neocomplcache_force_overwrite_completefunc = 0
