@@ -22,7 +22,7 @@ ln -sf ./dotfiles/.bashrc .bashrc
 ln -sf ./dotfiles/.conkyrc .conkyrc
 ln -sf ./dotfiles/.fbtermrc .fbtermrc
 ln -sf ./dotfiles/.gitconfig .gitconfig
-ln -sf ./dotfiles/.mykermrc .mykermrc
+ln -sf ./dotfiles/.kermrc .kermrc
 ln -sf ./dotfiles/.tmux.conf .tmux.conf
 ln -sf ./dotfiles/.vim .vim
 ln -sf ./dotfiles/.vim/vimrc .vimrc
