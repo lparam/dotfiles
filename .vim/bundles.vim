@@ -51,6 +51,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'SirVer/ultisnips'
 
 "-------------
 " Other Utils

@@ -28,6 +28,7 @@ ln -sf ./dotfiles/.vim .vim
 ln -sf ./dotfiles/.vim/vimrc .vimrc
 ln -sf ./dotfiles/.Xdefaults .Xdefaults
 ln -sf ./dotfiles/.zshrc .zshrc
+ln -sf ./dotfiles/.gtkrc-2.0 .gtkrc-2.0
 
 # cd "${CONFIG_HOME}/.vim"
 # git submodule update --init
