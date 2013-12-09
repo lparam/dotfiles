@@ -52,6 +52,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'SirVer/ultisnips'
+Bundle 'rking/ag.vim'
+Bundle 'mhinz/vim-signify'
 
 "-------------
 " Other Utils
@@ -99,6 +101,7 @@ Bundle 'vim-scripts/Visual-Mark'
 Bundle 'zakj/vim-showmarks'
 Bundle 'vim-scripts/Marks-Browser'
 Bundle 'vim-scripts/DoxygenToolkit.vim'
+Bundle 'tpope/vim-sensible'
 
 "--------------
 " Color Schemes
