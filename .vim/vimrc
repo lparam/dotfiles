@@ -195,6 +195,20 @@ let NERDShutUp=1
 
 " powerline
 " let g:Powerline_symbols = 'fancy'
+" let Powerline_symbols='compatible'
+" set guifont=PowerlineSymbols\ for\ Powerline
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_alt_sep = '|'
+nnoremap [b :bp<CR>
+nnoremap ]b :bn<CR>
+
+" Bbye设置
+" 由于原生的:bd在删除当前buffer时会将整个窗口关闭，故使用Bbye的:Bd
+nnoremap bd :Bd<CR>
 
 " UltiSnips
 let g:UltiSnipsJumpForwardTrigger = "C-R"
@@ -241,6 +255,7 @@ let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 noremap <C-W><C-U> :CtrlPMRU<CR>
 nnoremap <C-W>u :CtrlPMRU<CR>
+noremap <C-U> :CtrlPBuffer<CR>
 
 " --- easy-motion
 let g:EasyMotion_leader_key = '<Leader>'

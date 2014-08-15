@@ -23,7 +23,6 @@ Bundle 'tomtom/tlib_vim'
 "-----------------
 " Fast navigation
 "-----------------
-Bundle 'tsaleh/vim-matchit'
 Bundle 'Lokaltog/vim-easymotion'
 
 "--------------
@@ -41,17 +40,20 @@ Bundle 'nathanaelkane/vim-indent-guides'
 "--------------
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'humiaozuzu/TabBar'
+" Bundle 'humiaozuzu/TabBar'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/EasyGrep'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'SirVer/ultisnips'
 Bundle 'rking/ag.vim'
+Bundle 'bling/vim-airline'
+Bundle 'moll/vim-bbye'
+" Bundle 'Lokaltog/powerline'
+" Bundle 'Lokaltog/vim-powerline'
 " Bundle 'mhinz/vim-signify'
 
 "-------------
@@ -72,8 +74,8 @@ Bundle 'tpope/vim-markdown'
 
 "------- Lua --------
 Bundle 'xolox/vim-misc'
-" Bundle 'xolox/vim-lua-ftplugin'
 Bundle 'xolox/vim-lua-inspect'
+" Bundle 'xolox/vim-lua-ftplugin'
 
 "------- Go ----------
 Bundle 'jnwhiteh/vim-golang'
