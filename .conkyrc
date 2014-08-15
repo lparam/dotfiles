@@ -14,7 +14,6 @@ gap_x 15
 gap_y 40
 minimum_size 260 5
 maximum_width 340
-on_bottom yes
 
 border_width 1
 cpu_avg_samples 2
@@ -79,14 +78,14 @@ loadavg: ${alignr}$loadavg
 CPU:${color8} $alignr $cpu% ${color white}
 # ${cpugraph FF6E00 FF6E00 100 -t}${color white}
 ${cpugraph cpu0 25,60 FF6E00 FF6E00}\
-${cpugraph cpu1 25,25 FF6E00 FF6E00}\
-${cpugraph cpu2 25,25 FF6E00 FF6E00}\
-${cpugraph cpu3 25,25 FF6E00 FF6E00}\
-${cpugraph cpu4 25,25 FF6E00 FF6E00}\
-${cpugraph cpu5 25,25 FF6E00 FF6E00}\
-${cpugraph cpu6 25,25 FF6E00 FF6E00}\
-${cpugraph cpu7 25,25 FF6E00 FF6E00}\
-${cpugraph cpu8 25,25 FF6E00 FF6E00}
+${cpugraph cpu1 25,105 FF6E00 FF6E00}\
+${cpugraph cpu2 25,105 FF6E00 FF6E00}
+# ${cpugraph cpu3 25,25 FF6E00 FF6E00}\
+# ${cpugraph cpu4 25,25 FF6E00 FF6E00}\
+# ${cpugraph cpu5 25,25 FF6E00 FF6E00}\
+# ${cpugraph cpu6 25,25 FF6E00 FF6E00}\
+# ${cpugraph cpu7 25,25 FF6E00 FF6E00}\
+# ${cpugraph cpu8 25,25 FF6E00 FF6E00}
 # ${voffset -19}${color7}
 # ${cpubar cpu0 25,60}\
 # ${cpubar cpu1 25,25}\
@@ -134,10 +133,10 @@ ${fs_bar 4 /home} \
 # Network data
 ${font Comic Sans MS:size=12}${color 6666FF}Network ${color 66FF66} ${hr 2} \
 ${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
-DLS:${color 66FF66}${downspeed wlan0} /s ${color white}$alignr total: ${totaldown wlan0}
-${downspeedgraph wlan0 226089 226089 .5 -l -t}
-ULS:${color yellow}${upspeed wlan0} /s ${color white}$alignr total: ${totalup wlan0}
-${upspeedgraph wlan0 693F76 693F76 .5 -l -t} \
+DLS:${color 66FF66}${downspeed eth0} /s ${color white}$alignr total: ${totaldown eth0}
+${downspeedgraph eth0 226089 226089 .5 -l -t}
+ULS:${color yellow}${upspeed eth0} /s ${color white}$alignr total: ${totalup eth0}
+${upspeedgraph eth0 693F76 693F76 .5 -l -t} \
 
 # Todo list
 ${font Comic Sans MS:size=12}${color 6666FF}TO-DO LIST ${color 66FF66} ${hr 2}

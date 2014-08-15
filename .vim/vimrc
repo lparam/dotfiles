@@ -1,20 +1,34 @@
-source ~/.vim/bundles.vim
 
-" encoding dectection
-set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
-
-" enable filetype dectection and ft specific plugin/indent
-filetype plugin indent on
+"==========================================
+" Initial Plugins
+"==========================================
 
 " enable syntax hightlight and completion
 syntax on
 
-"--------
-" clipboard
-"--------
+" install Vundle bundles
+if filereadable(expand("~/.vim/bundles.vim"))
+  source ~/.vim/bundles.vim
+endif
 
+" enable filetype dectection and ft specific plugin/indent
+filetype plugin indent on
+
+
+"==========================================
+" clipboard
+"==========================================
 set clipboard=unnamedplus	" yank to the system register (*) by default
 inoremap <S-Insert> <ESC>"+p`]a
+
+
+"==========================================
+" FileEncode Settings
+"==========================================
+" new file encoding
+set encoding=utf-8
+" encoding dectection
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
 
 "--------
@@ -195,6 +209,20 @@ let NERDShutUp=1
 
 " powerline
 " let g:Powerline_symbols = 'fancy'
+" let Powerline_symbols='compatible'
+" set guifont=PowerlineSymbols\ for\ Powerline
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_alt_sep = '|'
+nnoremap [b :bp<CR>
+nnoremap ]b :bn<CR>
+
+" Bbye设置
+" 由于原生的:bd在删除当前buffer时会将整个窗口关闭，故使用Bbye的:Bd
+nnoremap bd :Bd<CR>
 
 " UltiSnips
 let g:UltiSnipsJumpForwardTrigger = "C-R"
@@ -241,6 +269,7 @@ let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 noremap <C-W><C-U> :CtrlPMRU<CR>
 nnoremap <C-W>u :CtrlPMRU<CR>
+noremap <C-U> :CtrlPBuffer<CR>
 
 " --- easy-motion
 let g:EasyMotion_leader_key = '<Leader>'
@@ -342,22 +371,36 @@ let g:loaded_luainspect = 0
 let g:lua_inspect_warnings = 0
 
 " --- YCM
-let g:ycm_confirm_extra_conf = 0
+" let g:ycm_confirm_extra_conf = 0
 " let g:ycm_global_ycm_extra_conf='~/.vim/ycm_extra_conf.py'
-let g:ycm_allow_changing_updatetime=0
-let g:ycm_key_list_select_completion=['<TAB>']
-let g:ycm_key_list_previous_completion=['<S-TAB>']
-let g:ycm_filetype_blacklist = {
-      \ 'notes' : 1,
-      \ 'markdown' : 1,
-      \ 'text' : 1,
-      \}
+" let g:ycm_allow_changing_updatetime=0
+" let g:ycm_key_list_select_completion=['<TAB>']
+" let g:ycm_key_list_previous_completion=['<S-TAB>']
+
 nnoremap <silent> <leader>y :YcmDiag<CR>
 map <c-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" let g:ycm_filetype_whitelist = { 'c': 1, 'cpp': 1 }
-" let g:neocomplcache_force_overwrite_completefunc = 0
-" autocmd FileType c,cpp,h :NeoComplCacheDisable
+"youcompleteme  默认tab  s-tab 和自动补全冲突
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_collect_identifiers_from_tags_files = 1
+if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
+    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+endif
+
+
+" 直接触发自动补全
+let g:ycm_key_invoke_completion = '<C-Space>'
+" 黑名单,不启用
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'gitcommit' : 1,
+      \}
+
 
 "------------------
 " USEFUL SHORTCUTS
