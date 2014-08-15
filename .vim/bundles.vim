@@ -16,7 +16,6 @@ Bundle 'Shougo/neosnippet.vim'
 Bundle 'honza/vim-snippets'
 Bundle 'ervandew/supertab'
 Bundle 'Raimondi/delimitMate'
-" Bundle 'mattn/zencoding-vim'  " High speed HTML and CSS coding
 "------ snipmate dependencies -------
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -58,7 +57,6 @@ Bundle 'rking/ag.vim'
 "-------------
 " Other Utils
 "-------------
-" Bundle 'humiaozuzu/fcitx-status'
 Bundle 'nvie/vim-togglemouse'
 
 "----------------------------------------
