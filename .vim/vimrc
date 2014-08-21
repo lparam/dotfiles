@@ -6,6 +6,10 @@
 " enable syntax hightlight and completion
 syntax on
 
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
 " install Vundle bundles
 if filereadable(expand("~/.vim/bundles.vim"))
   source ~/.vim/bundles.vim
@@ -107,7 +111,7 @@ set expandtab " expand tab to space
 set shiftwidth=4 " indent width
 set smarttab
 
-autocmd FileType python setlocal tabstop=8 softtabstop=8 shiftwidth=8 textwidth=120
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120
 autocmd FileType c setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab textwidth=79
 
 
@@ -219,6 +223,12 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#left_alt_sep = '|'
 nnoremap [b :bp<CR>
 nnoremap ]b :bn<CR>
+
+set hidden "in order to switch between buffers with unsaved change
+map ,h :bp<cr>
+map ,l :bn<cr>
+map ,bd :bd<cr>
+
 
 " Bbye设置
 " 由于原生的:bd在删除当前buffer时会将整个窗口关闭，故使用Bbye的:Bd
@@ -352,15 +362,6 @@ highlight CCTreeHiSymbol  gui=bold guifg=yellow guibg=darkblue ctermfg=yellow ct
 highlight CCTreeHiMarkers  gui=bold guifg=yellow guibg=darkblue ctermfg=yellow ctermbg=darkblue
 highlight Ignore ctermfg=black guifg=bg
 
-" --- Syntastic
-" let g:syntastic_c_check_header = 1
-" let g:syntastic_c_no_include_search = 1
-" let b:syntastic_c_cflags = ' -I/usr/include/libsoup-2.4'
-" let g:syntastic_c_auto_refresh_includes = 1
-" let g:syntastic_c_include_dirs = [ 'includes', 'headers' ]
-" let g:syntastic_c_config_file = '.config'
-" let g:syntastic_c_include_dirs = [ 'ibus-src', 'portal' ]
-
 " --- Lua
 " let g:lua_compiler_name = '/usr/bin/luac'
 " let g:lua_check_syntax = 1
@@ -370,19 +371,24 @@ highlight Ignore ctermfg=black guifg=bg
 let g:loaded_luainspect = 0
 let g:lua_inspect_warnings = 0
 
+" --- Syntastic
+let g:syntastic_check_on_open = 1
+let g:syntastic_cpp_include_dirs = ['/usr/include/', '/usr/local/include']
+let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler = 'clang'
+let g:syntastic_cpp_compiler_options = '-std=gnu99'
+"set error or warning signs
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+"whether to show balloons
+let g:syntastic_enable_balloons = 1
+
 " --- YCM
-" let g:ycm_confirm_extra_conf = 0
-" let g:ycm_global_ycm_extra_conf='~/.vim/ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 " let g:ycm_allow_changing_updatetime=0
-" let g:ycm_key_list_select_completion=['<TAB>']
-" let g:ycm_key_list_previous_completion=['<S-TAB>']
-
-nnoremap <silent> <leader>y :YcmDiag<CR>
-map <c-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-"youcompleteme  默认tab  s-tab 和自动补全冲突
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_key_list_select_completion=['<TAB>']
+let g:ycm_key_list_previous_completion=['<S-TAB>']
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -392,6 +398,8 @@ if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_
     let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 endif
 
+nnoremap <silent> <leader>y :YcmDiag<CR>
+map <c-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " 直接触发自动补全
 let g:ycm_key_invoke_completion = '<C-Space>'
@@ -467,10 +475,6 @@ autocmd BufReadPost *
 
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
-
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " eggcache vim
 nnoremap ; :
