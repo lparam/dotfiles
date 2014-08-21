@@ -16,7 +16,7 @@ Bundle 'Shougo/neosnippet.vim'
 Bundle 'honza/vim-snippets'
 "------ snipmate dependencies -------
 Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tomtom/tlib_vim'
 
