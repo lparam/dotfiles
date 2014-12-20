@@ -94,7 +94,7 @@ Bundle 'sheerun/vim-polyglot'
 "--------------
 " misc
 "--------------
-Bundle 'howiefh/vimcdoc'
+" Bundle 'howiefh/vimcdoc'
 Bundle 'vim-scripts/ManPageView'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'terryma/vim-multiple-cursors'
