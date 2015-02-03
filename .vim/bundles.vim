@@ -107,10 +107,10 @@ Bundle 'vim-scripts/DoxygenToolkit.vim'
 "--------------
 " Color Schemes
 "--------------
-Bundle 'rickharris/vim-blackboard'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'rickharris/vim-monokai'
 Bundle 'jaromero/vim-monokai-refined'
+Bundle 'rickharris/vim-blackboard'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'chriskempson/vim-tomorrow-theme'

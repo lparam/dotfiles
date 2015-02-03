@@ -11,7 +11,7 @@ double_buffer yes
 
 alignment top_right
 gap_x 15
-gap_y 40
+gap_y 10
 minimum_size 260 5
 maximum_width 340
 
@@ -66,12 +66,12 @@ color8 7F1334
 color9 CD5728
 
 TEXT
-
 # Showing system info
-${font Comic Sans MS:size=12}${color 6666FF}System info ${color 66FF66}${hr 2} ${color white} ${font Comic Sans MS:size=10}
+${font Comic Sans MS:size=12}${color 6666FF}System info ${color 66FF66} ${hr 2} \
+${color white} ${font Comic Sans MS:size=10}
 uptime: $alignr$uptime
 CPU Temperature: ${alignr}${color7}${execi 6 /usr/bin/sensors | grep "Physical id 0" | paste -s | cut -c15-18,19-21}${color0}
-loadavg: ${alignr}$loadavg
+loadavg: ${alignr}$loadavg \
 
 # Showing CPU Graph
 # ${cpugraph cpu0 20,336}${voffset -19}
@@ -128,7 +128,7 @@ ${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
 /: ${alignr}${fs_used /} / ${fs_size /}
 ${fs_bar 4 /}
 /home: ${alignr}${fs_used /home} / ${fs_size /home}
-${fs_bar 4 /home} \
+${fs_bar 4 /home}
 
 # Network data
 ${font Comic Sans MS:size=12}${color 6666FF}Network ${color 66FF66} ${hr 2} \

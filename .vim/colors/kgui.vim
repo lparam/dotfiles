@@ -16,7 +16,7 @@ let g:colors_name="kgui"
 " Basic Layout {{{
 hi Normal          guifg=#F8F8F2 guibg=#2E3436
 hi Folded          guifg=#666666 guibg=bg
-hi CursorLine			 guibg=#232728
+hi CursorLine			         guibg=#232728
 hi CursorColumn                  guibg=#232728
 hi ColorColumn                   guibg=#232728
 hi LineNr          guifg=#AAAAAA guibg=bg
