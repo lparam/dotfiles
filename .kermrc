@@ -19,8 +19,8 @@
 #    take \m(_myinit)			; and TAKE the file.
 #}
 
-set line /dev/ttyS0
-;set line /dev/ttyUSB0
+;set line /dev/ttyS0
+set line /dev/ttyUSB0
 
 set speed 115200
 

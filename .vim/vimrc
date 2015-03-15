@@ -50,6 +50,7 @@ if has("gui_running")
 
   " set guifont=Menlo\ 11
   set guifont=Ubuntu\ Mono\ 12
+  set guifontwide=Yahei\ Mono\ 12
 
   " set guioptions-=m  " remove menu bar
   " set guioptions-=T  " remove toolbar
