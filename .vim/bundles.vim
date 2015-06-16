@@ -91,6 +91,9 @@ Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'sheerun/vim-polyglot'
 
+"------- Rust ----------
+Bundle 'wting/rust.vim'
+
 "--------------
 " misc
 "--------------

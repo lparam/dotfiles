@@ -1,8 +1,8 @@
 [color]
 	ui = auto
 [user]
-	name = Ken Liao
-	email = lparam@live.com
+	name = Ken
+	email = ken.i18n@gmail.com
 [alias]
 	ci = commit
 	st = status
@@ -14,7 +14,7 @@
 	g = grep -n --color -E
 	l = log --pretty=oneline --abbrev-commit --graph --decorate
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
-	
+
 	# Handy shortcuts for rebasing
 	rc = rebase --continue
 	rs = rebase --skip

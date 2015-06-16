@@ -113,6 +113,8 @@ set expandtab " expand tab to space
 set shiftwidth=4 " indent width
 set smarttab
 
+set colorcolumn=80
+
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120
 autocmd FileType c setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab textwidth=79
 
