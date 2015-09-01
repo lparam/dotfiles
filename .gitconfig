@@ -1,8 +1,8 @@
 [color]
 	ui = auto
 [user]
-	name = Ken
-	email = ken.i18n@gmail.com
+	name = lparam
+	email = lparam@users.noreply.github.com
 [alias]
 	ci = commit
 	st = status
