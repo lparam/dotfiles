@@ -1,13 +1,39 @@
-file ~/uCOS/ports/TQ2440/uCOS
+set disassembly-flavor intel
+set print asm-demangle on
+set follow-fork-mode child
+set history filename ~/.gdb_history
+set history save on
+set print array on
+set print array-indexes on
 
-# connect to the J-Link gdb server
-target remote localhost:2331
+define dps
+  init-if-undefined $_=$sp
+  if $argc == 0
+    printf "%p\n", $_
+    p {void *}$_@16
+    set $_=$+16
+  end
+  if $argc == 1
+    printf "%p\n", $arg0
+    p {void *}$arg0@16
+    set $_=$+16
+  end
+  if $argc >= 2
+    printf "%p\n", $arg0
+    p {void *}$arg0@$arg1
+    set $_=$+$arg1
+  end
+end
 
-# Set JTAG speed to 1000 kHz
-monitor endian little
-monitor speed 1000
+define nc
+  disable display
+  nexti
+  info registers rax
+  while {char}$pc != '\xe8' && {char}$pc != '\xc3'
+    nexti
+  end
+  enable display
+  display
+end
 
-#monitor reset
-
-monitor reg pc 0x32000000
-
+display/i $pc
