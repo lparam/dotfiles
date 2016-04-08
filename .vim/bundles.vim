@@ -12,7 +12,7 @@ Bundle 'VundleVim/Vundle.vim'
 " Code Completions
 "------------------
 " Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet.vim'
+" Bundle 'Shougo/neosnippet.vim'
 Bundle 'honza/vim-snippets'
 "------ snipmate dependencies -------
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -105,6 +105,7 @@ Bundle 'vim-scripts/Visual-Mark'
 Bundle 'zakj/vim-showmarks'
 Bundle 'vim-scripts/Marks-Browser'
 Bundle 'vim-scripts/DoxygenToolkit.vim'
+Bundle 'subosito/nginx.vim'
 " Bundle 'tpope/vim-sensible'
 
 "--------------
