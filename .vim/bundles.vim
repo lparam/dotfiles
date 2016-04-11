@@ -11,8 +11,6 @@ Bundle 'VundleVim/Vundle.vim'
 "------------------
 " Code Completions
 "------------------
-" Bundle 'Shougo/neocomplcache'
-" Bundle 'Shougo/neosnippet.vim'
 Bundle 'honza/vim-snippets'
 "------ snipmate dependencies -------
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -29,7 +27,6 @@ Bundle 'Lokaltog/vim-easymotion'
 "--------------
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
-" Bundle 'vim-scripts/The-NERD-Commenter'
 Bundle 'sjl/gundo.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -41,6 +38,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 " Bundle 'humiaozuzu/TabBar'
 Bundle 'majutsushi/tagbar'
+Bundle 'rking/ag.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/EasyGrep'
 Bundle 'kien/ctrlp.vim'
@@ -48,7 +46,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'SirVer/ultisnips'
-Bundle 'rking/ag.vim'
 Bundle 'bling/vim-airline'
 Bundle 'moll/vim-bbye'
 " Bundle 'Lokaltog/powerline'
@@ -119,5 +116,11 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'fisadev/fisa-vim-colorscheme'
+
+"--------------
+" Shell
+"--------------
+Bundle 'Shougo/vimshell.vim'
+Bundle 'Shougo/vimproc.vim'
 
 filetype plugin indent on " required!

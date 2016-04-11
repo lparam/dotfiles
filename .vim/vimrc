@@ -156,35 +156,6 @@ else
   highlight SignColor ctermbg=white ctermfg=blue guibg=yellow guifg=RoyalBlue3
 endif
 
-" tabbar
-let g:Tb_MaxSize = 2
-let g:Tb_TabWrap = 1
-let g:did_tabbar_syntax_inits = 1
-
-hi Tb_Normal guifg=white ctermfg=white
-hi Tb_Changed guifg=Yellow gui=bold ctermfg=Yellow cterm=bold
-hi Tb_VisibleNormal guifg=LightGreen gui=bold ctermbg=252 ctermfg=235 cterm=bold
-hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
-
-" autocmd! BufEnter * nested call Jump2Next()
-func! Jump2Next()
-    if bufname("%") == "-TabBar-"
-        wincmd j
-    endif
-endfunction
-
-map <C-F4> <ESC>:call CloseTab()<CR>
-func! CloseTab()
-    let s:buf_nr = bufnr("%")
-    echo s:buf_nr
-    exec ":Tbbp "
-    exec ":bdelete ".s:buf_nr
-endfunction
-
-hi TabLine      guifg=#333 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
-hi TabLineSel   guifg=#666 guibg=#222 gui=bold ctermfg=231 ctermbg=235 cterm=bold
-hi TabLineFill  guifg=#999 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
-
 " Tagbar
 let g:tagbar_left=1
 let g:tagbar_width=30
@@ -210,10 +181,6 @@ let g:nerdtree_tabs_open_on_console_startup=0
 let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 let NERDShutUp=1
-" nmap <D-/> :NERDComToggleComment<cr>
-
-" ZenCoding
-" let g:user_zen_expandabbr_key='<C-j>'
 
 " powerline
 " let g:Powerline_symbols = 'fancy'
@@ -241,33 +208,6 @@ nnoremap bd :Bd<CR>
 " UltiSnips
 let g:UltiSnipsJumpForwardTrigger = "C-R"
 let g:UltiSnipsJumpBackwardTrigger = "<C-Q"
-
-" --- NeoComplCache
-let g:neocomplcache_enable_at_startup=1
-let g:neoComplcache_disableautocomplete=1
-"let g:neocomplcache_enable_underbar_completion = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_smart_case=1
-let g:neocomplcache_min_syntax_length=3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-set completeopt-=preview
-
-imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_force_expand)
-imap <C-l> <Plug>(neocomplcache_snippets_force_jump)
-smap <C-l> <Plug>(neocomplcache_snippets_force_jump)
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType c setlocal omnifunc=ccomplete#Complete
-
-" --- SuperTab
-"let g:SuperTabDefultCompletionType='context'
-let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
-let g:SuperTabRetainCompletionType=2
 
 " --- ack
 let g:ackprg="ack -H --nocolor --nogroup --column"
@@ -319,19 +259,16 @@ nmap <silent> <leader>mk :MarksBrowser<cr>
 " Keybindings for plugin toggle
 nmap <F3> :GundoToggle<cr>
 nmap <F4> :IndentGuidesToggle<cr>
-nmap <F6> :NERDTreeToggle<cr>
+nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :TagbarToggle<cr>
 nmap <F8> :SyntasticToggleMode<cr>
 nmap wm :NERDTreeToggle<CR>
-nmap <D-/> :
-nnoremap <leader>a :Ack
-nnoremap <leader>v V`]
 
 "---------------
 " ctags setting
 "---------------
 " Ctrl-[ jump out of the tag stack (undo Ctrl-])
-map <C-[> <ESC>:po<CR>
+map [[ <ESC>:po<CR>
 
 "----------------
 " cscope setting
@@ -447,9 +384,6 @@ inoremap <C-l> <Right>
 "-----------------------
 " PROGRAMMING SHORTCUTS
 "-----------------------
-
-nmap <C-c><C-c> :!gcc -Wall % -o %:r <CR>
-" set mp=gcc\ -Wall\ %\ -o\ %:r
 
 " C/C++ specific settings
 autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
