@@ -115,8 +115,8 @@ set smarttab
 
 set colorcolumn=80
 
-autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120
 autocmd FileType c setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab textwidth=79
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120
 
 
 "-----------------
@@ -342,9 +342,7 @@ endif
 nnoremap <silent> <leader>y :YcmDiag<CR>
 map <c-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" 直接触发自动补全
 let g:ycm_key_invoke_completion = '<C-Space>'
-" 黑名单,不启用
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'gitcommit' : 1,
@@ -428,4 +426,10 @@ nnoremap ; :
 " syntax support
 "----------------
 au BufRead,BufNewFile *.lds setfiletype ld
+
+
+"----------------
+" polyglot
+"----------------
+let g:polyglot_disabled = ['nginx']
 
