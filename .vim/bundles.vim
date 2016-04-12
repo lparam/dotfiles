@@ -86,8 +86,6 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/CCTree'
 Bundle 'Valloric/YouCompleteMe'
 
-Bundle 'sheerun/vim-polyglot'
-
 "------- Rust ----------
 Bundle 'wting/rust.vim'
 
@@ -102,8 +100,8 @@ Bundle 'vim-scripts/Visual-Mark'
 Bundle 'zakj/vim-showmarks'
 Bundle 'vim-scripts/Marks-Browser'
 Bundle 'vim-scripts/DoxygenToolkit.vim'
-Bundle 'subosito/nginx.vim'
 " Bundle 'tpope/vim-sensible'
+
 
 "--------------
 " Color Schemes
@@ -117,10 +115,19 @@ Bundle 'Lokaltog/vim-distinguished'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'fisadev/fisa-vim-colorscheme'
 
+
+"--------------
+" Syntax
+"--------------
+Bundle 'subosito/nginx.vim'
+" Bundle 'sheerun/vim-polyglot'
+
+
 "--------------
 " Shell
 "--------------
 Bundle 'Shougo/vimshell.vim'
 Bundle 'Shougo/vimproc.vim'
+
 
 filetype plugin indent on " required!
