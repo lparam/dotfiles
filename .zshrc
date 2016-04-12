@@ -66,13 +66,9 @@ alias make='colormake'
 alias run-help >&/dev/null && unalias run-help
 autoload run-help
 
-#历史命令 top10
-alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
-#}}}
-
 #路径别名 {{{
 #进入相应的路径时只要 cd ~xxx
-hash -d D="/home/lparam/download"
+hash -d D="/home/lparam/Downloads"
 #}}}
 
 
@@ -95,7 +91,7 @@ autoload compinstall
 #漂亮又实用的命令高亮界面
 setopt extended_glob
 TOKENS_FOLLOWED_BY_COMMANDS=('|' '||' ';' '&' '&&' 'sudo' 'do' 'time' 'strace')
- 
+
 recolor-cmd() {
 region_highlight=()
 colorize=true
@@ -123,7 +119,7 @@ done
 }
 check-cmd-self-insert() { zle .self-insert && recolor-cmd }
 check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
- 
+
 zle -N self-insert check-cmd-self-insert
 zle -N backward-delete-char check-cmd-backward-delete-char
 
@@ -133,7 +129,7 @@ cd() {
 builtin cd "$@"                             # do actual cd
 fc -W                                       # write current history  file
 local HISTDIR="$HOME/.zsh_history$PWD"      # use nested folders for history
-if  [ ! -d "$HISTDIR" ] ; then          # create folder if needed
+if  [ ! -d "$HISTDIR" ] ; then              # create folder if needed
 mkdir -p "$HISTDIR"
 fi
 export HISTFILE="$HISTDIR/zhistory"     # set new history file
@@ -141,11 +137,11 @@ touch $HISTFILE
 local ohistsize=$HISTSIZE
 HISTSIZE=0                              # Discard previous dir's history
 HISTSIZE=$ohistsize                     # Prepare for new dir's history
-fc -R                                       #read from current histfile
+fc -R                                   # read from current histfile
 }
 mkdir -p $HOME/.zsh_history$PWD
 export HISTFILE="$HOME/.zsh_history$PWD/zhistory"
- 
+
 function allhistory { cat $(find $HOME/.zsh_history -name zhistory) }
 function convhistory {
 sort $1 | uniq |
@@ -157,10 +153,13 @@ function histall { convhistory =(allhistory) |
 sed '/^.\{20\} *cd/i\\' }
 #使用 hist 查看当前目录历史纪录
 function hist { convhistory $HISTFILE }
- 
+
+#历史命令 top10
+alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
+#}}}
+
 #全部历史纪录 top50
 function top50 { allhistory | awk -F':[ 0-9]*:[0-9]*;' '{ $1="" ; print }' | sed 's/ /\n/g' | sed '/^$/d' | sort | uniq -c | sort -nr | head -n 50 }
- 
 #}}}
 
 
