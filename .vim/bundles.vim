@@ -8,16 +8,6 @@ call vundle#rc()
 " required!
 Bundle 'VundleVim/Vundle.vim'
 
-"------------------
-" Code Completions
-"------------------
-Bundle 'honza/vim-snippets'
-"------ snipmate dependencies -------
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'Raimondi/delimitMate'
-Bundle 'tomtom/tlib_vim'
-
-
 "-----------------
 " Fast navigation
 "-----------------
@@ -41,17 +31,18 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'majutsushi/tagbar'
 Bundle 'rking/ag.vim'
-Bundle 'vim-scripts/EasyGrep'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'SirVer/ultisnips'
 Bundle 'moll/vim-bbye'
-Bundle 'vim-scripts/CCTree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'sirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'dkprice/vim-easygrep'
 
 
 "----------------------------------------
@@ -61,6 +52,8 @@ Plugin 'vim-airline/vim-airline-themes'
 "------- C ----------
 Bundle 'vim-scripts/a.vim'
 
+"------- HTML ----------
+Plugin 'mattn/emmet-vim'
 
 "--------------
 " misc
@@ -73,7 +66,7 @@ Bundle 'vim-scripts/Visual-Mark'
 Bundle 'zakj/vim-showmarks'
 Bundle 'vim-scripts/Marks-Browser'
 Bundle 'vim-scripts/DoxygenToolkit.vim'
-Plugin 'mhinz/vim-signify'
+" Plugin 'mhinz/vim-signify'
 
 
 "--------------

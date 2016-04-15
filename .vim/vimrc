@@ -48,9 +48,10 @@ if has("gui_running")
   au WinEnter * set cursorline cursorcolumn
   set cursorline cursorcolumn
 
-  " set guifont=Menlo\ 11
-  set guifont=Ubuntu\ Mono\ 12
-  set guifontwide=Yahei\ Mono\ 12
+  set guifont=Iosevka\ Term\ 12
+  " set guifont=Menlo\ 12
+  " set guifont=Ubuntu\ Mono\ 12
+  " set guifontwide=Yahei\ Mono\ 12
 
   " set guioptions-=m  " remove menu bar
   " set guioptions-=T  " remove toolbar
@@ -177,6 +178,19 @@ let NERDTreeWinPos="right"
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_console_startup=0
 
+" Nerd git
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
 " nerdcommenter
 let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
@@ -200,14 +214,24 @@ map ,h :bp<cr>
 map ,l :bn<cr>
 map ,bd :bd<cr>
 
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
 
 " Bbye设置
 " 由于原生的:bd在删除当前buffer时会将整个窗口关闭，故使用Bbye的:Bd
 nnoremap bd :Bd<CR>
 
 " UltiSnips
-let g:UltiSnipsJumpForwardTrigger = "C-R"
-let g:UltiSnipsJumpBackwardTrigger = "<C-Q"
+let g:UltiSnipsSnippetDirectories=['UltiSnips']
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsListSnippets = '<C-Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+let g:UltiSnipsEditSplit="vertical"
 
 " --- ack
 let g:ackprg="ack -H --nocolor --nogroup --column"
@@ -328,13 +352,21 @@ let g:syntastic_enable_balloons = 1
 " --- YCM
 let g:ycm_confirm_extra_conf = 0
 " let g:ycm_allow_changing_updatetime=0
-let g:ycm_key_list_select_completion=['<TAB>']
-let g:ycm_key_list_previous_completion=['<S-TAB>']
+" let g:ycm_key_list_select_completion=['<TAB>']
+" let g:ycm_key_list_previous_completion=['<S-TAB>']
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_collect_identifiers_from_tags_files = 1
+
+" set completeopt-=preview
+" let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
     let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 endif
@@ -348,6 +380,11 @@ let g:ycm_filetype_blacklist = {
       \ 'gitcommit' : 1,
       \}
 
+
+" --- Indent Guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 "------------------
 " USEFUL SHORTCUTS
