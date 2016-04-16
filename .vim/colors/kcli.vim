@@ -32,7 +32,7 @@ hi Delimiter       guifg=#8F8F8F
 hi Float           guifg=#AE81FF
 hi Function        guifg=#A6E22E ctermfg=red
 hi Identifier      guifg=#FD971F ctermfg=yellow
-hi cIncluded       ctermfg=white
+" hi cIncluded                     ctermfg=yellow
 " }}}
 
 " Diffs {{{
@@ -82,7 +82,7 @@ hi PmenuThumb      guifg=#777777
 
 hi PreCondit       guifg=#A6E22E gui=bold
 hi PreProc         guifg=#A6E22E ctermfg=blue
-hi Include         guifg=#A6E22E ctermfg=5
+" hi Include         guifg=#A6E22E ctermfg=5
 hi Question        guifg=#66D9EF
 hi Repeat          guifg=#F92672 gui=bold  ctermfg=red
 
