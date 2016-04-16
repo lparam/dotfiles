@@ -1,0 +1,26 @@
+"--------
+" Vim UI
+"--------
+
+" highlight current line
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
+
+set guifont=Iosevka\ Term\ 12
+" set guifont=Menlo\ 12
+" set guifont=Ubuntu\ Mono\ 12
+" set guifontwide=Yahei\ Mono\ 12
+
+set guioptions-=b  " remove bottom scrollbar
+set guioptions-=l  " remove left-hand scroll bar
+set guioptions-=L  " remove left-hand scroll bar
+set guioptions-=r  " remove right-hand scroll bar
+set guioptions-=R  " remove right-hand scroll bar
+set guioptions-=v  "
+set guioptions-=F  "
+set guioptions =f  " don't use fork()
+set showtabline=0  " remove tab bar
+
+set background=light
+colors kgui
