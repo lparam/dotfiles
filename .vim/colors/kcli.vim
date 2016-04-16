@@ -1,14 +1,3 @@
-" Vim color file
-"
-" Author: Tomas Restrepo <tomas@winterdom.com>
-" Modified by: Steve Losh <steve@stevelosh.com>
-" Modified by: Ken Liao <ken.liao@live.com>
-"
-" Note: Based on the monokai theme for textmate
-" by Wimer Hazenberg and its darker variant
-" by Hamish Stuart Macpherson
-"
-
 hi clear
 
 set background=dark
@@ -17,22 +6,23 @@ let g:colors_name="kcli"
 " Basic Layout {{{
 hi Normal          guifg=#F8F8F2 guibg=#4D4B45
 hi Folded          guifg=#666666 guibg=bg
-hi CursorLine			 guibg=#232728
+hi CursorLine			         guibg=#232728
 hi CursorColumn                  guibg=#232728
 hi ColorColumn                   guibg=#232728 ctermbg=red
-hi LineNr          guifg=#AAAAAA guibg=bg ctermfg=3
+hi LineNr          guifg=#AAAAAA guibg=bg      ctermfg=3
 hi FoldColumn      guifg=#AAAAAA guibg=bg
 hi VertSplit       guifg=#AAAAAA guibg=bg gui=none
 hi Search          guifg=#000000 guibg=#E4E500
 hi IncSearch       guibg=#000000 guifg=#FF8D00
-hi StatusLine      guifg=#CD5907 guibg=fg ctermfg=7
+hi StatusLine      guifg=#CD5907 guibg=fg      ctermfg=7
 hi StatusLineNC    guifg=#808080 guibg=#080808 ctermfg=8
 " }}}
+
 " Syntax {{{
 hi Boolean         guifg=#AE81FF
 hi Comment         guifg=#5c7176 ctermfg=green cterm=none
 hi Character       guifg=#E6DB74
-hi Number          guifg=#AE81FF ctermfg=5 cterm=bold
+hi Number          guifg=#AE81FF ctermfg=5     cterm=bold
 hi String          guifg=#E6DB74 ctermfg=yellow
 hi Conditional     guifg=#F92672 gui=bold ctermfg=red
 hi Constant        guifg=#AE81FF gui=bold
@@ -44,12 +34,14 @@ hi Function        guifg=#A6E22E ctermfg=red
 hi Identifier      guifg=#FD971F ctermfg=yellow
 hi cIncluded       ctermfg=white
 " }}}
+
 " Diffs {{{
 hi DiffAdd                       guibg=#0F1D0B
 hi DiffChange      guifg=#89807D guibg=#322F2D
 hi DiffDelete      guifg=#960050 guibg=#1E0010
 hi DiffText                      guibg=#4A4340 gui=italic,bold
 " }}}
+
 " Cursor {{{
 hi Cursor          guifg=#000000 guibg=#F35FBC
 hi iCursor         guifg=#000000 guibg=#FDFF00
@@ -103,7 +95,7 @@ hi SpecialComment  guifg=#465457               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
 hi SpecialKey      guifg=#888A85               gui=italic
 hi Statement       guifg=#F92672 gui=bold ctermfg=red
-hi StorageClass    guifg=#FD971F gui=italic ctermfg=3 
+hi StorageClass    guifg=#FD971F gui=italic ctermfg=3
 hi Structure       guifg=#66D9EF ctermfg=4     cterm=bold
 hi Tag             guifg=#F92672               gui=italic
 hi Title           guifg=#ef5939 ctermfg=red
@@ -125,11 +117,7 @@ if has("spell")
     hi SpellLocal  guisp=#70F0F0 gui=undercurl
     hi SpellRare   guisp=#FFFFFF gui=undercurl
 endif
-" }}}
-" Visual Mode {{{
-" hi VisualNOS  guibg=#403D3D
-" hi Visual     guibg=#403D3D
-" }}}
+
 " Invisible character colors {{{
 highlight NonText    guifg=#444444 guibg=bg
 highlight SpecialKey guifg=#444444 guibg=bg
@@ -170,7 +158,6 @@ if &t_Co > 255
 
    hi Keyword         ctermfg=161               cterm=bold
    hi Label           ctermfg=229               cterm=none
-   " hi Macro           ctermfg=193
    hi SpecialKey      ctermfg=81
    hi MailHeaderEmail ctermfg=3  ctermbg=233
    hi MailEmail       ctermfg=3  ctermbg=233
@@ -193,10 +180,9 @@ if &t_Co > 255
    hi Search          ctermfg=253 ctermbg=66
 
    " marks column
-   " hi SignColumn      ctermfg=118 ctermbg=235
    hi SpecialChar     ctermfg=161               cterm=bold
    hi SpecialComment  ctermfg=245               cterm=bold
-   hi Special         ctermfg=81  ctermbg=232
+   hi Special         ctermfg=81
    hi SpecialKey      ctermfg=245
 
    hi Statement       ctermfg=161               cterm=bold
@@ -213,16 +199,10 @@ if &t_Co > 255
    hi Underlined      ctermfg=244               cterm=underline
 
    hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
-   " hi VisualNOS                   ctermbg=238
-   " hi Visual                      ctermbg=235
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
-   " hi Normal          ctermfg=252 ctermbg=233
-   " hi Comment         ctermfg=59
    hi CursorLine                  ctermbg=234   cterm=none
    hi CursorColumn                ctermbg=234
    hi ColorColumn                 ctermbg=234
-   " hi LineNr          ctermfg=250 ctermbg=233
-   " hi NonText         ctermfg=240 ctermbg=233
 end " }}}

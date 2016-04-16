@@ -1,13 +1,3 @@
-" Vim color file
-"
-" Author: Tomas Restrepo <tomas@winterdom.com>
-" Modified by: Ken Liao <ken.liao@live.com>
-"
-" Note: Based on the monokai theme for textmate
-" by Wimer Hazenberg and its darker variant
-" by Hamish Stuart Macpherson
-"
-
 hi clear
 
 set background=dark
@@ -21,10 +11,11 @@ hi CursorColumn                  guibg=#232728
 hi ColorColumn                   guibg=#232728
 hi LineNr          guifg=#AAAAAA guibg=bg
 hi FoldColumn      guifg=#AAAAAA guibg=bg
-hi VertSplit       guifg=#AAAAAA guibg=bg gui=none
+hi VertSplit       guifg=#AAAAAA guibg=bg      gui=none
 hi Search          guifg=#000000 guibg=#E4E500
 hi IncSearch       guibg=#000000 guifg=#FF8D00
 " }}}
+
 " Syntax {{{
 hi Boolean         guifg=#AE81FF
 hi Comment         guifg=#5c7176
@@ -40,12 +31,14 @@ hi Float           guifg=#AE81FF
 hi Function        guifg=#A6E22E
 hi Identifier      guifg=#FD971F
 " }}}
+
 " Diffs {{{
 hi DiffAdd                       guibg=#0F1D0B
 hi DiffChange      guifg=#89807D guibg=#322F2D
 hi DiffDelete      guifg=#960050 guibg=#1E0010
 hi DiffText                      guibg=#4A4340 gui=italic,bold
 " }}}
+
 " Cursor {{{
 hi Cursor          guifg=#000000 guibg=#F35FBC
 hi iCursor         guifg=#000000 guibg=#FDFF00
@@ -53,7 +46,7 @@ hi vCursor         guifg=#000000 guibg=#AAF412
 " }}}
 
 hi GreenBar term=reverse ctermfg=white ctermbg=green guifg=black guibg=#9edf1c
-hi RedBar   term=reverse ctermfg=white ctermbg=red guifg=white guibg=#C50048
+hi RedBar   term=reverse ctermfg=white ctermbg=red   guifg=white guibg=#C50048
 
 hi EasyMotionTarget guifg=#E4E500 guibg=bg gui=bold
 hi EasyMotionShade  guifg=#444444 guibg=bg gui=bold
@@ -122,10 +115,12 @@ if has("spell")
     hi SpellRare   guisp=#FFFFFF gui=undercurl
 endif
 " }}}
+
 " Visual Mode {{{
 hi VisualNOS  guibg=#403D3D
 hi Visual     guibg=#403D3D
 " }}}
+
 " Invisible character colors {{{
 highlight NonText    guifg=#444444 guibg=bg
 highlight SpecialKey guifg=#444444 guibg=bg
@@ -150,7 +145,7 @@ if &t_Co > 255
    hi DiffAdd                     ctermbg=24
    hi DiffChange      ctermfg=181 ctermbg=239
    hi DiffDelete      ctermfg=162 ctermbg=53
-   hi DiffText                    ctermbg=102 cterm=bold
+   hi DiffText                    ctermbg=102   cterm=bold
 
    hi Directory       ctermfg=118               cterm=bold
    hi Error           ctermfg=219 ctermbg=89
@@ -171,7 +166,7 @@ if &t_Co > 255
    hi MailHeaderEmail ctermfg=3  ctermbg=233
    hi MailEmail       ctermfg=3  ctermbg=233
 
-   hi MatchParen      ctermfg=16  ctermbg=208 cterm=bold
+   hi MatchParen      ctermfg=16  ctermbg=208   cterm=bold
    hi ModeMsg         ctermfg=229
    hi MoreMsg         ctermfg=229
    hi Operator        ctermfg=161
