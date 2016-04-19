@@ -118,6 +118,11 @@ if has("spell")
     hi SpellRare   guisp=#FFFFFF gui=undercurl
 endif
 
+" Visual Mode {{{
+hi VisualNOS  guibg=#403D3D ctermbg=green
+hi Visual     guibg=#403D3D ctermbg=green
+" }}}
+
 " Invisible character colors {{{
 highlight NonText    guifg=#444444 guibg=bg
 highlight SpecialKey guifg=#444444 guibg=bg

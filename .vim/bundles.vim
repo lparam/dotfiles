@@ -23,6 +23,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'godlygeek/tabular'
 " Bundle 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
+Plugin 'jiangmiao/auto-pairs'
 
 
 "--------------
@@ -53,8 +54,12 @@ Plugin 'dkprice/vim-easygrep'
 "------- C ----------
 Bundle 'vim-scripts/a.vim'
 
+"------- C# ----------
+Bundle 'OmniSharp/omnisharp-vim'
+
 "------- HTML ----------
 Plugin 'mattn/emmet-vim'
+
 
 "--------------
 " misc
