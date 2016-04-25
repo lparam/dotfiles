@@ -55,7 +55,7 @@ Plugin 'dkprice/vim-easygrep'
 Bundle 'vim-scripts/a.vim'
 
 "------- C# ----------
-Bundle 'OmniSharp/omnisharp-vim'
+" Bundle 'OmniSharp/omnisharp-vim'
 
 "------- HTML ----------
 Plugin 'mattn/emmet-vim'

@@ -120,6 +120,9 @@ else
   highlight SignColor ctermbg=white ctermfg=blue guibg=yellow guifg=RoyalBlue3
 endif
 
+" auto-pairs
+let g:AutoPairsMapCh=0
+
 " Tagbar
 let g:tagbar_left=1
 let g:tagbar_width=30
@@ -307,6 +310,8 @@ let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'gitcommit' : 1,
       \}
+
+" let g:ycm_auto_start_csharp_server = 0
 
 
 " --- Indent Guides
