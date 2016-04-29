@@ -1,82 +1,64 @@
-#==============================================================================
-#                               conkyrc
-# Date    : 03/05/2011
-# Author  : ken
-# Version : v0.3
-# License : Distributed under the terms of GNU GPL version 2 or later
-#==============================================================================
+conky.config = {
+    cpu_avg_samples = 2,
+    net_avg_samples = 2,
 
-background yes
-double_buffer yes
+    background = true,
+    double_buffer = true,
 
-alignment top_right
-gap_x 15
-gap_y 10
-minimum_size 260 5
-maximum_width 340
+    alignment = 'top_right',
+    gap_x = 15,
+    gap_y = 10,
+    minimum_height = 260,
+	minimum_width = 5,
 
-border_width 1
-cpu_avg_samples 2
-draw_borders no
-draw_graph_borders yes
-draw_outline no
-draw_shades no
+    border_width = 1,
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
 
-net_avg_samples 2
-no_buffers yes
-out_to_console no
-out_to_stderr no
-extra_newline no
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
 
-own_window yes
-own_window_type normal
-own_window_transparent yes
-own_window_colour 000000
-own_window_argb_visual yes
-own_window_argb_value 51
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+    own_window = true,
+    own_window_type = 'dock',
+    own_window_transparent = true,
+    own_window_argb_visual = true,
+    own_window_argb_value = 51,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 
-stippled_borders 0
-update_interval 1.0
-uppercase no
-use_spacer none
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = no,
+    use_spacer = none,
 
-show_graph_scale no
-show_graph_range no
+    show_graph_scale = true,
 
-use_xft yes
-xftalpha 0.1
-xftfont sans-serif:size=8
+    use_xft = true,
+    xftalpha = 0.1,
+    -- xftfont = 'sans-serif:size=8',
+    font = 'DejaVu Sans Mono:size=8',
 
-# Defining colors
-default_color FFFFFF
-color0 white
-# Shades of Gray
-color1 DDDDDD
-color2 AAAAAA
-color3 888888
-# Orange
-color4 EF5A29
-# Green
-color5 77B753
-# Blue
-color6 0084FF
-color7 FF0000
-color8 7F1334
-color9 CD5728
+    -- Defining colors
+    default_color = FFFFFF,
+    color1 = 'FF0000',
+    color2 = '7F1334',
+    color3 = 'CD5728',
+}
 
-TEXT
-# Showing system info
+conky.text = [[
+
+# System info
 ${font Comic Sans MS:size=12}${color 6666FF}System info ${color 66FF66} ${hr 2} \
 ${color white} ${font Comic Sans MS:size=10}
 uptime: $alignr$uptime
-CPU Temperature: ${alignr}${color7}${execi 6 /usr/bin/sensors | grep "Physical id 0" | paste -s | cut -c15-18,19-21}${color0}
+CPU Temperature: ${alignr}${color1}${execi 6 /usr/bin/sensors | grep "Core 0" | paste -s | cut -c15-18,19-21}${color white}
 loadavg: ${alignr}$loadavg \
 
-# Showing CPU Graph
-# ${cpugraph cpu0 20,336}${voffset -19}
-CPU:${color8} $alignr $cpu% ${color white}
-# ${cpugraph FF6E00 FF6E00 100 -t}${color white}
+# CPU Graph
+CPU:${color2} $alignr $cpu% ${color white}
 ${cpugraph cpu0 25,60 FF6E00 FF6E00}\
 ${cpugraph cpu1 25,105 FF6E00 FF6E00}\
 ${cpugraph cpu2 25,105 FF6E00 FF6E00}
@@ -86,43 +68,33 @@ ${cpugraph cpu2 25,105 FF6E00 FF6E00}
 # ${cpugraph cpu6 25,25 FF6E00 FF6E00}\
 # ${cpugraph cpu7 25,25 FF6E00 FF6E00}\
 # ${cpugraph cpu8 25,25 FF6E00 FF6E00}
-# ${voffset -19}${color7}
-# ${cpubar cpu0 25,60}\
-# ${cpubar cpu1 25,25}\
-# ${cpubar cpu2 25,25}\
-# ${cpubar cpu3 25,25}\
-# ${cpubar cpu4 25,25}\
-# ${cpubar cpu5 25,25}\
-# ${cpubar cpu6 25,25}\
-# ${cpubar cpu7 25,25}\
-# ${cpubar cpu8 25,25}\
 ${color white}\
 
-# Showing memory Graph
-Memory:${color7} $alignr $mem / $memmax  ($memperc%) ${color white}
-${memgraph AB1852 AB1852 100 -t} ${color white} \
+# Memory Graph
+Memory:${color1} $alignr $mem / $memmax  ($memperc%) ${color white}
+${memgraph AB1852 AB1852 -t} ${color white} \
 
-# Showing swap bar
+# Swap bar
 Swap:${color 49A835} ${alignr}$swap / $swapmax ($swapperc%) ${color white}
 ${swapbar 4} \
 
-# Showing disk io Graph
-Disk IO: ${color9} $alignr ${diskio}/s ${color white}
+# Disk io Graph
+Disk IO: ${color3} $alignr ${diskio}/s ${color white}
 ${diskiograph EE7442 EE7442 100 -t} \
 
-# Showing TOP 5 CPU-consumers
-CPU: $alignr CPU% MEM% ${font Comic Sans MS:size=10}
-${color red}${top name 1}$alignr${top cpu 1}${top mem 1}
-${color white}${top name 2}$alignr${top cpu 2}${top mem 2}
-${top name 3}$alignr${top cpu 3}${top mem 3}
+# TOP 3 CPU-consumers
+CPU: ${alignr 30}PID ${alignr 10}CPU% ${alignr 1}MEM% ${font Comic Sans MS:size=10}
+${color red}${top name 1}${alignr 50}${top pid 1}${alignr 30}${top cpu 1}${alignr 10}${top mem 1}
+${color white}${top name 2}${alignr 50}${top pid 2}${alignr 30}${top cpu 2}${alignr 10}${top mem 2}
+${color white}${top name 3}${alignr 50}${top pid 3}${alignr 30}${top cpu 3}${alignr 10}${top mem 3}
 
-#Showing memory part with TOP 5
-Memory: $alignr CPU% MEM% ${font Comic Sans MS:size=10}
-${color yellow}${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
-${color white}${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
-${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+# Top 3 Memory-consumers
+Memory: ${alignr 30}PID ${alignr 10}CPU% ${alignr 1}MEM% ${font Comic Sans MS:size=10}
+${color yellow}${top_mem name 1}${alignr 50}${top_mem pid 1}${alignr 30}${top_mem cpu 1}${alignr 10}${top_mem mem 1}
+${color white}${top_mem name 2}${alignr 50}${top_mem pid 2}${alignr 30}${top_mem cpu 2}${alignr 10}${top_mem mem 2}
+${color white}${top_mem name 3}${alignr 50}${top_mem pid 3}${alignr 30}${top_mem cpu 3}${alignr 10}${top_mem mem 3}
 
-# Showing filesystem
+# Filesystem
 ${font Comic Sans MS:size=12}${color 6666FF}Filesystem ${color 66FF66} ${hr 2} \
 ${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
 /: ${alignr}${fs_used /} / ${fs_size /}
@@ -133,11 +105,11 @@ ${fs_bar 4 /home}
 # Network data
 ${font Comic Sans MS:size=12}${color 6666FF}Network ${color 66FF66} ${hr 2} \
 ${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
-DLS:${color 66FF66}${downspeed eth0} /s ${color white}$alignr total: ${totaldown eth0}
-${downspeedgraph eth0 226089 226089 .5 -l -t}
-ULS:${color yellow}${upspeed eth0} /s ${color white}$alignr total: ${totalup eth0}
-${upspeedgraph eth0 693F76 693F76 .5 -l -t} \
+${color white}DOWN: ${color 66FF66}${downspeed ens33}/s${alignr 35}${color white}UP: ${color yellow}${upspeed ens33}/s
+${color white}${downspeedgraph ens33 25,125 226089 226089 .5 -l -t} ${alignr 1} ${upspeedgraph ens33 25,125 693F76 693F76 .5 -l -t}
+${color white}TOTAL: ${totaldown ens33} ${alignr 20} TOTAL: ${totalup ens33}
 
 # Todo list
-${font Comic Sans MS:size=12}${color 6666FF}TO-DO LIST ${color 66FF66} ${hr 2}
+${color 6666FF}${font Comic Sans MS:size=12}TO-DO LIST ${color 66FF66} ${hr 2}
 ${color white}${execi 60 cat  /home/lparam/scripts/To_Do_File.txt | fold -w50}
+]]
