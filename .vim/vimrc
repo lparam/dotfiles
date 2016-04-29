@@ -281,6 +281,7 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_balloons = 1
 
 " --- YCM
+let g:ycm_server_python_interpreter = '/usr/bin/python'
 let g:ycm_confirm_extra_conf = 0
 " let g:ycm_allow_changing_updatetime=0
 let g:ycm_key_list_select_completion=['<TAB>']
