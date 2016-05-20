@@ -41,7 +41,7 @@ colors kcli
 set incsearch
 set ignorecase
 set smartcase
-set hlsearch		" search highlighting
+set hlsearch
 
 
 "-----------------
@@ -79,7 +79,7 @@ set smarttab
 
 set colorcolumn=80
 
-autocmd FileType c setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab textwidth=79
+autocmd FileType c,go,java,sh setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab textwidth=79
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120
 
 
@@ -235,12 +235,6 @@ let showmarks_ignore_type = "hqm"
 let showmarks_hlline_lower = 1
 let showmarks_hlline_upper = 1
 
-" <Leader>mt   - 打开/关闭ShowMarks插件
-" <Leader>mo   - 强制打开ShowMarks插件
-" <Leader>mh   - 清除当前行的标记
-" <Leader>ma   - 清除当前缓冲区中所有的标记
-" <Leader>mm   - 在当前行打一个标记，使用下一个可用的标记名
-
 
 """"""""""""""""""""""""""""""
 " indent line setting
@@ -375,6 +369,8 @@ autocmd BufReadPost *
 
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
+
+set list listchars=tab:→\ ,trail:·
 
 " eggcache vim
 nnoremap ; :
