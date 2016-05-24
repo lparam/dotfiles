@@ -370,8 +370,6 @@ autocmd BufReadPost *
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
 
-set list listchars=tab:→\ ,trail:·
-
 " eggcache vim
 nnoremap ; :
 :command W w
