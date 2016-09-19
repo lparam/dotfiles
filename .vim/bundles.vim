@@ -60,6 +60,12 @@ Bundle 'vim-scripts/a.vim'
 "------- HTML ----------
 Plugin 'mattn/emmet-vim'
 
+"------- rust ----------
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
+
+"------- golang ----------
+Plugin 'fatih/vim-go'
 
 "--------------
 " misc
@@ -72,6 +78,7 @@ Bundle 'vim-scripts/Visual-Mark'
 Bundle 'zakj/vim-showmarks'
 Bundle 'vim-scripts/Marks-Browser'
 Bundle 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'wakatime/vim-wakatime'
 " Plugin 'mhinz/vim-signify'
 
 

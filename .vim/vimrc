@@ -71,16 +71,17 @@ set matchpairs+=<:> " specially for html
 "---------------------
 set autoindent
 set smartindent " indent when
+set expandtab " expand tab to space
+set smarttab
 set tabstop=4 " tab width
 set softtabstop=4 " backspace
-set expandtab " expand tab to space
 set shiftwidth=4 " indent width
-set smarttab
 
 set colorcolumn=80
 
-autocmd FileType c,go,java,sh setlocal tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab textwidth=79
+autocmd FileType c,go,java,sh setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab textwidth=79
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120
+autocmd FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=99
 
 
 "-----------------
@@ -297,7 +298,10 @@ if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_
     let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 endif
 
+let g:ycm_rust_src_path = '~/rust/rust/src'
+
 nnoremap <silent> <leader>y :YcmDiag<CR>
+nnoremap <Leader>] :YcmCompleter GoTo<CR>
 map <c-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let g:ycm_key_invoke_completion = '<C-Space>'
@@ -362,6 +366,10 @@ autocmd BufReadPost *
       \ endif |
       \ endif
 
+" rust specific settings
+let g:rustfmt_autosave = 1
+let g:racer_cmd = "~/.cargo/bin/racer"
+let $RUST_SRC_PATH="~/rust/rust/src/"
 
 "------------------
 " Useful Functions
