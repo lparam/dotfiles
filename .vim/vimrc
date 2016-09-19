@@ -187,7 +187,7 @@ endif
 let g:airline_symbols.space = "\ua0"
 
 
-" Bbye设置
+" Bbye
 " 由于原生的:bd在删除当前buffer时会将整个窗口关闭，故使用Bbye的:Bd
 nnoremap bd :Bd<CR>
 
@@ -298,8 +298,6 @@ if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_
     let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 endif
 
-let g:ycm_rust_src_path = '~/rust/rust/src'
-
 nnoremap <silent> <leader>y :YcmDiag<CR>
 nnoremap <Leader>] :YcmCompleter GoTo<CR>
 map <c-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -368,8 +366,8 @@ autocmd BufReadPost *
 
 " rust specific settings
 let g:rustfmt_autosave = 1
-let g:racer_cmd = "~/.cargo/bin/racer"
-let $RUST_SRC_PATH="~/rust/rust/src/"
+" let g:racer_cmd = "~/.cargo/bin/racer"
+" let $RUST_SRC_PATH="~/rust/rust/src/"
 
 "------------------
 " Useful Functions

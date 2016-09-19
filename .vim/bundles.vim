@@ -62,10 +62,11 @@ Plugin 'mattn/emmet-vim'
 
 "------- rust ----------
 Plugin 'rust-lang/rust.vim'
-Plugin 'racer-rust/vim-racer'
+" Plugin 'racer-rust/vim-racer'
 
 "------- golang ----------
 Plugin 'fatih/vim-go'
+
 
 "--------------
 " misc
