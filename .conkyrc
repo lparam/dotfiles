@@ -8,7 +8,7 @@ conky.config = {
     alignment = 'top_right',
     gap_x = 15,
     gap_y = 10,
-    minimum_height = 260,
+    minimum_height = 360,
 	minimum_width = 5,
 
     border_width = 1,
@@ -39,14 +39,17 @@ conky.config = {
     use_xft = true,
     xftalpha = 0.1,
     -- xftfont = 'sans-serif:size=8',
+    -- font = 'Comic Sans MS:size=8',
     font = 'DejaVu Sans Mono:size=8',
 
-    -- Defining colors
+    --- colors
     default_color = FFFFFF,
     color1 = 'FF0000',
     color2 = '7F1334',
     color3 = 'CD5728',
+    color4 = 'FF6E00',
 }
+
 
 conky.text = [[
 
@@ -55,19 +58,19 @@ ${font Comic Sans MS:size=12}${color 6666FF}System info ${color 66FF66} ${hr 2} 
 ${color white} ${font Comic Sans MS:size=10}
 uptime: $alignr$uptime
 CPU Temperature: ${alignr}${color1}${execi 6 /usr/bin/sensors | grep "Core 0" | paste -s | cut -c15-18,19-21}${color white}
-loadavg: ${alignr}$loadavg \
+loadavg: ${alignr}$loadavg
 
 # CPU Graph
 CPU:${color2} $alignr $cpu% ${color white}
-${cpugraph cpu0 25,60 FF6E00 FF6E00}\
-${cpugraph cpu1 25,105 FF6E00 FF6E00}\
-${cpugraph cpu2 25,105 FF6E00 FF6E00}
-# ${cpugraph cpu3 25,25 FF6E00 FF6E00}\
-# ${cpugraph cpu4 25,25 FF6E00 FF6E00}\
-# ${cpugraph cpu5 25,25 FF6E00 FF6E00}\
-# ${cpugraph cpu6 25,25 FF6E00 FF6E00}\
-# ${cpugraph cpu7 25,25 FF6E00 FF6E00}\
-# ${cpugraph cpu8 25,25 FF6E00 FF6E00}
+${cpugraph cpu0 25,100 FF6E00 FF6E00}\
+${cpugraph cpu1 25,25 FF6E00 FF6E00}\
+${cpugraph cpu2 25,25 FF6E00 FF6E00}\
+${cpugraph cpu3 25,25 FF6E00 FF6E00}\
+${cpugraph cpu4 25,25 FF6E00 FF6E00}\
+${cpugraph cpu5 25,25 FF6E00 FF6E00}\
+${cpugraph cpu6 25,25 FF6E00 FF6E00}\
+${cpugraph cpu7 25,25 FF6E00 FF6E00}\
+${cpugraph cpu8 25,25 FF6E00 FF6E00}
 ${color white}\
 
 # Memory Graph
@@ -83,16 +86,22 @@ Disk IO: ${color3} $alignr ${diskio}/s ${color white}
 ${diskiograph EE7442 EE7442 100 -t} \
 
 # TOP 3 CPU-consumers
-CPU: ${alignr 30}PID ${alignr 10}CPU% ${alignr 1}MEM% ${font Comic Sans MS:size=10}
+CPU: ${alignr 45}PID ${alignr 15}CPU% ${alignr 1}MEM% ${font Comic Sans MS:size=10}
 ${color red}${top name 1}${alignr 50}${top pid 1}${alignr 30}${top cpu 1}${alignr 10}${top mem 1}
 ${color white}${top name 2}${alignr 50}${top pid 2}${alignr 30}${top cpu 2}${alignr 10}${top mem 2}
 ${color white}${top name 3}${alignr 50}${top pid 3}${alignr 30}${top cpu 3}${alignr 10}${top mem 3}
 
 # Top 3 Memory-consumers
-Memory: ${alignr 30}PID ${alignr 10}CPU% ${alignr 1}MEM% ${font Comic Sans MS:size=10}
+Memory: ${alignr 45}PID ${alignr 15}CPU% ${alignr 1}MEM% ${font Comic Sans MS:size=10}
 ${color yellow}${top_mem name 1}${alignr 50}${top_mem pid 1}${alignr 30}${top_mem cpu 1}${alignr 10}${top_mem mem 1}
 ${color white}${top_mem name 2}${alignr 50}${top_mem pid 2}${alignr 30}${top_mem cpu 2}${alignr 10}${top_mem mem 2}
 ${color white}${top_mem name 3}${alignr 50}${top_mem pid 3}${alignr 30}${top_mem cpu 3}${alignr 10}${top_mem mem 3}
+
+# Top 3 IO-consumers
+IO: ${alignr 60}PID ${alignr 30}MEM% ${alignr 1}IO% ${font Comic Sans MS:size=10}
+${color4}${top_io name 1}${alignr 50}${top_io pid 1}${alignr 30}${top_io mem 1}${alignr 10}${top_io io_perc 1}
+${color white}${top_io name 2}${alignr 50}${top_io pid 2}${alignr 30}${top_io mem 2}${alignr 10}${top_io io_perc 2}
+${color white}${top_io name 3}${alignr 50}${top_io pid 3}${alignr 30}${top_io mem 3}${alignr 10}${top_io io_perc 3}
 
 # Filesystem
 ${font Comic Sans MS:size=12}${color 6666FF}Filesystem ${color 66FF66} ${hr 2} \
@@ -105,11 +114,11 @@ ${fs_bar 4 /home}
 # Network data
 ${font Comic Sans MS:size=12}${color 6666FF}Network ${color 66FF66} ${hr 2} \
 ${color white} ${font sans-serif:normal:size=9} ${font Comic Sans MS:size=10}
-${color white}DOWN: ${color 66FF66}${downspeed ens33}/s${alignr 35}${color white}UP: ${color yellow}${upspeed ens33}/s
-${color white}${downspeedgraph ens33 25,125 226089 226089 .5 -l -t} ${alignr 1} ${upspeedgraph ens33 25,125 693F76 693F76 .5 -l -t}
-${color white}TOTAL: ${totaldown ens33} ${alignr 20} TOTAL: ${totalup ens33}
+${color white}DOWN: ${color 66FF66}${downspeed wlp3s0}/s${alignr 35}${color white}UP: ${color yellow}${upspeed wlp3s0}/s
+${color white}${downspeedgraph wlp3s0 25,145 226089 226089 .5 -l -t} ${alignr 1}${upspeedgraph wlp3s0 25,145 693F76 693F76 .5 -l -t}
+${color white}TOTAL: ${totaldown wlp3s0} ${alignr 20} TOTAL: ${totalup wlp3s0}
 
 # Todo list
 ${color 6666FF}${font Comic Sans MS:size=12}TO-DO LIST ${color 66FF66} ${hr 2}
-${color white}${execi 60 cat  /home/lparam/scripts/To_Do_File.txt | fold -w50}
+${color white}${execi 60 cat  /home/lparam/dev/scripts/To_Do_File.txt | fold -w50}
 ]]
