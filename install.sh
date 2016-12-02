@@ -36,3 +36,5 @@ ln -sf ./dotfiles/.gtkrc-2.0 .gtkrc-2.0
 echo "Your configuration files has been installed."
 
 cd "$CONFIG_HOME"
+
+# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
