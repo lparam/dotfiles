@@ -390,6 +390,7 @@ nnoremap ; :
 " syntax support
 "----------------
 au BufRead,BufNewFile *.lds setfiletype ld
+au BufRead,BufNewFile *.conkyrc setfiletype lua
 
 
 "----------------
