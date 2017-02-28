@@ -276,6 +276,9 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_balloons = 1
 
 " --- YCM
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_extra_conf_globlist=['~/.vim/*']
+
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 let g:ycm_confirm_extra_conf = 0
 " let g:ycm_allow_changing_updatetime=0
@@ -294,18 +297,26 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
-    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-endif
-
+" YouCompleteMe key bindings
 nnoremap <silent> <leader>y :YcmDiag<CR>
+
+" YcmCompleter Subcommands
+nnoremap <silent> <Leader>yd :YcmCompleter GetDoc<CR>
+nnoremap <silent> <Leader>yf :YcmCompleter FixIt<CR>
+nnoremap <silent> <Leader>yg :YcmCompleter GoTo<CR>
+nnoremap <silent> <Leader>yi :YcmCompleter GoToInclude<CR>
+nnoremap <silent> <Leader>yt :YcmCompleter GetType<CR>
 nnoremap <Leader>] :YcmCompleter GoTo<CR>
 map <c-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_filetype_blacklist = {
+      \ 'vim' : 1,
       \ 'tagbar' : 1,
       \ 'gitcommit' : 1,
+      \ 'markdown' : 1,
+      \ 'md' : 1,
+      \ 'text' : 1,
       \}
 
 " let g:ycm_auto_start_csharp_server = 0
@@ -397,4 +408,3 @@ au BufRead,BufNewFile *.conkyrc setfiletype lua
 " polyglot
 "----------------
 let g:polyglot_disabled = ['nginx']
-

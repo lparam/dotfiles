@@ -167,3 +167,5 @@ LC_CTYPE="zh_CN.utf8"
 
 #autocorrect
 alias vim='nocorrect vim'
+
+fpath+=$HOME/.zfunc
