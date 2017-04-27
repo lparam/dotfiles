@@ -169,3 +169,10 @@ LC_CTYPE="zh_CN.utf8"
 alias vim='nocorrect vim'
 
 fpath+=$HOME/.zfunc
+
+# add auto-completion directory to zsh's fpath
+fpath=($HOME/.zsh/completion $fpath)
+
+# compsys initiatlization
+autoload -U compinit
+compinit
