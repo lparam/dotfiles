@@ -109,11 +109,10 @@ let g:rbpt_colorpairs = [
     \ ]
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-au Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
-au VimEnter * RainbowParenthesesToggle
 
 if &bg == "dark"
   highlight SignColor ctermfg=white ctermbg=blue guifg=white guibg=RoyalBlue3
