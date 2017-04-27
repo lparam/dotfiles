@@ -72,13 +72,13 @@ Plugin 'fatih/vim-go'
 " misc
 "--------------
 Bundle 'vim-scripts/ManPageView'
+Bundle 'vim-scripts/Visual-Mark'
+Bundle 'vim-scripts/Marks-Browser'
+Bundle 'vim-scripts/DoxygenToolkit.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'nvie/vim-togglemouse'
-Bundle 'vim-scripts/Visual-Mark'
 Bundle 'zakj/vim-showmarks'
-Bundle 'vim-scripts/Marks-Browser'
-Bundle 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'wakatime/vim-wakatime'
 " Plugin 'mhinz/vim-signify'
 
@@ -86,9 +86,10 @@ Plugin 'wakatime/vim-wakatime'
 "--------------
 " Color Schemes
 "--------------
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'rickharris/vim-monokai'
-Bundle 'jaromero/vim-monokai-refined'
+" Bundle 'altercation/vim-colors-solarized'
+" Bundle 'rickharris/vim-monokai'
+" Bundle 'jaromero/vim-monokai-refined'
+" Plugin 'kristijanhusak/vim-hybrid-material'
 
 
 "--------------
