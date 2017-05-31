@@ -21,9 +21,9 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'sjl/gundo.vim'
 Bundle 'godlygeek/tabular'
-" Bundle 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jiangmiao/auto-pairs'
+" Bundle 'nathanaelkane/vim-indent-guides'
 
 
 "--------------
@@ -35,16 +35,16 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'majutsushi/tagbar'
-Bundle 'rking/ag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'moll/vim-bbye'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Bundle 'rking/ag.vim'
 Plugin 'dkprice/vim-easygrep'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 
 "----------------------------------------
@@ -54,18 +54,21 @@ Plugin 'dkprice/vim-easygrep'
 "------- C ----------
 Bundle 'vim-scripts/a.vim'
 
-"------- C# ----------
-" Bundle 'OmniSharp/omnisharp-vim'
-
-"------- HTML ----------
-Plugin 'mattn/emmet-vim'
-
 "------- rust ----------
 Plugin 'rust-lang/rust.vim'
 " Plugin 'racer-rust/vim-racer'
 
 "------- golang ----------
 Plugin 'fatih/vim-go'
+
+"------- python ----------
+Plugin 'nvie/vim-flake8'
+
+"------- HTML ----------
+Plugin 'mattn/emmet-vim'
+
+"------- C# ----------
+" Bundle 'OmniSharp/omnisharp-vim'
 
 
 "--------------
