@@ -6,6 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="lparam"
+# ZSH_THEME="robbyrussell"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -40,11 +41,24 @@ ZSH_THEME="lparam"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux vundle zsh-wakatime docker docker-compose)
+plugins=(git tmux vi-mode vundle zsh-wakatime docker themes)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey '^R' history-incremental-search-backward
+
+# color
+autoload colors
+colors
+
+for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+    eval _$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+    eval $color='%{$fg[${(L)color}]%}'
+    (( count = $count + 1 ))
+done
+FINISH="%{$terminfo[sgr0]%}"
 
 export PAGER="/usr/bin/most -s"
 
@@ -61,6 +75,8 @@ alias ll='ls -alh'
 alias grep='grep --color -n'
 alias la='ls -a'
 alias make='colormake'
+alias vim='nocorrect vim'
+
 
 #[Esc][h] man 当前命令时，显示简短说明
 alias run-help >&/dev/null && unalias run-help
@@ -75,9 +91,9 @@ hash -d D="/home/lparam/Downloads"
 ##在命令前插入 sudo {{{
 #定义功能
 sudo-command-line() {
-[[ -z $BUFFER ]] && zle up-history
-[[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-zle end-of-line                 #光标移动到行末
+    [[ -z $BUFFER ]] && zle up-history
+    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+    zle end-of-line                 #光标移动到行末
 }
 zle -N sudo-command-line
 #定义快捷键为： [Esc] [Esc]
@@ -88,85 +104,142 @@ bindkey "\e\e" sudo-command-line
 setopt correctall
 autoload compinstall
 
-#漂亮又实用的命令高亮界面
-setopt extended_glob
-TOKENS_FOLLOWED_BY_COMMANDS=('|' '||' ';' '&' '&&' 'sudo' 'do' 'time' 'strace')
-
-recolor-cmd() {
-region_highlight=()
-colorize=true
-start_pos=0
-for arg in ${(z)BUFFER}; do
-((start_pos+=${#BUFFER[$start_pos+1,-1]}-${#${BUFFER[$start_pos+1,-1]## #}}))
-((end_pos=$start_pos+${#arg}))
-if $colorize; then
-colorize=false
-res=$(LC_ALL=C builtin type $arg 2>/dev/null)
-case $res in
-*'reserved word'*)   style="fg=magenta,bold";;
-*'alias for'*)       style="fg=cyan,bold";;
-*'shell builtin'*)   style="fg=yellow,bold";;
-*'shell function'*)  style='fg=green,bold';;
-*"$arg is"*)
-[[ $arg = 'sudo' ]] && style="fg=red,bold" || style="fg=blue,bold";;
-*)                   style='none,bold';;
-esac
-region_highlight+=("$start_pos $end_pos $style")
-fi
-[[ ${${TOKENS_FOLLOWED_BY_COMMANDS[(r)${arg//|/\|}]}:+yes} = 'yes' ]] && colorize=true
-start_pos=$end_pos
-done
-}
-check-cmd-self-insert() { zle .self-insert && recolor-cmd }
-check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
-
-zle -N self-insert check-cmd-self-insert
-zle -N backward-delete-char check-cmd-backward-delete-char
-
-
 #每个目录使用独立的历史纪录{{{
 cd() {
-builtin cd "$@"                             # do actual cd
-fc -W                                       # write current history  file
-local HISTDIR="$HOME/.zsh_history$PWD"      # use nested folders for history
-if  [ ! -d "$HISTDIR" ] ; then              # create folder if needed
-mkdir -p "$HISTDIR"
-fi
-export HISTFILE="$HISTDIR/zhistory"     # set new history file
-touch $HISTFILE
-local ohistsize=$HISTSIZE
-HISTSIZE=0                              # Discard previous dir's history
-HISTSIZE=$ohistsize                     # Prepare for new dir's history
-fc -R                                   # read from current histfile
+    builtin cd "$@"                             # do actual cd
+    fc -W                                       # write current history  file
+    local HISTDIR="$HOME/.zsh_history$PWD"      # use nested folders for history
+    if  [ ! -d "$HISTDIR" ] ; then              # create folder if needed
+        mkdir -p "$HISTDIR"
+    fi
+    export HISTFILE="$HISTDIR/zhistory"     # set new history file
+    touch $HISTFILE
+    local ohistsize=$HISTSIZE
+    HISTSIZE=0                              # Discard previous dir's history
+    HISTSIZE=$ohistsize                     # Prepare for new dir's history
+    fc -R                                   # read from current histfile
 }
 mkdir -p $HOME/.zsh_history$PWD
 export HISTFILE="$HOME/.zsh_history$PWD/zhistory"
 
 function allhistory { cat $(find $HOME/.zsh_history -name zhistory) }
 function convhistory {
-sort $1 | uniq |
-sed 's/^:\([ 0-9]*\):[0-9]*;\(.*\)/\1::::::\2/' |
-awk -F"::::::" '{ $1=strftime("%Y-%m-%d %T",$1) "|"; print }'
+    sort $1 | uniq |
+    sed 's/^:\([ 0-9]*\):[0-9]*;\(.*\)/\1::::::\2/' |
+    awk -F"::::::" '{ $1=strftime("%Y-%m-%d %T",$1) "|"; print }'
 }
 #使用 histall 命令查看全部历史纪录
-function histall { convhistory =(allhistory) |
-sed '/^.\{20\} *cd/i\\' }
+function histall {
+    convhistory =(allhistory) | sed '/^.\{20\} *cd/i\\'
+}
 #使用 hist 查看当前目录历史纪录
 function hist { convhistory $HISTFILE }
 
 #历史命令 top10
 alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
-#}}}
 
 #全部历史纪录 top50
 function top50 { allhistory | awk -F':[ 0-9]*:[0-9]*;' '{ $1="" ; print }' | sed 's/ /\n/g' | sed '/^$/d' | sort | uniq -c | sort -nr | head -n 50 }
-#}}}
 
+
+# 以下字符视为单词的一部分
+WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
+
+# 自动补全功能
+setopt AUTO_LIST
+setopt AUTO_MENU
+
+# 自动补全选项
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' menu select
+zstyle ':completion:*:*:default' force-list always
+zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
+
+zstyle ':completion:*:match:*' original only
+zstyle ':completion::prefix-1:*' completer _complete
+zstyle ':completion:predict:*' completer _complete
+zstyle ':completion:incremental:*' completer _complete _correct
+zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
+
+# 路径补全
+zstyle ':completion:*' expand 'yes'
+zstyle ':completion:*' squeeze-shlashes 'yes'
+zstyle ':completion::complete:*' '\\'
+
+# 彩色补全菜单
+eval $(dircolors -b)
+export ZLSCOLORS="${LS_COLORS}"
+zmodload zsh/complist
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+
+# 修正大小写
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
+# 错误校正
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+# kill 命令补全
+compdef pkill=kill
+compdef pkill=killall
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:*:*:*:processes' force-list always
+zstyle ':completion:*:processes' command 'ps -au$USER'
+
+# 补全类型提示分组
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
+zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
+zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
+zstyle ':completion:*:corrections' format $'\e[01;32m -- %d (errors: %e) --\e[0m'
+
+# 行编辑高亮模式
+zle_highlight=(region:bg=magenta	#选中区域
+special:bold					    #特殊字符
+isearch:underline)					#搜索时使用的关键字
+
+# 漂亮又实用的命令高亮界面
+setopt extended_glob
+TOKENS_FOLLOWED_BY_COMMANDS=('|' '||' ';' '&' '&&' 'sudo' 'do' 'time' 'strace')
+
+recolor-cmd() {
+    region_highlight=()
+    colorize=true
+    start_pos=0
+    for arg in ${(z)BUFFER}; do
+        ((start_pos+=${#BUFFER[$start_pos+1,-1]}-${#${BUFFER[$start_pos+1,-1]## #}}))
+        ((end_pos=$start_pos+${#arg}))
+        if $colorize; then
+            colorize=false
+            res=$(LC_ALL=C builtin type $arg 2>/dev/null)
+            case $res in
+                *'reserved word'*)   style="fg=magenta,bold";;
+                *'alias for'*)       style="fg=cyan,bold";;
+                *'shell builtin'*)   style="fg=yellow,bold";;
+                *'shell function'*)  style='fg=green,bold';;
+                *"$arg is"*)
+                    [[ $arg = 'sudo' ]] && style="fg=red,bold" || style="fg=blue,bold";;
+                *)                   style='none,bold';;
+            esac
+            region_highlight+=("$start_pos $end_pos $style")
+        fi
+        [[ ${${TOKENS_FOLLOWED_BY_COMMANDS[(r)${arg//|/\|}]}:+yes} = 'yes' ]] && colorize=true
+        start_pos=$end_pos
+    done
+}
+
+check-cmd-self-insert() { zle .self-insert && recolor-cmd }
+check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
+
+zle -N self-insert check-cmd-self-insert
+zle -N backward-delete-char check-cmd-backward-delete-char
 
 LC_CTYPE="zh_CN.utf8"
-
-#autocorrect
-alias vim='nocorrect vim'
 
 fpath+=$HOME/.zfunc
 
