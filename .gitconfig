@@ -21,3 +21,5 @@
 	ra = rebase --abort
 [push]
 	default = simple
+[core]
+	quotepath = false
