@@ -22,9 +22,7 @@ inoremap <S-Insert> <ESC>"+p`]a
 "==========================================
 " FileEncode Settings
 "==========================================
-" new file encoding
 set encoding=utf-8
-" encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
 
@@ -50,7 +48,6 @@ set hlsearch
 set history=1000
 set nocompatible
 set nofoldenable " disable folding"
-" set confirm " prompt when existing from an unsaved file
 set backspace=indent,eol,start " More powerful backspacing
 set t_Co=256 " Explicitly tell vim that the terminal has 256 colors "
 set mouse=a " use mouse in all modes
@@ -64,7 +61,6 @@ set title " show file in titlebar
 set laststatus=2 " use 2 lines for the status bar
 set matchtime=2 " show matching bracket for 0.2 seconds
 set matchpairs+=<:> " specially for html
-" set relativenumber
 
 "---------------------
 " Default Indentation
@@ -162,11 +158,6 @@ let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 let NERDShutUp=1
 
-" powerline
-" let g:Powerline_symbols = 'fancy'
-" let Powerline_symbols='compatible'
-" set guifont=PowerlineSymbols\ for\ Powerline
-
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -187,7 +178,6 @@ let g:airline_symbols.space = "\ua0"
 
 
 " Bbye
-" 由于原生的:bd在删除当前buffer时会将整个窗口关闭，故使用Bbye的:Bd
 nnoremap bd :Bd<CR>
 
 " UltiSnips
@@ -199,11 +189,8 @@ let g:UltiSnipsListSnippets = '<C-Tab>'
 " let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 let g:UltiSnipsEditSplit="vertical"
 
-" --- ack
-let g:ackprg="ack -H --nocolor --nogroup --column"
-
 " --- ctrlp
-set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store " MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_match_window_bottom=1
@@ -220,22 +207,6 @@ let g:EasyMotion_leader_key = '<Leader>'
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade Comment
 
-" --- Multiple cursors
-
-""""""""""""""""""""""""""""""
-" showmarks setting
-""""""""""""""""""""""""""""""
-" Enable ShowMarks
-let showmarks_enable = 1
-" Show which marks
-let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-" Ignore help, quickfix, non-modifiable buffers
-let showmarks_ignore_type = "hqm"
-" Hilight lower & upper marks
-let showmarks_hlline_lower = 1
-let showmarks_hlline_upper = 1
-
-
 """"""""""""""""""""""""""""""
 " indent line setting
 """"""""""""""""""""""""""""""
@@ -243,11 +214,6 @@ let g:indentLine_enabled = 0
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#A4E57E'
 
-
-""""""""""""""""""""""""""""""
-" markbrowser setting
-""""""""""""""""""""""""""""""
-nmap <silent> <leader>mk :MarksBrowser<cr>
 
 " Keybindings for plugin toggle
 nmap <F3> :GundoToggle<cr>
@@ -268,11 +234,15 @@ let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler = 'clang'
 let g:syntastic_cpp_compiler_options = '-std=gnu99'
-"set error or warning signs
+let g:syntastic_python_checkers=['pep8', 'pyflakes']
+let g:syntastic_python_pep8_args='--ignore=E501,E225'
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
-"whether to show balloons
 let g:syntastic_enable_balloons = 1
+nnoremap <Leader>s :call ToggleErrors()<cr>
+nnoremap <Leader>sn :lnext<cr>
+nnoremap <Leader>sp :lprevious<cr>
+" let g:syntastic_ignore_files=[".*\.c$", ".*\.h$", ".*\.cpp", ".*\.hpp"]
 
 " --- YCM
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
@@ -305,7 +275,6 @@ nnoremap <silent> <Leader>yf :YcmCompleter FixIt<CR>
 nnoremap <silent> <Leader>yg :YcmCompleter GoTo<CR>
 nnoremap <silent> <Leader>yi :YcmCompleter GoToInclude<CR>
 nnoremap <silent> <Leader>yt :YcmCompleter GetType<CR>
-nnoremap <Leader>] :YcmCompleter GoTo<CR>
 map <c-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let g:ycm_key_invoke_completion = '<C-Space>'
@@ -317,8 +286,6 @@ let g:ycm_filetype_blacklist = {
       \ 'md' : 1,
       \ 'text' : 1,
       \}
-
-" let g:ycm_auto_start_csharp_server = 0
 
 
 " --- Indent Guides
@@ -332,6 +299,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 let mapleader=","
 let g:mapleader=","
+
+" --- trailing whitespace
+nmap <leader><space> :FixWhitespace<cr>
 
 " ,/ turn off search highlighting
 nmap <leader>/ :nohl<CR>
