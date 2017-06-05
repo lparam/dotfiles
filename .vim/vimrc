@@ -222,6 +222,8 @@ nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :TagbarToggle<cr>
 nmap <F8> :SyntasticToggleMode<cr>
 nmap wm :NERDTreeToggle<CR>
+noremap <buffer> <F9> :call Flake8()<CR>
+
 
 " --- Lua
 let g:loaded_luainspect = 0
