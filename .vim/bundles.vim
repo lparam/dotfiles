@@ -95,4 +95,10 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'subosito/nginx.vim'
 
 
+"
+" Bookmarks
+"
+Plugin 'MattesGroeger/vim-bookmarks'
+
+
 filetype plugin indent on " required!
