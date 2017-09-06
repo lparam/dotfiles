@@ -72,7 +72,7 @@ Plugin 'nvie/vim-flake8'
 "--------------
 " misc
 "--------------
-Plugin 'vim-scripts/ManPageView'
+" Plugin 'vim-scripts/ManPageView'
 Plugin 'vim-scripts/Visual-Mark'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'terryma/vim-multiple-cursors'
