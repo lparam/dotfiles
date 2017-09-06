@@ -16,7 +16,7 @@ filetype plugin indent on
 " clipboard
 "==========================================
 set clipboard=unnamedplus	" yank to the system register (*) by default
-inoremap <S-Insert> <ESC>"+p`]a
+" inoremap <S-Insert> <ESC>"+p`]a
 
 
 "==========================================
@@ -117,7 +117,7 @@ else
 endif
 
 " auto-pairs
-let g:AutoPairsMapCh=0
+" let g:AutoPairsMapCh=0
 
 " Tagbar
 let g:tagbar_left=1
@@ -291,7 +291,7 @@ let g:ycm_filetype_blacklist = {
 
 
 " --- Indent Guides
-let g:indent_guides_auto_colors = 0
+let dent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
