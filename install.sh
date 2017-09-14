@@ -41,7 +41,7 @@ tar zxvsf ctags-5.8.tar.gz
 cd ctags-5.8
 ./configure
 make -j8
-make install
+sudo make install
 
 echo "Your configuration files has been installed."
 
