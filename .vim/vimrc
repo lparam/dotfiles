@@ -379,3 +379,7 @@ au BufRead,BufNewFile *.conkyrc setfiletype lua
 " polyglot
 "----------------
 let g:polyglot_disabled = ['nginx']
+
+"
+" Bookmarks
+nmap <Leader><Leader> <Plug>BookmarkToggle
