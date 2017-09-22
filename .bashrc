@@ -122,6 +122,6 @@ fi
 PS1="$boGreen\u$liYellow @ $boBlue\h$liCyan in $boCyan\w \n$boRed>$boYellow>$boBlue>$liWhite"
 # PS1="$boGreen\u$liWhite at $boBlue\h$liWhite in $boRed\w $liYellow{\[\`let exitstatus=\$? ; if [[ \${exitstatus} != 0 ]] ; then echo \"\${exitstatus}\" ; else echo "0" ; fi\`\]} \n% $liWhite"
 
-LC_CTYPE="zh_CN.utf8"
+#LC_CTYPE="zh_CN.utf8"
 
 export TERM=xterm-256color
