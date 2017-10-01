@@ -36,12 +36,12 @@ ln -sf ./dotfiles/.gtkrc-2.0 .gtkrc-2.0
 #install bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #install ctags
-wget http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz
-tar zxvsf ctags-5.8.tar.gz
-cd ctags-5.8
-./configure
-make -j8
-sudo make install
+#wget http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz
+#tar zxvsf ctags-5.8.tar.gz
+#cd ctags-5.8
+#./configure
+#make -j8
+#sudo make install
 
 echo "Your configuration files has been installed."
 
