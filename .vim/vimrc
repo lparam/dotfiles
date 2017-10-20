@@ -73,7 +73,7 @@ set tabstop=4 " tab width
 set softtabstop=4 " backspace
 set shiftwidth=4 " indent width
 
-set colorcolumn=80
+set colorcolumn=800
 
 autocmd FileType c,go,java,sh setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab textwidth=79
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120
