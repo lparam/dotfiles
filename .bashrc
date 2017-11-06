@@ -126,5 +126,5 @@ PS1="$boGreen\u$liYellow @ $boBlue\h$liCyan in $boCyan\w \n$boRed>$boYellow>$boB
 
 export TERM=xterm-256color
 
-export PATH="$PATH:/sbin/:/usr/local/cuda-8.0/bin"
+export PATH="/sbin/:/usr/local/cuda-8.0/bin:$PATH"
 export LD_LIBRARY_PATH="/usr/local/cuda-8.0/include:/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH"
