@@ -72,7 +72,7 @@ Plugin 'nvie/vim-flake8'
 "--------------
 " misc
 "--------------
-Plugin 'vim-scripts/ManPageView'
+" Plugin 'vim-scripts/ManPageView'
 Plugin 'vim-scripts/Visual-Mark'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'terryma/vim-multiple-cursors'
@@ -93,6 +93,12 @@ Plugin 'wakatime/vim-wakatime'
 "--------------
 Plugin 'sheerun/vim-polyglot'
 Plugin 'subosito/nginx.vim'
+
+
+"
+" Bookmarks
+"
+Plugin 'MattesGroeger/vim-bookmarks'
 
 
 filetype plugin indent on " required!

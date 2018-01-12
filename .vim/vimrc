@@ -16,7 +16,7 @@ filetype plugin indent on
 " clipboard
 "==========================================
 set clipboard=unnamedplus	" yank to the system register (*) by default
-inoremap <S-Insert> <ESC>"+p`]a
+" inoremap <S-Insert> <ESC>"+p`]a
 
 
 "==========================================
@@ -50,7 +50,7 @@ set nocompatible
 set nofoldenable " disable folding"
 set backspace=indent,eol,start " More powerful backspacing
 set t_Co=256 " Explicitly tell vim that the terminal has 256 colors "
-set mouse=a " use mouse in all modes
+set mouse=v " use mouse in all modes
 set report=0 " always report number of lines changed "
 set nowrap " dont wrap lines
 set scrolloff=5 " 5 lines above/below cursor when scrolling
@@ -73,7 +73,7 @@ set tabstop=4 " tab width
 set softtabstop=4 " backspace
 set shiftwidth=4 " indent width
 
-set colorcolumn=80
+set colorcolumn=800
 
 autocmd FileType c,go,java,sh setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab textwidth=79
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120
@@ -117,7 +117,7 @@ else
 endif
 
 " auto-pairs
-let g:AutoPairsMapCh=0
+" let g:AutoPairsMapCh=0
 
 " Tagbar
 let g:tagbar_left=1
@@ -291,7 +291,7 @@ let g:ycm_filetype_blacklist = {
 
 
 " --- Indent Guides
-let g:indent_guides_auto_colors = 0
+let dent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
@@ -379,3 +379,7 @@ au BufRead,BufNewFile *.conkyrc setfiletype lua
 " polyglot
 "----------------
 let g:polyglot_disabled = ['nginx']
+
+"
+" Bookmarks
+nmap <Leader><Leader> <Plug>BookmarkToggle
