@@ -49,6 +49,12 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bronson/vim-trailing-whitespace'
 
+" Plugin 'jsfaint/gen_tags.vim'
+" Plugin 'tpope/vim-projectionist'
+" Plugin 'neomake/neomake'
+" Plugin 'sbdchd/neoformat'
+" Plugin 'Shougo/deoplete.nvim'
+
 
 "----------------------------------------
 " Language enhancement
