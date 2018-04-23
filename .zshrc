@@ -246,8 +246,6 @@ fpath+=$HOME/.zfunc
 # add auto-completion directory to zsh's fpath
 fpath=($HOME/.zsh/completion $fpath)
 
-. $HOME/dlf/torch-distro/install/bin/torch-activate
-
 # compsys initiatlization
 autoload -U compinit
 compinit
