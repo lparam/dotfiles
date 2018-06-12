@@ -42,4 +42,4 @@ set send pack 1000
 
 set window 5
 
-set terminal newline-mode on
+set terminal newline-mode off
