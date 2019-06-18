@@ -1,53 +1,13 @@
-# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="lparam"
-# ZSH_THEME="robbyrussell"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux vi-mode vundle zsh-wakatime docker themes)
+plugins=(git tmux vi-mode vundle docker themes zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
+bindkey '^ ' autosuggest-accept
 
 # color
 autoload colors
@@ -107,7 +67,7 @@ autoload compinstall
 #每个目录使用独立的历史纪录{{{
 cd() {
     builtin cd "$@"                             # do actual cd
-    fc -W                                       # write current history  file
+    fc -W                                       # write current history file
     local HISTDIR="$HOME/.zsh_history$PWD"      # use nested folders for history
     if  [ ! -d "$HISTDIR" ] ; then              # create folder if needed
         mkdir -p "$HISTDIR"
@@ -203,7 +163,7 @@ zle_highlight=(region:bg=magenta	#选中区域
 special:bold					    #特殊字符
 isearch:underline)					#搜索时使用的关键字
 
-# 漂亮又实用的命令高亮界面
+# 命令高亮
 setopt extended_glob
 TOKENS_FOLLOWED_BY_COMMANDS=('|' '||' ';' '&' '&&' 'sudo' 'do' 'time' 'strace')
 
@@ -241,10 +201,11 @@ zle -N backward-delete-char check-cmd-backward-delete-char
 
 LC_CTYPE="zh_CN.utf8"
 
-fpath+=$HOME/.zfunc
-
 # add auto-completion directory to zsh's fpath
+fpath+=$HOME/.zfunc
 fpath=($HOME/.zsh/completion $fpath)
+
+source <(kubectl completion zsh)
 
 # compsys initiatlization
 autoload -U compinit
