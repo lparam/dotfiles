@@ -43,3 +43,4 @@ set send pack 1000
 set window 5
 
 set terminal newline-mode off
+set terminal lf-display normal
