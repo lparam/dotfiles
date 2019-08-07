@@ -2,11 +2,15 @@
 " enable syntax hightlight and completion
 syntax on
 
+" enable vim-plug
+call plug#begin('~/.vim/plugged')
 
-" install Vundle bundles
-if filereadable(expand("~/.vim/bundles.vim"))
-  source ~/.vim/bundles.vim
+if filereadable(expand("~/.vim/plugins.vim"))
+  source ~/.vim/plugins.vim
 endif
+
+call plug#end()
+
 
 " enable filetype dectection and ft specific plugin/indent
 filetype plugin indent on
