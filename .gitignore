@@ -23,4 +23,5 @@ Session.vim
 
 # bundles installed should be ignored
 bundle
+plugged
 .ycm_extra_conf.pyc
