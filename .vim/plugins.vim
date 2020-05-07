@@ -44,6 +44,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
 
+Plug 'ludovicchabant/vim-gutentags'
+
 " Plug 'jsfaint/gen_tags.vim'
 " Plug 'tpope/vim-projectionist'
 " Plug 'neomake/neomake'
