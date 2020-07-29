@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="lparam"
-plugins=(git tmux vi-mode vundle docker themes zsh-autosuggestions)
+plugins=(git tmux vi-mode docker themes zsh-autosuggestions z.lua)
 
 source $ZSH/oh-my-zsh.sh
 
