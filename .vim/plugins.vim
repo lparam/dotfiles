@@ -95,7 +95,7 @@ Plug 'wakatime/vim-wakatime'
 " Syntax
 "--------------
 Plug 'sheerun/vim-polyglot'
-Plug 'subosito/nginx.vim'
+Plug 'chr4/nginx.vim'
 
 
 filetype plugin indent on " required!
