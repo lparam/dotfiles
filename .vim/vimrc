@@ -1,6 +1,12 @@
-
 " enable syntax hightlight and completion
 syntax on
+
+
+"----------------
+" polyglot
+"----------------
+let g:polyglot_disabled = ['nginx']
+
 
 " enable vim-plug
 call plug#begin('~/.vim/plugged')
@@ -145,7 +151,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_console_startup=0
 
 " Nerd git
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom= {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -399,9 +405,3 @@ nnoremap ; :
 "----------------
 au BufRead,BufNewFile *.lds setfiletype ld
 au BufRead,BufNewFile *.conkyrc setfiletype lua
-
-
-"----------------
-" polyglot
-"----------------
-let g:polyglot_disabled = ['nginx']
