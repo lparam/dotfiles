@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="lparam"
-plugins=(git tmux vi-mode docker themes zsh-autosuggestions z.lua)
+plugins=(git tmux vi-mode docker themes zsh-autosuggestions z.lua kubetail)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -36,6 +36,19 @@ alias grep='grep --color -n'
 alias la='ls -a'
 alias make='colormake'
 alias vim='nocorrect vim'
+alias krew='nocorrect krew'
+
+# k8s
+alias k='kubectl'
+alias ka='kubectl apply --recursive -f'
+alias kex='kubectl exec -i -t'
+alias kl='kubectl logs -f'
+alias kd='kubectl describe'
+alias kg='kubectl get'
+alias kgc="kubectl -n infra get pod -o jsonpath='{.spec.containers[*].name}'"
+#}}}
+
+CORRECT_IGNORE_FILE=".krew|.config|.ssh"
 
 
 #[Esc][h] man 当前命令时，显示简短说明
@@ -109,6 +122,22 @@ WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 setopt AUTO_LIST
 setopt AUTO_MENU
 
+# 自动补全选项
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' menu select
+zstyle ':completion:*:*:default' force-list always
+zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
+
+zstyle ':completion:*:match:*' original only
+zstyle ':completion::prefix-1:*' completer _complete
+# 自动补全选项
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' menu select
+zstyle ':completion:*:*:default' force-list always
+zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
+
+zstyle ':completion:*:match:*' original only
+zstyle ':completion::prefix-1:*' completer _complete
 # 自动补全选项
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
@@ -201,12 +230,23 @@ zle -N backward-delete-char check-cmd-backward-delete-char
 
 LC_CTYPE="zh_CN.utf8"
 
-# add auto-completion directory to zsh's fpath
 fpath+=$HOME/.zfunc
 fpath=($HOME/.zsh/completion $fpath)
 
-source <(kubectl completion zsh)
+# add auto-completion directory to zsh's fpath
+if [ -f "/home/lparam/miniconda3/etc/profile.d/conda.sh" ]; then
+    . "/home/lparam/miniconda3/etc/profile.d/conda.sh"
+else
+    export PATH="/home/lparam/miniconda3/bin:$PATH"
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-# compsys initiatlization
-autoload -U compinit
-compinit
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/lparam/.sdkman"
+[[ -s "/home/lparam/.sdkman/bin/sdkman-init.sh" ]] && source "/home/lparam/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion"  ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
