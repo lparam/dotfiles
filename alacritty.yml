@@ -64,7 +64,8 @@ window:
   # macos 可以独占的配置:
   #   - SimpleFullscreen
   # startup_mode: SimpleFullscreen
-  startup_mode: Fullscreen
+  # startup_mode: Fullscreen
+  startup_mode: Windowed
 
   # 窗口标题
   title: Alacritty
@@ -212,7 +213,7 @@ colors:
 # 背景不透明度
 #
 # 窗口不透明度，区间为从0.0到1.0的浮点数。0.0 完全头名，1.0 则完全不透明
-background_opacity: 0.55
+background_opacity: 0.45
 
 selection:
   # 分割语义化单词的分隔符，这个会影响到鼠标双击左键的单词选中。
