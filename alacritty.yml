@@ -1,0 +1,578 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+# 导入额外的配置文件
+#
+# 按照列表顺序进行加载，如果文件不存在，那么会跳过。如果和先前导入的配置存在相同的字段，那么会被替换。
+# 所有的 import 路径要么使用以 `/` 开头的绝对路径，要么以用户的 HOME 目录开头 `~/`
+# import:
+#  - /path/to/alacritty.yml
+
+# `env` 下的所有键值对将会被添加为环境变量
+env:
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: xterm-256color
+
+window:
+  # 窗口尺寸大小（配置变更需要重启生效）
+  #
+  # 终端显示的列和行的数量。列的数量至少是 2，如果设置为 0 那么会使用窗口管理器决定的大小。
+  dimensions:
+    columns: 120
+    lines: 30
+
+  # 窗口位置（配置变更需要重启生效）
+  #
+  # 单位是像素。如果不进行设置，那么由窗口管理器决定位置
+  # position:
+  #  x: 0
+  #  y: 0
+
+  # 窗口内边距（配置变更需要重启生效）
+  #
+  # 调整窗口的内边距（单位为像素）。此填充由DPI缩放，并且始终在相对的两边添加指定的值。
+  # 注解：内边距是窗口边框相对于终端显示内容的空白部分，可以参考 CSS
+  # padding:
+  #  x: 0
+  #  y: 0
+
+  # 在终端内容周围平均分配额外的 padding。
+  # dynamic_padding: false
+
+  # 窗口的外边框
+  #
+  # 可以为如下的值:
+  #     - full: 边框和标题栏
+  #     - none: 边框和标题栏都没有
+  #
+  # macos 可以独占的配置:
+  #     - transparent: 标题栏，透明背景和标题栏按钮
+  #     - buttonless: 标题栏，透明背景，但没有标题栏按钮
+  decorations: full
+
+  # 启动模式（配置变更需要重启生效）
+  #
+  # 可以为如下的值:
+  #   - Windowed: 窗口化
+  #   - Maximized: 最大化窗口
+  #   - Fullscreen: 全屏
+  #
+  # macos 可以独占的配置:
+  #   - SimpleFullscreen
+  # startup_mode: SimpleFullscreen
+  startup_mode: Fullscreen
+
+  # 窗口标题
+  title: Alacritty
+
+  # 是否允许终端的应用更改窗口标题
+  dynamic_title: true
+
+  # Window class (Linux/BSD only):
+  # class:
+    # Application instance name
+    # instance: Alacritty
+    # General application class
+    # general: Alacritty
+
+  # GTK theme variant (Linux/BSD only)
+  #
+  # Override the variant of the GTK theme. Commonly supported values are `dark`
+  # and `light`. Set this to `None` to use the default theme variant.
+  # gtk_theme_variant: None
+
+scrolling:
+  # 回滚缓冲区中的最大行数。 设置为 0 会禁用滚动
+  history: 10000
+
+  # 一次滚动几行
+  multiplier: 3
+
+
+# 字体配置
+font:
+  # The normal (roman) font face to use.
+  normal:
+    family: Iosevka Term
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: Iosevka Term
+    # Style can be specified to pick a specific face.
+    style: Bold
+
+  # The italic font face
+  italic:
+    family: Iosevka Term
+    # Style can be specified to pick a specific face.
+    style: Italic
+
+  # 字体大小
+  size: 12
+
+  # 每个字符的间的字间距。"offset.y" 可以控制行距，"offset.x" 可以改变字符间距。
+  offset:
+    x: 0
+    y: -1
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increasing `x` moves the glyph to the
+  # right, increasing `y` moves the glyph upward.
+  glyph_offset:
+   x: 0
+   y: 0
+
+  # 细线字体渲染（仅适用于macOS）
+  #
+  # retina 可以设置为 true，非 retina 屏幕建议设置为 false
+  use_thin_strokes: true
+
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: false
+
+
+# 颜色配置，建议不要自己折腾，直接 https://github.com/eendroroy/alacritty-theme
+
+colors:
+  # Default colors
+  primary:
+    background: '#292C3E'
+    foreground: '#EBEBEB'
+
+  # Cursor colors
+  cursor:
+    text:   '#2c2c2c'
+    cursor: '#d9d9d9'
+
+  # Normal colors
+  normal:
+    black:   '#0d0d0d'
+    red:     '#FF301B'
+    green:   '#009F6B'
+    yellow:  '#FFC620'
+    blue:    '#1BA6FA'
+    magenta: '#8763B8'
+    cyan:    '#21DEEF'
+    white:   '#EBEBEB'
+
+  # Bright colors
+  bright:
+    black:   '#6D7070'
+    red:     '#FF4352'
+    green:   '#03C03C'
+    yellow:  '#FFD750'
+    blue:    '#1BA6FA'
+    magenta: '#A578EA'
+    cyan:    '#73FBF1'
+    white:   '#FEFEF8'
+
+
+# 终端响铃
+#
+# 配置接收到 BEL 控制字符后的
+# 每当接收到BEL控制字符时，钟就会响起。
+# bell:
+  # 动画效果
+  #
+  # 可以为下面的值，可以设置后自己感受:
+  #   - Ease
+  #   - EaseOut
+  #   - EaseOutSine
+  #   - EaseOutQuad
+  #   - EaseOutCubic
+  #   - EaseOutQuart
+  #   - EaseOutQuint
+  #   - EaseOutExpo
+  #   - EaseOutCirc
+  #   - Linear
+  # animation: EaseOutExpo
+
+  # 动画闪烁的持续时间（以毫秒为单位）。设置为 0 表示禁用动画效果
+  # duration: 0
+
+  # 动画颜色.
+  # color: '#ffffff'
+
+  # 响铃后执行的命令， 配置为 None 则不执行任何命令
+  #
+  # Example:
+  #   command:
+  #     program: notify-send
+  #     args: ["Hello, World!"]
+  #
+  # command: None
+
+
+# 背景不透明度
+#
+# 窗口不透明度，区间为从0.0到1.0的浮点数。0.0 完全头名，1.0 则完全不透明
+background_opacity: 0.55
+
+selection:
+  # 分割语义化单词的分隔符，这个会影响到鼠标双击左键的单词选中。
+  # 比如 @ 作为分割 username 和 password 的字符，默认配置里面竞是没有的。。。
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t@="
+
+  # 选中文本后是否复制到主剪贴板，关于主剪贴板是啥可以参考 https://wiki.archlinux.org/index.php/clipboard
+  save_to_clipboard: false
+
+
+# 光标配置
+cursor:
+  # 光标样式
+  style:
+    # 光标形状
+    #
+    # 可以为下面的值:
+    #   - ▇ Block
+    #   - _ Underline
+    #   - | Beam
+    shape: Block
+
+    # 光标闪烁状态
+    #
+    # 可以为下面的值:
+    #   - Never: Prevent the cursor from ever blinking
+    #   - Off: Disable blinking by default
+    #   - On: Enable blinking by default
+    #   - Always: Force the cursor to always blink
+    blinking: Off
+
+  # Vi 模式下的光标样式
+  # 同上面的配置项，如果设置为 None 那么会使用普通模式下的光标配置
+  vi_mode_style: None
+
+  # 毫秒为单位的光标闪烁间隔
+  # blink_interval: 750
+
+  # 如果为true，则当窗口未聚焦时，光标将显示为空心框。
+  # unfocused_hollow: true
+
+  # Thickness of the cursor relative to the cell width as floating point number
+  # from `0.0` to `1.0`.
+  #thickness: 0.15
+
+# 是否启用配置热更新
+live_config_reload: true
+
+
+# Shell
+#
+# 随终端打开时启动的 Shell
+#
+# Default:
+#   - (macOS) /bin/bash --login
+#   - (Linux/BSD) user login shell
+#   - (Windows) powershell
+# shell:
+#  program: /bin/bash
+#  args:
+#    - --login
+
+
+# 启动时的目录
+#
+# 如果是 None 那么会使用父进程的工作目录
+# working_directory: None
+
+# Alt 和字符连按的时候发送 ESC (\x1b)
+# alt_send_esc: true
+
+
+# 鼠标配置
+mouse:
+  # 点击配置
+  #
+  # 双击和三击的判定等待时间，数值越小，需要快速的双击才能判定为双击操作
+  # double_click: { threshold: 300 }
+  # triple_click: { threshold: 300 }
+
+  # 打字的时候临时隐藏鼠标
+  hide_when_typing: false
+
+  # url:
+    # 配置单击 URL 时的动作
+    #
+    # 单击被识别为URL的文本时，将执行所指定的程序。 URL始终作为最后一个参数添加到命令中。
+    # 如果设置为 None，那么禁用此功能
+    #
+    # Default:
+    #   - (macOS) open
+    #   - (Linux/BSD) xdg-open
+    #   - (Windows) explorer
+    # launcher:
+    #  program: xdg-open
+    #  args: []
+
+    # URL modifiers
+    #
+    # 配置修饰键，Alacritty 默认单击就打开 URL，如果将此项配置为 Command，那么需要按住 Command 然后单击
+    # modifiers: Command
+
+
+# Mouse bindings
+#
+# 配置鼠标动作绑定，和键盘绑定类似。详细配置可以参考 Key bindings 一节
+#
+# 为了在 Alacritty 中运行的应用程序捕获鼠标时触发鼠标绑定，会自动添加 Shift 修饰符。
+#
+# - `mouse`:
+#
+#   - Middle
+#   - Left
+#   - Right
+#   - Numeric identifier such as `5`
+#
+# - `action` (see key bindings)
+#
+# And optionally:
+#
+# - `mods` (see key bindings)
+# mouse_bindings:
+# - { mouse: Middle, action: PasteSelection } # 按鼠标中键粘贴选中内容
+
+
+# Key bindings
+#
+# 按键绑定是对象列表。比如西面的是默认的粘贴的键位绑定
+#
+# `- { key: V, mods: Control|Shift, action: Paste }`
+#
+# Each key binding will specify a:
+#
+# - `key`: 需要按到的键盘码
+#
+#    - A-Z
+#    - F1-F24
+#    - Key0-Key9
+#
+#    键盘码可以从下面找到
+#    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
+#    这里对于不清楚键盘上每个键的英文名称的同学，可以参考
+#    https://www.computerhope.com/jargon/b/backquot.htm
+#
+#    除了使用按键的名字之外，还支持使用所需键的 scancode。不过必须为十进制数字。下面的命令会显示十六进制的 scancode
+#
+#       `showkey --scancodes`.
+#
+# Then exactly one of:
+#
+# - `chars`: 发送字节序列到正在运行的应用程序
+#
+#    char 字段可以将指定的字符串写入终端。这功能可以用在传递转义序列中。
+#    想要找到诸如  `PageUp` (`"\x1b[5~"`) 这样的转义字符，可以通过 `showkey -a` 命令
+#    `xxd -psd` 命令也可以做到
+#
+# - `action`: 执行预定义的操作
+#
+#   - ToggleViMode: 开启/关闭 Vi 模式
+#   - SearchForward: 向前搜索
+#   - SearchBackward: 向后搜索
+#   - Copy: 复制
+#   - Paste: 粘贴
+#   - IncreaseFontSize: 增加字号
+#   - DecreaseFontSize: 减小字号
+#   - ResetFontSize: 重置字号
+#   - ScrollPageUp: 向上翻一页
+#   - ScrollPageDown: 向下翻一页
+#   - ScrollHalfPageUp: 向上翻半页
+#   - ScrollHalfPageDown: 向下翻半页
+#   - ScrollLineUp: 向上滚动一行
+#   - ScrollLineDown: 向下滚动一行
+#   - ScrollToTop: 滚动到顶部
+#   - ScrollToBottom: 滚动到底部
+#   - ClearHistory: 清空滚动缓冲区
+#   - Hide: 隐藏窗口
+#   - Minimize: 最小化
+#   - Quit: 退出
+#   - ToggleFullscreen: 在全屏/当前模式下切换
+#   - SpawnNewInstance: 启动一个新的 Alacritty
+#   - ClearLogNotice: 清 UI 上的 warning 和 error 的 notice
+#   - ClearSelection: 清空当前选中
+#   - ReceiveChar: 不执行任何动作，将字符输入
+#   - None: 不执行任何动作，并且拦截掉
+#
+# - Vi 模式下独占的操作
+#
+#   - Open: 打开一个链接，launcher 的配置参考 `url.launcher`
+#   - ToggleNormalSelection: 切换到普通选中模式
+#   - ToggleLineSelection: 切换到行选中模式
+#   - ToggleBlockSelection: 切换到块选中模式
+#   - ToggleSemanticSelection: 切换到语义选中模式，参考  `selection.semantic_escape_chars`.
+#
+# - Vi 模式下独占的光标操作:
+#
+#   - Up: 向上一行
+#   - Down: 向下一行
+#   - Left: 向左一个字符
+#   - Right: 向右一个字符
+#   - First: 第一列，如果已经在第一列，那么到起始行
+#   - Last: 最后一列，如果已经在最后一列，那么到起始行
+#   - FirstOccupied: 此终端行中的第一个非空单元格，如果已经位于该行的第一个单元格时，那么该行的第一个非空单元格
+#   - High: 屏幕最上方
+#   - Middle: 屏幕中间
+#   - Low: 屏幕底部
+#   - SemanticLeft: 前一个在被语义上分隔的单词的开头
+#   - SemanticRight: 下一个在被语义上分隔的单词的开头
+#   - SemanticLeftEnd:  前一个被语义上分隔的单词的结尾
+#   - SemanticRightEnd: 下一个被语义上分隔的单词的结尾
+#   - WordLeft: 前一个被空白符分隔的单词的开头
+#   - WordRight: 下一个被空白符分隔的单词的开头
+#   - WordLeftEnd: 前一个被空白符分隔的单词的结尾
+#   - WordRightEnd: 下一个被空白符分隔的单词的结尾
+#   - Bracket: 与光标所在位置的括号匹配的字符
+#   - SearchNext: 向后搜索
+#   - SearchPrevious: 向前搜索
+#   - SearchStart: vi 模式光标左侧的首次匹配
+#   - SearchEnd: vi 模式光标右侧的最后匹配
+#
+# - 搜索模式独占的操作:
+#   - SearchFocusNext: 将焦点移到下一个搜索匹配项。
+#   - SearchFocusPrevious: 将焦点移到上一个搜索匹配项。
+#   - SearchConfirm: 确认搜索
+#   - SearchCancel: 取消搜索
+#   - SearchClear: 清空搜索内容
+#   - SearchDeleteWord: 删除搜索内容的最后一个单词
+#   - SearchHistoryPrevious: 跳转搜索内容历史的上一个
+#   - SearchHistoryNext: 跳转搜索内容历史的下一个
+#
+# - macos 独占的操作:
+#   - ToggleSimpleFullscreen: Enter fullscreen without occupying another space.
+#
+# - Linux/BSD 独占的操作:
+#
+#   - CopySelection: 从选中缓冲区中复制
+#   - PasteSelection: 从选中缓冲区中粘贴
+#
+# - `command`: 执行命令
+#
+#    The `command` field must be a map containing a `program` string and an
+#    `args` array of command line parameter strings. For example:
+#       `{ program: "alacritty", args: ["-e", "vttest"] }`
+#
+# 可选的:
+#
+# - `mods`: 修饰键
+#
+#    - Command
+#    - Control
+#    - Option
+#    - Super
+#    - Shift
+#    - Alt
+#
+#    多个修饰键使用 `|` 进行组合，像这样:
+#       `mods: Control|Shift`.
+#
+# - `mode`: 对于指定的模式下进行绑定。用于在不同模式下向应用程序发送正确的转义序列
+#    - AppCursor
+#    - AppKeypad
+#    - Search
+#    - Alt
+#    - Vi
+#
+#    A `~` 操作符，用于逻辑取反
+#
+# Alacritty 有默认的键位绑定，如果想要替换需要使用新的绑定进行覆盖。如果想取消默认的绑定，，可以映射到 `ReceiveChar`。
+# 另外，如果不希望接收该绑定的输入字符，可以映射到 `None`。
+# 如果相同的触发键位，有多个 action，那么会顺序执行
+
+# 下面是我的键位绑定，使用 Tmux。通过转义序列触发 tmux 的 prefix 和快捷键位
+# Tmux 和 Alacritty 集成可以参考 https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/
+key_bindings:
+  - { key: LBracket,          mods: Command,                      chars: "\x1d\x5b"}
+  - { key: Apostrophe,        mods: Command,                      chars: "\x1d\x22"}
+  - { key: S,                 mods: Command,                      chars: "\x1d\x25"}
+  - { key: J,                 mods: Command,                      chars: "\x1d\x6a"}
+  - { key: K,                 mods: Command,                      chars: "\x1d\x6b"}
+  - { key: H,                 mods: Command,                      chars: "\x1d\x68"}
+  - { key: L,                 mods: Command,                      chars: "\x1d\x6c"}
+  - { key: J,                 mods: Command|Shift,                chars: "\x1d\x4a"}
+  - { key: K,                 mods: Command|Shift,                chars: "\x1d\x4b"}
+  - { key: H,                 mods: Command|Shift,                chars: "\x1d\x48"}
+  - { key: L,                 mods: Command|Shift,                chars: "\x1d\x4c"}
+  - { key: W,                 mods: Command,                      chars: "\x1d\x77"}
+  - { key: T,                 mods: Command,                      chars: "\x1d\x63"}
+  - { key: D,                 mods: Command,                      chars: "\x1d\x26"}
+  - { key: X,                 mods: Command,                      chars: "\x1d\x78"}
+  - { key: Z,                 mods: Command,                      chars: "\x1d\x7a"}
+  - { key: N,                 mods: Command,                      chars: "\x1d\x71"}
+  - { key: Semicolon,         mods: Command|Shift,                chars: "\x1d\x3a"}
+  - { key: Key1,              mods: Command,                      chars: "\x1d\x31"}
+  - { key: Key2,              mods: Command,                      chars: "\x1d\x32"}
+  - { key: Key3,              mods: Command,                      chars: "\x1d\x33"}
+  - { key: Key4,              mods: Command,                      chars: "\x1d\x34"}
+  - { key: Key5,              mods: Command,                      chars: "\x1d\x35"}
+  - { key: Key6,              mods: Command,                      chars: "\x1d\x36"}
+  - { key: Key7,              mods: Command,                      chars: "\x1d\x37"}
+  - { key: Key8,              mods: Command,                      chars: "\x1d\x38"}
+  - { key: Key9,              mods: Command,                      chars: "\x1d\x39"}
+  - { key: Return,            mods: Alt,                          action: ToggleFullscreen }
+
+
+# 不使用 tmux 可以参考这份
+# key_bindings:
+  #- { key: LBracket,                    mods: Command,    action: ToggleViMode            }
+  #- { key: U,      mods: Command,       mode: ~Vi|~Search,action: ScrollHalfPageUp        }
+  #- { key: D,      mods: Command,       mode: ~Vi|~Search,action: ScrollHalfPageDown      }
+  #- { key: LBracket,  mods: Control,mode: Vi|~Search,     action: ClearSelection          }
+  #- { key: C,      mods: Control,       mode: Vi|~Search, action: ToggleViMode            }
+  #- { key: G,                           mode: Vi|~Search, action: ScrollToTop             }
+  #- { key: G,      mods: Shift,         mode: Vi|~Search, action: ScrollToBottom          }
+  #- { key: U,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageUp        }
+  #- { key: D,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageDown      }
+  #- { key: Y,                           mode: Vi|~Search, action: Copy                    }
+  #- { key: V,                           mode: Vi|~Search, action: ToggleNormalSelection   }
+  #- { key: V,      mods: Shift,         mode: Vi|~Search, action: ToggleLineSelection     }
+  #- { key: V,      mods: Control,       mode: Vi|~Search, action: ToggleBlockSelection    }
+  #- { key: Return,                      mode: Vi|~Search, action: Open                    }
+  #- { key: K,                           mode: Vi|~Search, action: Up                      }
+  #- { key: J,                           mode: Vi|~Search, action: Down                    }
+  #- { key: H,                           mode: Vi|~Search, action: Left                    }
+  #- { key: L,                           mode: Vi|~Search, action: Right                   }
+  #- { key: Key0,                        mode: Vi|~Search, action: First                   }
+  #- { key: Key4,   mods: Shift,         mode: Vi|~Search, action: Last                    }
+  #- { key: Key6,   mods: Shift,         mode: Vi|~Search, action: FirstOccupied           }
+  #- { key: H,      mods: Shift,         mode: Vi|~Search, action: High                    }
+  #- { key: M,      mods: Shift,         mode: Vi|~Search, action: Middle                  }
+  #- { key: L,      mods: Shift,         mode: Vi|~Search, action: Low                     }
+  #- { key: B,                           mode: Vi|~Search, action: SemanticLeft            }
+  #- { key: W,                           mode: Vi|~Search, action: SemanticRight           }
+  #- { key: E,                           mode: Vi|~Search, action: SemanticRightEnd        }
+  #- { key: B,      mods: Shift,         mode: Vi|~Search, action: WordLeft                }
+  #- { key: W,      mods: Shift,         mode: Vi|~Search, action: WordRight               }
+  #- { key: E,      mods: Shift,         mode: Vi|~Search, action: WordRightEnd            }
+  #- { key: Key5,   mods: Shift,         mode: Vi|~Search, action: Bracket                 }
+  #- { key: Slash,                       mode: Vi|~Search, action: SearchForward           }
+  #- { key: Slash,  mods: Shift,         mode: Vi|~Search, action: SearchBackward          }
+  #- { key: N,                           mode: Vi|~Search, action: SearchNext              }
+  #- { key: N,      mods: Shift,         mode: Vi|~Search, action: SearchPrevious          }
+
+
+# 调试
+# debug:
+  # 显示没帧重绘所使用的时间
+  # render_timer: false
+
+  # 持久化日志
+  #persistent_logging: false
+
+  # 日志级别
+  #
+  # Values for `log_level`:
+  #   - Off
+  #   - Error
+  #   - Warn
+  #   - Info
+  #   - Debug
+  #   - Trace
+  # log_level: Warn
+
+  # 输出所有接收到的窗口事件
+  # print_events: false
