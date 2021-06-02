@@ -26,6 +26,20 @@ HEADER_EXTENSIONS = [
     '.h'
 ]
 
+def Settings(**kwargs):
+    if kwargs['language'] == 'rust':
+        return {
+            'ls': {
+                'rust': {
+                    # 'features': ['http2', 'spnego'],
+                    'all_features': True,
+                    'racer_completion': True,
+                    # 'all_targets': False,
+                    # 'wait_to_build': 1500,
+                }
+            }
+        }
+
 def is_header_file(filename):
     extension = os.path.splitext(filename)[1]
     return extension in HEADER_EXTENSIONS
