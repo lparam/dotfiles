@@ -22,6 +22,10 @@ call plug#end()
 filetype plugin indent on
 
 
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo//
+
 "==========================================
 " clipboard
 "==========================================
@@ -405,3 +409,6 @@ nnoremap ; :
 "----------------
 au BufRead,BufNewFile *.lds setfiletype ld
 au BufRead,BufNewFile *.conkyrc setfiletype lua
+
+" This conditional is needed to suppress E992 error in latex-suite.
+set modelineexpr

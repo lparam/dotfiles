@@ -34,7 +34,7 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'majutsushi/tagbar'
+Plug 'preservim/tagbar'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'moll/vim-bbye'
@@ -63,7 +63,6 @@ Plug 'Mizuchi/STL-Syntax'
 
 "------- rust ----------
 Plug 'rust-lang/rust.vim'
-" Plug 'racer-rust/vim-racer'
 
 "------- golang ----------
 Plug 'fatih/vim-go'
@@ -71,6 +70,8 @@ Plug 'fatih/vim-go'
 "------- python ----------
 Plug 'nvie/vim-flake8'
 
+"------- java ----------
+Plug 'artur-shaik/vim-javacomplete2'
 
 "--------------
 " misc
