@@ -121,7 +121,7 @@ font:
     style: Italic
 
   # 字体大小
-  size: 12
+  size: 12.0
 
   # 每个字符的间的字间距。"offset.y" 可以控制行距，"offset.x" 可以改变字符间距。
   offset:
@@ -144,7 +144,7 @@ font:
 draw_bold_text_with_bright_colors: false
 
 
-# 颜色配置，建议不要自己折腾，直接 https://github.com/eendroroy/alacritty-theme
+# 颜色配置，https://github.com/eendroroy/alacritty-theme
 colors:
   # Default colors
   primary:
@@ -448,26 +448,3 @@ mouse:
 key_bindings:
   - { key: Return,            mods: Alt,                          action: ToggleFullscreen }
   - { key: M,                 mods: Control|Shift,                action: Minimize }
-
-
-# 调试
-# debug:
-  # 显示没帧重绘所使用的时间
-  # render_timer: false
-
-  # 持久化日志
-  #persistent_logging: false
-
-  # 日志级别
-  #
-  # Values for `log_level`:
-  #   - Off
-  #   - Error
-  #   - Warn
-  #   - Info
-  #   - Debug
-  #   - Trace
-  # log_level: Warn
-
-  # 输出所有接收到的窗口事件
-  # print_events: false
