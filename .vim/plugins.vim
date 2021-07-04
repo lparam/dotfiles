@@ -4,53 +4,56 @@ filetype off " required!
 "-----------------
 " Fast navigation
 "-----------------
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 
 
 "--------------
 " Fast editing
 "--------------
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdcommenter'
-Plug 'sjl/gundo.vim'
-Plug 'godlygeek/tabular'
+Plug 'preservim/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'Yggdroot/indentLine'
-" Plug 'nathanaelkane/vim-indent-guides'
+Plug 'junegunn/vim-easy-align'
+" Plug 'godlygeek/tabular'
 
 
 "--------------
 " Snippet
 "--------------
-Plug 'sirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 
 "--------------
 " IDE features
 "--------------
-Plug 'Valloric/YouCompleteMe'
-Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'preservim/tagbar'
-Plug 'kien/ctrlp.vim'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-fugitive'
-Plug 'moll/vim-bbye'
-Plug 'rking/ag.vim'
 Plug 'dkprice/vim-easygrep'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
+" Plug 'moll/vim-bbye'
+
+" fuzzy finder
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+
+" linter
+Plug 'dense-analysis/ale'
+" Plug 'vim-syntastic/syntastic'
+
+" Defx
+Plug 'Shougo/defx.nvim'
+Plug 'kristijanhusak/defx-icons'
+Plug 'kristijanhusak/defx-git'
 
 Plug 'ludovicchabant/vim-gutentags'
 
-" Plug 'jsfaint/gen_tags.vim'
-" Plug 'tpope/vim-projectionist'
-" Plug 'neomake/neomake'
-" Plug 'sbdchd/neoformat'
-" Plug 'Shougo/deoplete.nvim'
+" format
+Plug 'vim-autoformat/vim-autoformat'
 
 
 "----------------------------------------
@@ -79,11 +82,10 @@ Plug 'artur-shaik/vim-javacomplete2'
 Plug 'vim-scripts/ManPageView'
 Plug 'vim-scripts/Visual-Mark'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 Plug 'nvie/vim-togglemouse'
 Plug 'wakatime/vim-wakatime'
-" Plug 'vim-scripts/DoxygenToolkit.vim'
-" Plug 'mhinz/vim-signify'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 
 "--------------
