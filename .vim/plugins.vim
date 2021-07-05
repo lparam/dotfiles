@@ -97,8 +97,12 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 "--------------
 " Syntax
 "--------------
-Plug 'sheerun/vim-polyglot'
 Plug 'chr4/nginx.vim'
+if has('nvim')
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+else
+    Plug 'sheerun/vim-polyglot'
+endif
 
 
 filetype plugin indent on " required!
