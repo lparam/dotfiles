@@ -97,6 +97,9 @@ set shiftwidth=4 " indent width
 
 set colorcolumn=80
 
+set signcolumn=no
+set foldcolumn=0
+
 autocmd FileType c,go,java,sh setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab textwidth=79
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120
 autocmd FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=99
@@ -389,6 +392,7 @@ endif
 
 " --- ALE
 "keep the sign gutter open
+let g:ale_set_signs = 0
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
