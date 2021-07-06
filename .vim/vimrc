@@ -244,6 +244,14 @@ let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 0
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
+let g:Lf_WorkingDirectoryMode = 'AF'
+let g:Lf_RootMarkers = ['.git', '.svn', '.hg', '.project', '.root']
+let g:Lf_ShowHidden = 1
+let g:Lf_WildIgnore = {
+      \ 'dir': ['.root','.git'],
+      \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+      \}
+let g:Lf_DefaultExternalTool='rg'
 
 " popup mode
 " let g:Lf_WindowPosition = 'popup'
@@ -445,6 +453,8 @@ let g:loaded_luainspect = 0
 let g:lua_inspect_warnings = 0
 
 " --- YCM
+autocmd FileType c,cpp,go let b:ycm_hover = { 'command': 'GetDoc', 'syntax': &syntax  }
+
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_extra_conf_globlist=['~/.vim/*']
 
@@ -516,7 +526,7 @@ inoremap <C-l> <Right>
 "-----------------------
 
 " C/C++ specific settings
-autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
+autocmd FileType c,cpp,cc set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
 
 " ,g generates the header guard
 map <leader>g :call IncludeGuard()<CR>
