@@ -15,12 +15,6 @@ background_opacity: 0.45
 
 # `env` 下的所有键值对将会被添加为环境变量
 env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
 
 window:
@@ -100,27 +94,19 @@ scrolling:
   multiplier: 3
 
 
-# 字体配置
 font:
-  # The normal (roman) font face to use.
   normal:
     family: Iosevka Term
-    # Style can be specified to pick a specific face.
     style: Regular
 
-  # The bold font face
   bold:
     family: Iosevka Term
-    # Style can be specified to pick a specific face.
     style: Bold
 
-  # The italic font face
   italic:
     family: Iosevka Term
-    # Style can be specified to pick a specific face.
     style: Italic
 
-  # 字体大小
   size: 12.0
 
   # 每个字符的间的字间距。"offset.y" 可以控制行距，"offset.x" 可以改变字符间距。
@@ -447,4 +433,5 @@ mouse:
 
 key_bindings:
   - { key: Return,            mods: Alt,                          action: ToggleFullscreen }
+  - { key: S,                 mods: Control|Shift,                action: SpawnNewInstance }
   - { key: M,                 mods: Control|Shift,                action: Minimize }
