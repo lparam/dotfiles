@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="lparam"
-plugins=(git tmux vi-mode docker themes zsh-autosuggestions z.lua kubetail)
+plugins=(git tmux vi-mode docker themes zsh-autosuggestions z.lua kubetail fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -30,7 +30,7 @@ test -r ~/.dir_colors && eval "$(dircolors -b ~/.dir_colors)" || eval "$(dircolo
 # alias cp='cp -i'
 # alias mv='mv -i'
 # alias rm='rm -i'
-alias ls='ls -F --color=auto'
+alias ls='lsd -F --color=auto'
 alias ll='ls -alh'
 alias grep='grep --color -n'
 alias la='ls -a'
@@ -192,42 +192,6 @@ zle_highlight=(region:bg=magenta	#选中区域
 special:bold					    #特殊字符
 isearch:underline)					#搜索时使用的关键字
 
-# 命令高亮
-setopt extended_glob
-TOKENS_FOLLOWED_BY_COMMANDS=('|' '||' ';' '&' '&&' 'sudo' 'do' 'time' 'strace')
-
-recolor-cmd() {
-    region_highlight=()
-    colorize=true
-    start_pos=0
-    for arg in ${(z)BUFFER}; do
-        ((start_pos+=${#BUFFER[$start_pos+1,-1]}-${#${BUFFER[$start_pos+1,-1]## #}}))
-        ((end_pos=$start_pos+${#arg}))
-        if $colorize; then
-            colorize=false
-            res=$(LC_ALL=C builtin type $arg 2>/dev/null)
-            case $res in
-                *'reserved word'*)   style="fg=magenta,bold";;
-                *'alias for'*)       style="fg=cyan,bold";;
-                *'shell builtin'*)   style="fg=yellow,bold";;
-                *'shell function'*)  style='fg=green,bold';;
-                *"$arg is"*)
-                    [[ $arg = 'sudo' ]] && style="fg=red,bold" || style="fg=blue,bold";;
-                *)                   style='none,bold';;
-            esac
-            region_highlight+=("$start_pos $end_pos $style")
-        fi
-        [[ ${${TOKENS_FOLLOWED_BY_COMMANDS[(r)${arg//|/\|}]}:+yes} = 'yes' ]] && colorize=true
-        start_pos=$end_pos
-    done
-}
-
-check-cmd-self-insert() { zle .self-insert && recolor-cmd }
-check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
-
-zle -N self-insert check-cmd-self-insert
-zle -N backward-delete-char check-cmd-backward-delete-char
-
 LC_CTYPE="zh_CN.utf8"
 
 fpath+=$HOME/.zfunc
@@ -242,11 +206,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion"  ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/lparam/.sdkman"
 [[ -s "/home/lparam/.sdkman/bin/sdkman-init.sh" ]] && source "/home/lparam/.sdkman/bin/sdkman-init.sh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion"  ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
