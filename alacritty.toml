@@ -1,0 +1,87 @@
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+opacity = 0.45            # 背景不透明度
+decorations = "full"
+startup_mode = "Windowed"
+title = "Alacritty"
+dynamic_title = true
+
+[window.dimensions]
+columns = 120
+lines = 30
+
+[scrolling]
+history = 10_000
+multiplier = 3
+
+[font]
+size = 12
+normal = { family = "IosevkaTerm Nerd Font", style = "Regular" }
+bold = { family = "IosevkaTerm Nerd Font", style = "Bold" }
+italic = { family = "IosevkaTerm Nerd Font", style = "Italic" }
+bold_italic = { family = "IosevkaTerm Nerd Font", style = "Bold Italic" }
+offset = { x = 0, y = -1 }
+glyph_offset = { x = 0, y = 0 }
+
+[colors]
+transparent_background_colors = false
+draw_bold_text_with_bright_colors = true
+
+cursor = { text = "#2c2c2c", cursor = "#d9d9d9" }
+
+[colors.primary]
+background = "#292C3E"
+foreground = "#EBEBEB"
+
+[colors.normal]
+black = "#0d0d0d"
+red = "#FF301B"
+green = "#009F6B"
+yellow = "#FFC620"
+blue = "#1BA6FA"
+magenta = "#8763B8"
+cyan = "#21DEEF"
+white = "#EBEBEB"
+
+[colors.bright]
+black = "#6D7070"
+red = "#FF4352"
+green = "#03C03C"
+yellow = "#FFD750"
+blue = "#1BA6FA"
+magenta = "#A578EA"
+cyan = "#73FBF1"
+white = "#FEFEF8"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t@="
+save_to_clipboard = false
+
+[cursor]
+vi_mode_style = "None"
+
+[cursor.style]
+shape = "Block"
+blinking = "Off"
+
+[mouse]
+hide_when_typing = false
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Alt"
+action = "ToggleFullscreen"
+
+[[keyboard.bindings]]
+key = "S"
+mods = "Control|Shift"
+action = "SpawnNewInstance"
+
+[[keyboard.bindings]]
+key = "M"
+mods = "Control|Shift"
+action = "Minimize"

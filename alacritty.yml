@@ -10,14 +10,14 @@
 # 是否启用配置热更新
 live_config_reload: true
 
-# 背景不透明度
-background_opacity: 0.45
-
 # `env` 下的所有键值对将会被添加为环境变量
 env:
   TERM: xterm-256color
 
 window:
+  # 背景不透明度
+  opacity: 0.45
+
   # 窗口尺寸大小（配置变更需要重启生效）
   #
   # 终端显示的列和行的数量。列的数量至少是 2，如果设置为 0 那么会使用窗口管理器决定的大小。
@@ -96,15 +96,15 @@ scrolling:
 
 font:
   normal:
-    family: Iosevka Term
+    family: IosevkaTerm Nerd Font
     style: Regular
 
   bold:
-    family: Iosevka Term
+    family: IosevkaTerm Nerd Font
     style: Bold
 
   italic:
-    family: Iosevka Term
+    family: IosevkaTerm Nerd Font
     style: Italic
 
   size: 12.0
@@ -124,7 +124,7 @@ font:
   # 细线字体渲染（仅适用于macOS）
   #
   # retina 可以设置为 true，非 retina 屏幕建议设置为 false
-  use_thin_strokes: false
+  AppleFontSmoothing: false
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
